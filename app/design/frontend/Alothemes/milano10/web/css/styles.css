@@ -43,6 +43,9 @@ h6{font-size:11px;font-weight:bold}
 form{display:inline}
 fieldset{border:0}
 legend{display:none}
+.cookie-status-message {
+    display: none;
+}
 /* Table */
 table{border:0;/*border-collapse:collapse;*/
  border-spacing:0;empty-cells:show;font-size:100%}
@@ -991,15 +994,15 @@ tr.summary-details-excluded{font-style:italic}
 .table-comparison .cell { display: table-cell;width: 180px;}
 .table-comparison .cell.label, .table-comparison td:last-child {border-right: 1px solid #d1d1d1 !important;border-left: 1px solid #d1d1d1 !important;}
 .table-comparison .cell.remove {border-bottom: 0 none !important;}
-.abs-remove-button-for-blocks::before, 
-.sidebar .action.delete::before, 
-.table-comparison .cell.remove .action.delete::before, 
-.block-compare .action.delete::before, 
+.abs-remove-button-for-blocks::before,
+.sidebar .action.delete::before,
+.table-comparison .cell.remove .action.delete::before,
+.block-compare .action.delete::before,
 .filtered .item .action.remove::before{color: #cccccc;content: "\f00d";display: inline-block;font-family: "FontAwesome";font-size: 15px;font-weight: normal;line-height: 15px;overflow: hidden;text-align: center;vertical-align: middle;}
-.abs-remove-button-for-blocks:hover:before, 
-.sidebar .action.delete:hover:before, 
-.table-comparison .cell.remove .action.delete:hover:before, 
-.block-compare .action.delete:hover:before, 
+.abs-remove-button-for-blocks:hover:before,
+.sidebar .action.delete:hover:before,
+.table-comparison .cell.remove .action.delete:hover:before,
+.block-compare .action.delete:hover:before,
 .filtered .item .action.remove:hover:before{color: #333;}
 /* Block:Recently Viewed */
 
@@ -1219,13 +1222,13 @@ ul.magictabs{padding:0}
 }
 
 @keyframes tp-rotateplane {
-  0% { 
+  0% {
     transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
-  } 50% { 
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  } 50% {
     transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
-  } 100% { 
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+  } 100% {
     transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
   }
@@ -2582,7 +2585,7 @@ body.catalog-product-view .message.global.cookie.magepow-gdpr-cookie-notice {
 }
 .stickyCart .alo-count-down {
 	position: static;
-	
+
 }
 .stickyCart .alo-count-down .countdown {
 	display: flex;
@@ -2652,7 +2655,7 @@ body.catalog-product-view .message.global.cookie.magepow-gdpr-cookie-notice {
 .minicart-items-wrapper::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
     background-color: #f8f8f8;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 .header .form-search .dd-container::-webkit-scrollbar-thumb,
 .minisearch .searchsuite-autocomplete::-webkit-scrollbar-thumb,
@@ -2660,13 +2663,13 @@ body.catalog-product-view .message.global.cookie.magepow-gdpr-cookie-notice {
 .minicart-items-wrapper::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-    background-color: #dedede; 
+    background-color: #dedede;
 }
 .header .form-search .dd-container::-webkit-scrollbar-thumb:hover,
 .minisearch .searchsuite-autocomplete::-webkit-scrollbar-thumb:hover,
 .product-view.product-quickview .product-info-main.product-shop::-webkit-scrollbar-thumb:hover,
 .minicart-items-wrapper::-webkit-scrollbar-thumb:hover {
-  background: #888; 
+  background: #888;
 }
 .product-view.product-quickview .product-info-main.product-shop,
 .minicart-items-wrapper {
@@ -2705,7 +2708,7 @@ body.catalog-product-view .message.global.cookie.magepow-gdpr-cookie-notice {
 .notify-slider .images-container {
 	margin-top: 8px;
 }
-@media (min-width: 992px) and (max-width: 1200px) {	
+@media (min-width: 992px) and (max-width: 1200px) {
 	.additional-timer-block .alo-count-down{display: block;margin-right: 0;}
 	.slogan-countdown{display: block;}
 	.alo-count-down{bottom: 10px;}
