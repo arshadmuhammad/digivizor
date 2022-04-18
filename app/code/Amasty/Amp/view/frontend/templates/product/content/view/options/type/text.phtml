@@ -1,0 +1,36 @@
+<?php
+/* @var $block \Magento\Catalog\Block\Product\View\Options\Type\Text */
+
+$option = $block->getOption();
+$class = $option->getIsRequire() ? ' required' : '';
+$labelHtml = $option->getTitle();
+$priceHtml = $block->getFormattedPrice();
+?>
+
+<div class="amamp-options-block">
+    <label class="amamp-label <?= $block->escapeHtml($class) ?>" for="options_<?= $block->escapeHtml($option->getId()) ?>">
+        <?= /* @noEscape */ $labelHtml ?>
+        <?= /* @noEscape */ $priceHtml ?>
+    </label>
+    <?php if ($option->getType() == \Magento\Catalog\Api\Data\ProductCustomOptionInterface::OPTION_TYPE_FIELD): ?>
+        <input id="options_<?= $block->escapeHtml($option->getId()) ?>_text"
+               class="amamp-input"
+               type="text"
+               name="options[<?= $block->escapeHtml($option->getId()) ?>]"
+               maxlength="<?= (int)$option->getMaxCharacters() ? (int)$option->getMaxCharacters() : '' ?>"
+                <?php if ($option->getMaxCharacters()): ?>
+                    placeholder="<?= $block->escapeHtml(__('Maximum characters %1', $option->getMaxCharacters())) ?>"
+                <?php endif; ?>
+               value="<?= $block->escapeHtml($block->getDefaultValue()) ?>"
+            <?= $block->escapeHtml($class) ?>
+        />
+    <?php elseif ($option->getType() == \Magento\Catalog\Api\Data\ProductCustomOptionInterface::OPTION_TYPE_AREA): ?>
+        <textarea id="options_<?= $block->escapeHtml($option->getId()) ?>_text"
+                  class="amamp-textarea"
+                  name="options[<?= $block->escapeHtml($option->getId()) ?>]"
+                  rows="5"
+                  cols="25"
+                  maxlength="<?= (int)$option->getMaxCharacters() ? (int)$option->getMaxCharacters() : '' ?>"
+                  <?= $block->escapeHtml($class) ?>></textarea>
+    <?php endif; ?>
+</div>

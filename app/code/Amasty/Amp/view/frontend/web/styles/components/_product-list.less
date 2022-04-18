@@ -1,0 +1,219 @@
+//
+//  Component Product List
+//  ____________________________________________
+
+.amamp-products-widget {
+    & {
+        padding: @amamp__indent__xxl * 2 0;
+    }
+
+    > .amamp-title {
+        display: block;
+        padding: 0 0 @amamp__indent__l;
+        letter-spacing: .25px;
+        font-weight: 700;
+        font-size: 18px;
+    }
+
+    .amamp-product-image {
+        border: 1px solid #d6d6d6;
+    }
+
+    // Magento blocks customizing
+    .price-label {
+        flex-basis: 100%;
+        margin: 0 @amamp__indent / 2 0 0;
+        text-align: left;
+        font-size: 12px;
+    }
+
+    .minimal-price {
+        .am-flex(none, none, wrap);
+
+        margin: 0;
+    }
+
+    .price-box {
+        .am-flex(none, flex-end, wrap);
+    }
+
+    // end Magento blocks customizing
+
+    .amamp-product-image img {
+        object-fit: contain;
+    }
+
+    .amamp-details-block {
+        white-space: normal;
+    }
+}
+
+//
+//  List View
+//  --------------------------------------------
+
+.amamp-products-widget.list-view {
+    .amamp-button {
+        margin: @amamp__indent / 2 0 0;
+        max-width: 115px;
+    }
+
+    .amamp-product-item {
+        & {
+            .am-flex();
+        }
+
+        &:not(:last-child) {
+            margin-bottom: @amamp__indent__l;
+        }
+    }
+
+    .amamp-product-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .amamp-image {
+        display: block;
+    }
+
+    .normal-price,
+    .amamp-price-block,
+    .old-price {
+        flex-basis: 100%;
+    }
+
+    .price-from {
+        margin: 0 0 @amamp__indent / 2 0;
+    }
+
+    .amamp-price-block {
+        margin: auto 0 0;
+    }
+
+    .amamp-name {
+        flex-basis: 100%;
+        margin: 0 0 @amamp__indent;
+        word-break: break-word;
+    }
+
+    .amamp-details-block {
+        .am-flex(none, none, wrap);
+
+        padding: 0 0 0 @amamp__indent;
+        width: 100%;
+    }
+}
+
+//
+//  Grid View
+//  --------------------------------------------
+
+.amamp-products-widget.grid-view {
+    .amamp-product-list {
+        .am-flex(none, stretch, wrap);
+
+        margin: 0 -@amamp__indent__l / 2;
+    }
+
+    .amamp-product-item {
+        .am-flex(center, stretch, wrap);
+
+        margin: 0 @amamp__indent__l / 2 @amamp__indent__xxl @amamp__indent__l / 2;
+        width: 150px;
+        height: 100%;
+    }
+
+    .amamp-name {
+        overflow: hidden;
+        margin: 0 0 @amamp__indent / 2;
+        height: @amamp__indent__l * 2;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        line-height: @amamp__indent__l;
+    }
+
+    .amamp-link {
+        display: block;
+        flex-basis: 100%;
+    }
+
+    .amamp-details-block {
+        .am-flex(center, center, wrap);
+
+        flex-basis: 100%;
+        margin: auto 0 0;
+        text-align: center;
+    }
+
+    .amamp-price-block {
+        flex-basis: 100%;
+    }
+
+    // Magento blocks customizing
+    .price-box span {
+        margin-bottom: 0;
+    }
+
+    .price-box .price-container {
+        margin: 0;
+    }
+
+    .price-from {
+        margin: 0 @amamp__indent / 2 0 0;
+    }
+
+    .old-price {
+        display: none;
+    }
+
+    // end Magento blocks customizing
+
+    .amamp-product-image {
+        margin: 0 0 @amamp__indent 0;
+        width: 150px;
+        height: 150px;
+    }
+
+    .amamp-button {
+        margin: @amamp__indent / 2 0 0 0;
+    }
+}
+
+//
+//  Slider View
+//  --------------------------------------------
+
+.amamp-products-widget.slider-view {
+    .amamp-product-list > * {
+        .am-scrollbar(rgba(0,0,0,.5), x, @amamp__indent / 2);
+    }
+
+    .amamp-details-block {
+        .am-flex(center, center, wrap);
+    }
+
+    .amamp-product-item {
+        margin-bottom: 0;
+    }
+
+    // Magento blocks customizing
+    .price-box {
+        overflow: hidden;
+        height: @amamp__indent__xl * 2;
+    }
+
+    .price-including-tax,
+    .price-excluding-tax {
+        line-height: 18px;
+    }
+
+    .special-price {
+        margin: 0;
+    }
+
+    .old-price {
+        display: none;
+    }
+    // end Magento blocks customizing
+}

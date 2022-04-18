@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="delete_previously" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Delete Previously Generated WebP &amp; Resized Images</label>
+
+        <field id="clear_webp_folder" translate="label" type="checkbox" sortOrder="91" showInDefault="1"
+               showInWebsite="0" showInStore="0">
+            <label>WebP Images Folder</label>
+            <frontend_model>Amasty\ImageOptimizer\Block\Adminhtml\Settings\ClearWebpFolderCheckbox</frontend_model>
+        </field>
+        <field id="clear_mobile_folder" translate="label" type="checkbox" sortOrder="92" showInDefault="1"
+               showInWebsite="0" showInStore="0">
+            <label>Mobile Images Folder</label>
+            <frontend_model>Amasty\ImageOptimizer\Block\Adminhtml\Settings\ClearMobileFolderCheckbox</frontend_model>
+        </field>
+        <field id="clear_tablet_folder" translate="label" type="checkbox" sortOrder="93" showInDefault="1"
+               showInWebsite="0" showInStore="0">
+            <label>Tablet Images Folder</label>
+            <frontend_model>Amasty\ImageOptimizer\Block\Adminhtml\Settings\ClearTabletFolderCheckbox</frontend_model>
+        </field>
+        <field id="clear_checkboxes_button" sortOrder="94" showInDefault="1" showInWebsite="0" showInStore="0">
+            <frontend_model>Amasty\ImageOptimizer\Block\Adminhtml\Settings\ClearFoldersButton</frontend_model>
+        </field>
+    </group>
+</include>

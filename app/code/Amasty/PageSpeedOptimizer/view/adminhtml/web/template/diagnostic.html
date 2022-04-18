@@ -1,0 +1,65 @@
+<div class="amoptimizer-diagnostic-template" data-bind="css: {'-after': isAfter && !diagnosticDate()}">
+    <div class="amoptimizer-title-container" data-bind="css: {'-sample': (isAfter && !diagnosticDate())}">
+        <h2 class="amoptimizer-title" data-bind="text: isAfter ? $t('After') : $t('Before')"></h2>
+        <!-- ko if: diagnosticDate -->
+        <span class="amoptimizer-date">
+            <span data-bind="text: isAfter ? $t('Last diagnostics') : $t('Your first diagnostics')"></span>
+            <span data-bind="text: diagnosticDate"></span>
+        </span>
+        <!-- /ko -->
+        <!-- ko if: isAfter && !contentData().length -->
+        <p class="amoptimizer-sample-container"
+           data-bind="i18n: 'Follow the recommendations, then run the diagnostics again to see the score improvement.'"></p>
+        <!-- /ko -->
+    </div>
+    <!-- ko if: contentData().length -->
+    <div class="amoptimizer-main-container">
+        <div class="amoptimizer-total-valuation">
+            <div class="amoptimizer-total-chart"
+                 data-bind="css: {
+                    '-small': totalValuation() < 10,
+                    '-red': totalValuation() < 50,
+                    '-orange': totalValuation() < 90 && totalValuation() >= 50,
+                    '-green': totalValuation() < 100 && totalValuation() >= 89
+                }">
+                <h2 class="amoptimizer-valuation" data-bind="text: totalValuation"></h2>
+                <svg width="110" height="110" class="amoptimizer-circle-svg" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <circle id="circle" class="amoptimizer-circle"
+                                data-bind="style: {'stroke-dashoffset': circleLength - circleLength * totalValuation() / 100}"
+                                r="50" cy="55" cx="55"
+                                stroke-width="7"></circle>
+                    </g>
+                </svg>
+            </div>
+            <div class="amoptimizer-hint-container">
+                <p class="amoptimizer-url" data-bind="text: pageUrl"></p>
+                <div class="amoptimizer-hint-block">
+                    <div class="amoptimizer-hint -red">0-49</div>
+                    <div class="amoptimizer-hint -orange">50-89</div>
+                    <div class="amoptimizer-hint -green">90-100</div>
+                </div>
+            </div>
+        </div>
+        <div class="amoptimizer-info-tabs">
+            <div class="amoptimizer-tabs-container">
+                <div class="amoptimizer-tab"
+                     data-amoptimizer-tab="mobile"
+                     data-bind="i18n: 'Mobile', css: {'-active': isShowMobile}, click: toggleStateActive.bind($data, 'mobile', $element, event)"
+                     data-amoptimizer-js="tab">
+                </div>
+                <div class="amoptimizer-tab"
+                     data-amoptimizer-tab="desktop"
+                     data-bind="i18n: 'Desktop', css: {'-active': !isShowMobile()}, click: toggleStateActive.bind($data, 'desktop', $element, event)"
+                     data-amoptimizer-js="tab">
+                </div>
+            </div>
+            <!-- ko if: $data.elems().length -->
+                <!-- ko foreach: $data.elems() -->
+                    <!--ko template: getTemplate()--><!-- /ko -->
+                <!-- /ko -->
+            <!-- /ko -->
+        </div>
+    </div>
+    <!--/ko-->
+</div>

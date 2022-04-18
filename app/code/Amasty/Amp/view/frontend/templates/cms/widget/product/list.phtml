@@ -1,0 +1,44 @@
+<?php
+/*
+ * @var $block \Amasty\Amp\Block\Cms\Widget\ProductsList
+ *
+ * Amp product list widget template type "List"
+ */
+
+$collection = $block->getProductCollection();
+?>
+
+<?php if ($collection->getSize()): ?>
+<div class="amamp-products-widget list-view">
+    <strong class="amamp-title">
+        <?= $block->escapeHtml(__($block->getTitle())); ?>
+    </strong>
+    <ul class="amamp-product-list">
+        <?php foreach ($collection as $item): ?>
+            <?php
+                $isSaleable = !$item->isComposite() && $item->isSaleable() && !$item->getRequiredOptions();
+                $priceHtml = $block->getProductPrice($item);
+            ?>
+            <li class="amamp-product-item">
+                <a href="<?= $block->escapeUrl($block->getAmpProductUrl($item)); ?>"
+                   aria-label="<?= $block->escapeHtml($item->getName()); ?>">
+                    <?= /* @noEscape */ $block->getImage($item, 'new_products_content_widget_grid')->toHtml(); ?>
+                </a>
+                <div class="amamp-details-block">
+                    <span class="amamp-name">
+                        <?= $block->escapeHtml($item->getName()); ?>
+                    </span>
+                    <div class="amamp-price-block">
+                        <?= /** @noEscape */ $priceHtml ?>
+                        <a class="amamp-button -small"
+                           aria-label="<?= $block->escapeHtml($item->getName()); ?>"
+                           href="<?= $block->escapeUrl($block->getAmpProductUrl($item)); ?>">
+                            <?= $block->escapeHtml(__('See Details')); ?>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach ?>
+    </ul>
+</div>
+<?php endif;?>

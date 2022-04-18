@@ -1,0 +1,15 @@
+<?php
+/** @var \Magento\Review\Block\Product\Review $block */
+?>
+
+<div class="amamp-setreview-block">
+    <?php if ($block->isAllowWriteReview()): ?>
+        <button class="amamp-button -middle" role="button" on="tap:amamp-setreview-sidebar.toggle" tabindex="0">
+            <?= $block->escapeHtml(__('Write a review')) ?>
+        </button>
+    <?php endif; ?>
+    <p class="amamp-text">
+        <?= $block->escapeHtml(__('Share your thoughts with other customers')) ?>
+    </p>
+</div>
+<?= $block->getChildHtml() ?>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="page-product-configurable"/>
+        <referenceContainer name="product.info.type">
+            <block class="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable"
+                   name="product.info.configurable" as="product_type_data"
+                   template="Magento_Catalog::product/view/type/default.phtml"/>
+        </referenceContainer>
+        <referenceBlock name="product.info.options.wrapper">
+            <block class="Amasty\Amp\Block\Product\Content\View\Type\Configurable"
+                   name="product.info.options.configurable"
+                   as="options_configurable"
+                   before="-"
+                   template="Amasty_Amp::product/type/configurable/configurable.phtml">
+                <arguments>
+                    <argument name="swatchProvider" xsi:type="object">Amasty\Amp\Model\Product\SwatchProvider</argument>
+                    <argument name="mediaHelper" xsi:type="object">Amasty\Amp\Helper\Swatches\Media</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View"
+                   name="product.info.addtocart"
+                   as="addtocart" template="Amasty_Amp::product/content/view/addtocart.phtml">
+            </block>
+        </referenceBlock>
+    </body>
+</page>

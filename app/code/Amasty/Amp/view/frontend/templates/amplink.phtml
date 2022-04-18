@@ -1,0 +1,9 @@
+<?php
+/** @var \Amasty\Amp\Block\AmpLink $block */
+
+$ampUrl = $block->getAmpLink();
+?>
+
+<?php if ($ampUrl): ?>
+    <link rel="amphtml" href="<?= $block->escapeUrl($ampUrl); ?>">
+<?php endif; ?>

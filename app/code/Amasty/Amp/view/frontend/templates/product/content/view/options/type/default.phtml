@@ -1,0 +1,11 @@
+<?php
+/*
+ *  Override default Magento custom option
+ */
+
+$_option = $block->getOption();
+?>
+
+<p class="amamp-label">
+    <?= $block->escapeHtml($_option->getTitle()) ?>
+</p>

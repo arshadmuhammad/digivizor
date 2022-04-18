@@ -1,0 +1,53 @@
+<?php
+/**
+ * Magento block link override
+ *
+ * @var $block \Magento\Downloadable\Block\Catalog\Product\Links
+ */
+
+$links = $block->getLinks();
+$linksLength = 0;
+$isRequired = $block->getLinkSelectionRequired();
+$linksPurchasedSeparately = $block->getLinksPurchasedSeparately();
+?>
+
+<?php if ($block->getProduct()->isSaleable() && $block->hasLinks()):?>
+    <div class="amamp-downloads <?= /* @noEscape */ !$linksPurchasedSeparately ? 'amamp-no-separately' : '' ?>">
+        <h4 class="amamp-title">
+            <?= $block->escapeHtml($block->getLinksTitle()) ?>
+        </h4>
+        <?php foreach ($links as $link): ?>
+            <?php
+                $linksLength++;
+                $priceHtml = $block->getLinkPrice($link);
+            ?>
+            <label class="amamp-label <?= /* @noEscape */ $isRequired ? 'required' : '' ?> "
+                   for="amamp-links-<?= $block->escapeHtml($link->getId()) ?>">
+                <?php if ($linksPurchasedSeparately): ?>
+                    <input id="amamp-links-<?= $block->escapeHtml($link->getId()) ?>"
+                           class="amamp-checkbox"
+                           type="checkbox"
+                           name="links[]"
+                           value="<?= $block->escapeHtml($link->getId()) ?>"
+                           <?= /* @noEscape */ $isRequired ? 'required' : '' ?>
+                           <?= $block->escapeHtml($block->getLinkCheckedValue($link)) ?>
+                    />
+                <?php endif; ?>
+                    <span class="amamp-title">
+                        <?= $block->escapeHtml($link->getTitle()) ?>
+                    </span>
+                <?php if ($link->getSampleFile() || $link->getSampleUrl()): ?>
+                    <a class="amamp-link"
+                       aria-label="<?= $block->escapeHtml(__('Download sample of product')) ?>"
+                       href="<?= $block->escapeUrl($block->getLinkSampleUrl($link)) ?>"
+                       <?= /* @noEscape */ $block->getIsOpenInNewWindow() ? 'target="_blank"' : '' ?>>
+                       <?= $block->escapeHtml(__('sample')) ?>
+                    </a>
+                <?php endif; ?>
+                <?php if ($linksPurchasedSeparately): ?>
+                    <?= /* @noEscape */ $priceHtml ?>
+                <?php endif; ?>
+            </label>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

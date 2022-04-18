@@ -1,0 +1,28 @@
+"jQuery Lazy Script","jQuery Lazy Script"
+"Lozad Lazy Script","Lozad Lazy Script"
+"Native JavaScript Lazy Script","Native JavaScript Lazy Script"
+"Vanilla Lazy Script","Vanilla Lazy Script"
+Desktop,Desktop
+Tablet,Tablet
+Mobile,Mobile
+"WebP Support","WebP Support"
+"No WebP Support","No WebP Support"
+Simple,Simple
+Advanced,Advanced
+"WebP Format + Image Resolutions","WebP Format + Image Resolutions"
+"Original Format of Images","Original Format of Images"
+"Yes (Recommended)","Yes (Recommended)"
+No,No
+"Use Lazy Loading Images","Use Lazy Loading Images"
+"Lazy Load Script","Lazy Load Script"
+"Preload Images","Preload Images"
+"Desktop Preload Images Number","Desktop Preload Images Number"
+"Tablet Preload Images Number","Tablet Preload Images Number"
+"Mobile Preload Images Number","Mobile Preload Images Number"
+"Preload Images Strategy","Preload Images Strategy"
+"Preload Images Count","Preload Images Count"
+"Ignore Images that Contain","Ignore Images that Contain"
+"Lazy Load Compatibility Settings","Lazy Load Compatibility Settings"
+"User Agents","User Agents"
+"Images Resolution","Images Resolution"
+"Preloaded Images","Preloaded Images"

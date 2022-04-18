@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_ImageOptimizer::optimizer" title="Image Optimizer"
+             module="Amasty_ImageOptimizer"
+             sortOrder="120"
+             parent="Magento_Backend::content"
+             resource="Amasty_ImageOptimizer::optimizer"/>
+        <add id="Amasty_ImageOptimizer::image_settings"
+             title="Image Folder Optimization Settings"
+             module="Amasty_ImageOptimizer"
+             sortOrder="30"
+             parent="Amasty_ImageOptimizer::optimizer"
+             action="amimageoptimizer/image/index"
+             resource="Amasty_ImageOptimizer::image_settings" />
+    </menu>
+</config>

@@ -1,0 +1,26 @@
+{
+    "amasty_page_speed_optimizer_bundle": {
+        "column": {
+            "filename_id": true,
+            "filename": true,
+            "area": true,
+            "theme": true,
+            "locale": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "amasty_page_speed_optimizer_diagnostic": {
+        "column": {
+            "result_id": true,
+            "result": true,
+            "is_before": true,
+            "version": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_PAGE_SPEED_OPTIMIZER_DIAGNOSTIC_IS_BEFORE_VERSION": true
+        }
+    }
+}

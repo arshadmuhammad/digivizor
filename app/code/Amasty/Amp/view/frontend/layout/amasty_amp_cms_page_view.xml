@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="amp.page">
+            <block class="Amasty\Amp\Block\Page" name="amp.custom.styles"
+                   template="Amasty_Amp::cms/custom_styles.phtml"/>
+            <referenceContainer name="content">
+                <block class="Amasty\Amp\Block\Cms\Page" name="amp_cms_page">
+                    <arguments>
+                        <argument name="configProvider" xsi:type="object">Amasty\Amp\Model\ConfigProvider</argument>
+                        <argument name="validator" xsi:type="object">Amasty\Amp\Model\HtmlValidator</argument>
+                    </arguments>
+                </block>
+            </referenceContainer>
+        </referenceBlock>
+    </body>
+</page>

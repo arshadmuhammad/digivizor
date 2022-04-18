@@ -1,0 +1,159 @@
+//
+//  Buttons Accordion
+//  ____________________________________________
+
+//
+//  Common
+//  --------------------------------------------
+
+.amamp-button {
+    & {
+        &:extend(._clear-btn);
+        .transition();
+
+        display: block;
+        box-sizing: border-box;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1.35px;
+        font-weight: 700;
+        line-height: 10px;
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+
+    &.-full {
+        & {
+            margin: @amamp__indent__xl 0;
+            padding: 18px @amamp__indent;
+            width: 100%;
+            border-color: transparent;
+            background: @amamp__color__active;
+            box-shadow: none;
+            color: #fff;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: darken(@amamp__color__active, 5%);
+        }
+    }
+
+    &.-middle {
+        & {
+            padding: @amamp__indent;
+            border: 1px solid #61abf2;
+            background: #e8f4ff;
+            color: @amamp__color__active;
+            text-transform: uppercase;
+            white-space: nowrap;
+            letter-spacing: 1.35px;
+            font-weight: 700;
+            font-size: 11px;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: darken(@amamp__color__active, 5%);
+            background: darken(@amamp__color__active, 5%);
+            color: #fff;
+        }
+    }
+
+    &.-small {
+        display: block;
+        box-sizing: border-box;
+        margin: 0;
+        padding: @amamp__indent;
+        background: @amamp__color__active;
+        color: #fff;
+        font-size: 11px;
+    }
+
+    &.-collapse {
+        & {
+            background: #fff;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: darken(@amamp__color__active, 5%);
+        }
+    }
+
+    &.-reset {
+        & {
+            .am-icon-close;
+
+            padding: @amamp__indent / 2;
+        }
+
+        &:after {
+            font-weight: 100;
+            font-size: 8px;
+        }
+    }
+}
+
+.amamp-search-btn {
+    .am-icon-search;
+    ._clear-btn;
+
+    font-size: 15px;
+}
+
+.amamp-close-icon {
+    .am-icon-close;
+    ._clear-btn;
+
+    display: inline-block;
+    outline: none;
+    font-size: 12px;
+}
+
+.amamp-top-button {
+    & {
+        .am-flex(center, center);
+        .am-icon-arrow;
+        .transition;
+
+        position: sticky;
+        position: -webkit-sticky;
+        bottom: 50px;
+        z-index: 9999;
+        box-sizing: border-box;
+        margin: 0 0 -@amamp__indent__l auto;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        background: @amamp__color__active;
+        box-shadow: 0 4px 4px rgba(16, 59, 92, .5);
+        color: #fff;
+        font-size: 25px;
+    }
+
+    &:after {
+        margin: auto;
+    }
+
+    &:hover:after {
+        color: #fff;
+    }
+
+    &:focus {
+        & {
+            border-color: @amamp__color__active;
+            background: #fff;
+        }
+
+        &:after {
+            color: @amamp__color__active;
+        }
+    }
+}

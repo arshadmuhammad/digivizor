@@ -1,0 +1,86 @@
+//
+//  Cms Pages Styles
+//  ____________________________________________
+
+//
+//  Imports
+//  --------------------------------------------
+
+@import '../_helpers';
+@import '../_variables';
+@import '../_mixins';
+@import '../_icons';
+@import '../components/_slider';
+@import '../components/_product-list';
+
+//
+//  Common
+//  --------------------------------------------
+
+.amamp-image.-wysiwyg img {
+    object-fit: cover;
+}
+
+.amamp-home-banner {
+    & {
+        .am-flex(center, center, wrap);
+
+        position: relative;
+        overflow: hidden;
+        margin: 0 -@amamp__indent__xl;
+        min-height: 400px;
+        height: calc(50vh - 45px);
+    }
+
+    .amamp-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .amamp-image img {
+        object-fit: contain;
+    }
+
+    .amamp-banner-link {
+        & {
+            &:extend(._clear-btn);
+            .transition(.6);
+
+            z-index: 1;
+            align-self: flex-end;
+            margin: auto 0 0;
+            color: inherit;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-size: 16px;
+        }
+
+        &:hover:after {
+            color: inherit;
+        }
+
+        &:after {
+            .transition(.5);
+
+            margin: @amamp__indent 0 @amamp__indent__xxl 0;
+            font-weight: 100;
+            font-size: 7px;
+            transform: rotate(180deg) scale(1.2);
+        }
+    }
+
+    .amamp-title {
+        .transition();
+
+        z-index: 1;
+        flex-basis: 100%;
+        margin: auto 0 0;
+        padding: 0 @amamp__indent__xl * 2;
+        letter-spacing: 2px;
+        font-family: sans-serif;
+        line-height: 42px;
+    }
+}

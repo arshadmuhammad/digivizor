@@ -1,0 +1,12 @@
+<?php
+/** @var \Amasty\PageSpeedOptimizer\Block\Adminhtml\Settings\ServerPushInfo $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<div class="amoptimizer-notice-container">
+    <?= $escaper->escapeHtml(
+        __(
+            'The server needs to be configured correspondingly for the proper work of the functionality.'
+            . ' Please consult the user guide to find additional details.'
+        )
+    ); ?>
+</div>

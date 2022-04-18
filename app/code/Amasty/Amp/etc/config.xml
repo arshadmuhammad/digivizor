@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <csp>
+            <policies>
+                <storefront>
+                    <children>
+                        <policy_id>child-src</policy_id>
+                        <self>1</self>
+                        <inline>1</inline>
+                        <eval>1</eval>
+                        <dynamic>1</dynamic>
+                    </children>
+                </storefront>
+            </policies>
+        </csp>
+        <amasty_amp>
+            <amp>
+                <general>
+                    <redirect_mobile>0</redirect_mobile>
+                </general>
+                <logo>
+                    <image_width>100</image_width>
+                    <image_height>25</image_height>
+                    <logo_alignment>center</logo_alignment>
+                </logo>
+                <design>
+                    <link_color>#1787e0</link_color>
+                    <link_color_focus>#1579c9</link_color_focus>
+                    <button_background_color>#1787e0</button_background_color>
+                    <button_background_color_focus>#1579c9</button_background_color_focus>
+                    <button_text_color>#fff</button_text_color>
+                    <button_text_color_focus>#fff</button_text_color_focus>
+                    <header_background>#f9f9f9</header_background>
+                    <footer_background>#3e3e3e</footer_background>
+                </design>
+                <category_image>
+                    <image_width>640</image_width>
+                    <image_height>200</image_height>
+                </category_image>
+            </amp>
+        </amasty_amp>
+    </default>
+</config>

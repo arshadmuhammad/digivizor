@@ -1,0 +1,91 @@
+<?php
+/**
+ * Product list template
+ *
+ * @var $block \Amasty\Amp\Model\Category\Product\ListProduct
+ * @var $product \Magento\Catalog\Model\Product
+ */
+
+use Magento\Framework\App\Action\Action;
+use \Magento\Catalog\Block\Product\ReviewRendererInterface;
+
+$productCollection = $block->getLoadedProductCollection();
+$buttonTitle = __('Add to Cart');
+$buttonTitleSubmit = __('Adding ...');
+?>
+
+<?php if (!$productCollection->count()): ?>
+    <?= $block->getChildHtml('amp_filter_button_list') ?>
+    <p class="amamp-notification -notice">
+        <?= $block->escapeHtml(__('We can\'t find products matching the selection.')) ?>
+    </p>
+<?php else: ?>
+    <?= /* @noEscape */ $block->getChildHtml('custom_notification') ?>
+    <?= /* @noEscape */ $block->getToolbarHtml(); ?>
+    <ul class="amamp-category-list">
+        <?php foreach ($productCollection as $product): ?>
+            <li class="amamp-item">
+                <?php
+                    $productUrl = $block->getAmpProductUrl($product->getProductUrl());
+                    $productImage = $block->getImage($product, 'category_page_grid');
+                    $productNameStripped = $block->stripTags($product->getName(), null, true);
+                ?>
+                <a class="amamp-link" href="<?= $block->escapeUrl($productUrl) ?>" tabindex="-1">
+                    <?= /* @noEscape */ $productImage->toHtml() ?>
+                </a>
+                <div class="amamp-product-details">
+                    <h3 class="amamp-title">
+                        <?= $block->escapeHtml($block->getProductName($product)) ?>
+                    </h3>
+
+                    <?= /* @noEscape */ $block->getReviewsSummaryHtml($product, ReviewRendererInterface::FULL_VIEW) ?>
+
+                    <?php if ($product->isSaleable()): ?>
+                        <?php $postParams = $block->getAddToCartPostParams($product); ?>
+                        <form class="amamp-form"
+                              action-xhr="<?= $block->escapeUrl($block->convertUrl($postParams['action'])) ?>"
+                              method="post"
+                              on="submit: AMP.setState({
+                                        adding_<?= (int)$product->getId() ?>: true,
+                                        notice: false
+                                  });
+                                  submit-success: AMP.setState({
+                                                    notice: true,
+                                                    adding_<?= (int)$product->getId() ?>: false,
+                                                    cart_fullness: event.response.success ? true : false,
+                                                    success_message: event.response.success ? event.response.success : false,
+                                                    cart_url: event.response.cart_url ? event.response.cart_url : false,
+                                                    notice_message: event.response.notice ? event.response.notice : false,
+                                                    error_message: event.response.error ? event.response.error : false,
+                                                 }),
+                                                 amamp-custom-notice.scrollTo(duration=200)">
+                            <input name="amp_page" type="hidden" value="1"/>
+                            <input name="product" type="hidden" value="<?= $block->escapeHtmlAttr($postParams['data']['product']) ?>">
+                            <input name="<?= $block->escapeHtmlAttr(Action::PARAM_NAME_URL_ENCODED) ?>"
+                                   value="<?= $block->escapeHtmlAttr($postParams['data'][Action::PARAM_NAME_URL_ENCODED]) ?>"
+                                   type="hidden">
+                            <?= /* @noEscape */ $block->getProductDetailsHtml($product) ?>
+                            <?= /* @noEscape */ $block->getProductPrice($product) ?>
+                            <button class="amamp-button -small"
+                                    type="submit"
+                                    aria-label="<?= $block->escapeHtml(__($buttonTitle)) ?>"
+                                    [text]="adding_<?= (int)$product->getId() ?> ? '<?= $block->escapeHtml($buttonTitleSubmit) ?>' : '<?= $block->escapeHtml($buttonTitle) ?>'">
+                                <?= $block->escapeHtml($buttonTitle) ?>
+                            </button>
+                        </form>
+                    <?php elseif (!$product->isAvailable()): ?>
+                        <?= /* @noEscape */ $block->getProductDetailsHtml($product) ?>
+                        <?= /* @noEscape */ $block->getProductPrice($product) ?>
+                        <p class="amamp-unavailable">
+                            <?= $block->escapeHtml(__('Out of stock')) ?>
+                        </p>
+                    <?php endif; ?>
+                    <?php if ($addToBlock = $block->getChildBlock('addto')): ?>
+                        <?= $addToBlock->setProduct($product)->getChildHtml() ?>
+                    <?php endif; ?>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <?= $block->getChildHtml('amp_bottom_toolbar') ?>
+<?php endif; ?>

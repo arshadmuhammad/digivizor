@@ -1,0 +1,39 @@
+<?php
+/** @var \Amasty\Amp\Block\Styles $block */
+?>
+
+.amamp-button.-full,
+.amamp-button.-small,
+.amamp-top-button {
+    color: <?= $block->escapeHtml($block->getButtonTextColor()); ?>;
+    background: <?= $block->escapeHtml($block->getButtonBackground()); ?>;
+}
+
+.amamp-button.-full:focus,
+.amamp-top-button:focus,
+.amamp-button.-small:focus {
+    color: <?= $block->escapeHtml($block->getButtonTextColorFocus()); ?>;
+    background: <?= $block->escapeHtml($block->getButtonBackgroundFocus()); ?>;
+}
+
+.amamp-top-button:focus:after {
+    color: <?= $block->escapeHtml($block->getButtonTextColorFocus()); ?>;
+}
+
+.amamp-link {
+    color: <?= $block->escapeHtml($block->getLinkColor()); ?>;
+}
+
+.amamp-link:focus {
+    color: <?= $block->escapeHtml($block->getLinkColorFocus()); ?>;
+}
+
+.amamp-footer-block {
+    background: <?= $block->escapeHtml($block->getFooterBackground()); ?>;
+}
+
+.amamp-header-container,
+.amamp-menu-sidebar .amamp-tabs-block,
+.amamp-menu-sidebar {
+    background: <?= $block->escapeHtml($block->getHeaderBackground()); ?>;
+}

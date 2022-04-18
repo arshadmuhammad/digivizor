@@ -1,0 +1,34 @@
+<?php
+/**
+ * Product Rating Template
+ * @var \Amasty\Amp\Block\Product\Content\View\ReviewRenderer $block
+ */
+?>
+
+<?php if ($block->isEnabled() && $block->getReviewsCount()): ?>
+    <?php $rating = $block->getRatingSummary() ?>
+    <div class="amamp-reviews-block <?= $block->escapeHtml(!$rating ? 'no-rating' : '') ?>">
+        <?php if ($rating): ?>
+            <div class="amamp-view-rating" aria-label="<?= $block->escapeHtmlAttr($rating); ?>%">
+                <span class="amamp-rating -active" style="width:<?= $block->escapeHtmlAttr($rating); ?>%"></span>
+                <span class="amamp-rating"></span>
+            </div>
+            <span class="amamp-mark">
+                <?= $block->escapeHtml(sprintf("%0.1f", $rating / 100 * 5)) ?>
+            </span>
+        <?php endif; ?>
+        <?php if ($block->isProductPage()): ?>
+            <a class="amamp-reviews-actions"
+               aria-label="<?= $block->escapeHtml(__('open review list')) ?>"
+               href="#"
+               on="tap: amamp-accordion-block.expand(section=amamp-tab-reviews), amamp-tab-reviews.scrollTo(duration=200)">
+                <span class="amamp-count">
+                    <?= $block->escapeHtml($block->getReviewsCount()) ?>
+                </span>
+                <span class="amamp-label">
+                    <?= $block->escapeHtml($block->getReviewLabel($block->getReviewsCount())) ?>
+                </span>
+            </a>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

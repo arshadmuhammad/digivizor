@@ -1,0 +1,110 @@
+<?php
+/** @var \Amasty\Amp\Block\Product\Content\View\Review\Form $block */
+
+$url = $block->getAction();
+?>
+
+<?php if ($block->getAllowWriteReviewFlag()): ?>
+    <amp-sidebar id="amamp-setreview-sidebar"
+                 class="amamp-setreview-sidebar amamp-sidebar-block"
+                 layout="nodisplay"
+                 side="left">
+        <form id="amamp-review-form"
+              action-xhr="<?= $block->escapeUrl($url) ?>"
+              on="submit:amamp-review-form.clear"
+              method="post">
+            <input name="amp_page" type="hidden" value="1">
+            <?= $block->getBlockHtml('formkey') ?>
+            <div class="amamp-sidebar-legend">
+                <p class="amamp-title">
+                    <?= $block->escapeHtml(__("You're reviewing:")) ?>
+                    <button class="amamp-close-icon"
+                            role="button"
+                            aria-label="<?= $block->escapeHtml(__('close sidebar')) ?>"
+                            on="tap:amamp-setreview-sidebar.toggle"
+                            tabindex="0">
+                    </button>
+                </p>
+                <b class="amamp-name">
+                    <?= $block->escapeHtml($block->getProductInfo()->getName()) ?>
+                </b>
+            </div>
+            <div submit-success>
+                <template type="amp-mustache">
+                    {{#success}}
+                    <p class="amamp-notification -success">
+                        {{success}}
+                    </p>
+                    {{/success}}
+                    {{#error}}
+                    <p class="amamp-notification -error">
+                        {{error}}
+                    </p>
+                    {{/error}}
+                </template>
+            </div>
+            <fieldset class="amamp-fieldset">
+                <?php if ($block->getRatings() && $block->getRatings()->getSize()): ?>
+                <div class="amamp-set-rating">
+                    <div class="amamp-label-column">
+                        <?php foreach ($block->getRatings() as $_rating): ?>
+                            <label class="amamp-label">
+                                <?= $block->escapeHtml($_rating->getRatingCode()) ?>
+                            </label>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="amamp-star-column">
+                        <?php foreach ($block->getRatings() as $_rating): ?>
+                            <div class="amamp-line">
+                                <?php $options = array_reverse($_rating->getOptions()); ?>
+                                <?php $iterator = 5;
+                                foreach ($options as $_option): ?>
+                                    <input id="<?= $block->escapeHtmlAttr($_rating->getRatingCode()) ?>-<?= $block->escapeHtmlAttr($_option->getValue()) ?>"
+                                           class="amamp-input"
+                                           type="radio"
+                                           name="ratings[<?= $block->escapeHtmlAttr($_rating->getId()) ?>]"
+                                           value="<?= $block->escapeHtmlAttr($_option->getId()) ?>"
+                                           required
+                                    />
+                                    <label class="amamp-star -<?= $block->escapeHtmlAttr($iterator) ?>"
+                                           for="<?= $block->escapeHtmlAttr($_rating->getRatingCode()) ?>-<?= $block->escapeHtmlAttr($_option->getValue()) ?>"
+                                           title="<?= $block->escapeHtmlAttr(__('%1 %2', $iterator, $iterator > 1 ? __('stars') : __('star'))) ?>">
+                                    </label>
+                                    <?php $iterator--; ?>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <?php endif ?>
+                <div class="amamp-field">
+                    <label class="amamp-label" for="amamp-nickname">
+                        <?= $block->escapeHtml(__('Nickname')) ?>
+                    </label>
+                    <input id="amamp-nickname" class="amamp-input" type="text" name="nickname" required />
+                </div>
+                <div class="amamp-field">
+                    <label class="amamp-label" for="amamp-summary">
+                        <?= $block->escapeHtml(__('Summary')) ?>
+                    </label>
+                    <input id="amamp-summary" class="amamp-input" name="title" required />
+                </div>
+                <div class="amamp-field">
+                    <label class="amamp-label" for="amamp-review">
+                        <?= $block->escapeHtml(__('Review')) ?>
+                    </label>
+                    <textarea id="amamp-review" class="amamp-textarea" name="detail" cols="5" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="amamp-button -full" aria-label="<?= $block->escapeHtml(__('Submit Review')) ?>">
+                    <?= $block->escapeHtml(__('Submit Review')) ?>
+                </button>
+            </fieldset>
+        </form>
+    </amp-sidebar>
+<?php else: ?>
+    <div class="amamp-info">
+        <?= $block->escapeHtml(__('Only registered users can write reviews. 
+                Please <a class="amamp-link" href="%1">Sign in</a> or <a class="amamp-link" href="%2">create an account
+                </a>', $block->getLoginLink(), $block->getRegisterUrl()), ['a']) ?>
+    </div>
+<?php endif ?>

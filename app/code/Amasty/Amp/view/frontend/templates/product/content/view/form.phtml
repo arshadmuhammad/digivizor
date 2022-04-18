@@ -1,0 +1,42 @@
+<?php
+/**
+ * @var $block Amasty\Amp\Block\Product\Content\View
+ */
+
+$product = $block->getProduct();
+$url = $block->getSubmitUrl($product);
+$buttonTitle = __('Add to Cart');
+$buttonTitleSubmit = __('Adding ...');
+$isEnctype = $product->getOptions() ? 'enctype="multipart/form-data"' : '';
+?>
+
+<form class="amamp-add-form"
+      data-product-sku="<?= $block->escapeHtml($product->getSku()) ?>"
+      action-xhr="<?= $block->escapeUrl($url) ?>"
+      <?= $block->escapeHtml($isEnctype) ?>
+      method="post"
+      on="submit: AMP.setState({addtocart_text: '<?= $block->escapeHtml($buttonTitleSubmit); ?>'});
+          submit-success: AMP.setState({
+            addtocart_text: '<?= $block->escapeHtml($buttonTitle); ?>',
+            cart_fullness: event.response.success ? true : false
+          })">
+    <input type="hidden" name="product" value="<?= (int)$product->getId() ?>"/>
+    <input type="hidden" name="selected_configurable_option" value=""/>
+    <input type="hidden" name="amp_page" value="1"/>
+    <input type="hidden" name="related_product" id="related-products-field" value=""/>
+    <input type="hidden" name="item" value="<?= (int)$block->getRequest()->getParam('id') ?>"/>
+    <?= $block->getBlockHtml('formkey') ?>
+    <?= $block->getChildHtml('form_top') ?>
+
+    <?php if (!$block->hasOptions()): ?>
+        <?= $block->getChildHtml('product_info_form_content') ?>
+    <?php endif; ?>
+
+    <?php if ($block->isShowOptionsContainer($product)): ?>
+        <?= $block->getChildChildHtml('options_container') ?>
+    <?php endif; ?>
+
+    <?= $block->getChildHtml('form_bottom') ?>
+
+    <?= $block->getChildHtml('add_tocart_notification') ?>
+</form>

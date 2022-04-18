@@ -1,0 +1,14 @@
+<?php
+/** @var \Amasty\Amp\Block\Category\View $block */
+
+$category = $block->getCurrentCategory();
+$imgUrl = $category->getImageUrl();
+?>
+
+<?php if ($imgUrl): ?>
+    <amp-img class="amamp-image"
+             src="<?= $block->escapeUrl($imgUrl) ?>"
+             width="<?= (int)$block->getImageWidth() ?>"
+             height="<?= (int)$block->getImageHeight() ?>">
+    </amp-img>
+<?php endif; ?>

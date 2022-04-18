@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <block class="Magento\Framework\Pricing\Render" name="product.price.render.default">
+            <arguments>
+                <argument name="price_render_handle" xsi:type="string">amasty_amp_catalog_product_prices</argument>
+                <argument name="use_link_for_as_low_as" xsi:type="boolean">true</argument>
+            </arguments>
+        </block>
+        <container name="root">
+            <block class="Amasty\Amp\Block\Page" name="amp.page" template="Amasty_Amp::page.phtml">
+                <block class="Amasty\Amp\Block\Page\Head" name="amp.head" as="head"
+                       template="Amasty_Amp::page/head.phtml"/>
+                <block class="Amasty\Amp\Block\Styles" name="amp.config.styles" template="Amasty_Amp::styles.phtml" before="-">
+                    <arguments>
+                        <argument name="configProvider" xsi:type="object">Amasty\Amp\Model\ConfigProvider</argument>
+                    </arguments>
+                </block>
+                <block class="Amasty\Amp\Block\Page\Html\Header" name="amp.header.sidebar"
+                       as="header"
+                       template="Amasty_Amp::page/html/header.phtml">
+                    <block class="Amasty\Amp\Block\Page\Html\Header\Logo" name="amp.logo"
+                           template="Amasty_Amp::page/html/header/logo.phtml">
+                        <arguments>
+                            <argument name="config" xsi:type="object">Amasty\Amp\Model\ConfigProvider</argument>
+                            <argument name="urlProvider" xsi:type="object">Amasty\Amp\Model\UrlConfigProvider</argument>
+                        </arguments>
+                    </block>
+                    <block class="Amasty\Amp\Block\Checkout\Cart\Sidebar" name="minicart" after="amp.logo"
+                           template="Amasty_Amp::minicart.phtml" />
+                    <block class="Amasty\Amp\Block\Search\Form" name="amp.top.search"
+                           template="Amasty_Amp::form.mini.phtml"/>
+                    <block class="Amasty\Amp\Block\Page\Html\Header\Topmenu" name="amp.catalog.topnav"
+                           template="Amasty_Amp::page/html/header/topmenu.phtml" ttl="3600" before="-">
+                        <arguments>
+                            <argument name="topmenuItem" xsi:type="object">
+                                Amasty\Amp\Block\Page\Html\Header\TopmenuItem
+                            </argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Customer\Block\Account\Navigation" name="top.links">
+                        <arguments>
+                            <argument name="css_class" xsi:type="string">amamp-item</argument>
+                        </arguments>
+
+                        <block class="Magento\Customer\Block\Account\RegisterLink" name="register-link">
+                            <arguments>
+                                <argument name="label" xsi:type="string" translate="true">Create an Account</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Customer\Block\Account\AuthorizationLink" name="authorization-link"
+                               template="Magento_Customer::account/link/authorization.phtml"/>
+                    </block>
+                    <block class="Magento\Customer\Block\Account\Navigation" name="customer_account_navigation" before="-">
+                        <arguments>
+                            <argument name="css_class" xsi:type="string">amamp-item</argument>
+                        </arguments>
+                        <block class="Magento\Customer\Block\Account\SortLinkInterface"
+                               name="customer-account-navigation-account-link">
+                            <arguments>
+                                <argument name="label" xsi:type="string" translate="true">My Account</argument>
+                                <argument name="path" xsi:type="string">customer/account</argument>
+                                <argument name="sortOrder" xsi:type="number">250</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Customer\Block\Account\SortLinkInterface"
+                               ifconfig="wishlist/general/active"
+                               name="customer-account-navigation-wish-list-link">
+                            <arguments>
+                                <argument name="path" xsi:type="string">wishlist</argument>
+                                <argument name="label" xsi:type="string" translate="true">My Wish List</argument>
+                                <argument name="sortOrder" xsi:type="number">210</argument>
+                            </arguments>
+                        </block>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Template" name="amp.store.settings"
+                           template="Magento_Theme::html/container.phtml">
+                        <arguments>
+                            <argument name="title" translate="true" xsi:type="string">Settings</argument>
+                        </arguments>
+                        <block class="Amasty\Amp\Block\Page\Html\Header\Switcher" name="amp.store.settings.language"
+                               template="Amasty_Amp::page/html/header/languages.phtml">
+                            <arguments>
+                                <argument name="id_modifier" xsi:type="string">nav</argument>
+                            </arguments>
+                        </block>
+                        <block class="Amasty\Amp\Block\Page\Html\Header\Currency" name="amp.store.settings.currency"
+                               template="Amasty_Amp::page/html/header/currency.phtml">
+                            <arguments>
+                                <argument name="id_modifier" xsi:type="string">nav</argument>
+                            </arguments>
+                        </block>
+                    </block>
+                </block>
+                <container name="amamp.body.start">
+                    <block class="Magento\GoogleAnalytics\Block\Ga" name="amamp.googl.analytics"
+                           template="Amasty_Amp::page/google_analytics.phtml"/>
+                </container>
+                <container name="content" htmlTag="div" htmlClass="amamp-content-wrapper">
+                    <container name="content.aside" after="-" />
+                    <container name="amamp.subscribe.block" htmlTag="div" htmlClass="amamp-subscribe-block" after="content.aside">
+                        <block class="Amasty\Amp\Block\Newsletter\Subscribe" name="form.subscribe"
+                               template="Amasty_Amp::components/subscribe.phtml"/>
+                    </container>
+                    <block class="Magento\Framework\View\Element\Template" name="amamp.gotop.btn" template="Amasty_Amp::components/go_top_button.phtml" after="-"/>
+                </container>
+                <container name="footer" htmlTag="footer" htmlId="amamp-footer-block" htmlClass="amamp-footer-block">
+                    <block class="Magento\Framework\View\Element\Html\Links" name="footer_links">
+                        <arguments>
+                            <argument name="css_class" xsi:type="string">amamp-footer-links</argument>
+                        </arguments>
+
+                        <block class="Magento\Framework\View\Element\Html\Link\Current" ifconfig="catalog/seo/search_terms"
+                               name="search-term-popular-link">
+                            <arguments>
+                                <argument name="label" xsi:type="string" translate="true">Search Terms</argument>
+                                <argument name="path" xsi:type="string">search/term/popular</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Framework\View\Element\Html\Link\Current" name="privacy-policy-link">
+                            <arguments>
+                                <argument name="label" xsi:type="string" translate="true">Privacy and Cookie Policy
+                                </argument>
+                                <argument name="path" xsi:type="string">privacy-policy-cookie-restriction-mode</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Framework\View\Element\Html\Link\Current" ifconfig="contact/contact/enabled"
+                               name="contact-us-link">
+                            <arguments>
+                                <argument name="label" xsi:type="string" translate="true">Contact Us</argument>
+                                <argument name="path" xsi:type="string">contact</argument>
+                            </arguments>
+                        </block>
+                        <block class="Magento\Framework\View\Element\Html\Link\Current" name="catalog-search-advanced-link">
+                            <arguments>
+                                <argument name="label" xsi:type="string" translate="true">Advanced Search</argument>
+                                <argument name="path" xsi:type="string">catalogsearch/advanced</argument>
+                                <argument name="attributes" xsi:type="array">
+                                    <item name="data-action" xsi:type="string">advanced-search</item>
+                                </argument>
+                            </arguments>
+                        </block>
+                    </block>
+                    <block class="Magento\Theme\Block\Html\Footer" name="amp-copyright" template="Magento_Theme::html/copyright.phtml"/>
+                </container>
+                <block class="Magento\Framework\View\Element\Template" name="amamp.overlay" template="Amasty_Amp::components/overlay.phtml" after="-"/>
+                <block class="Magento\Framework\View\Element\Template" name="amamp.animations" template="Amasty_Amp::components/animations.phtml" after="-"/>
+            </block>
+        </container>
+    </body>
+</page>

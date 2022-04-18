@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amlazyload>
+            <general>
+                <enabled>1</enabled>
+            </general>
+        </amlazyload>
+        <amoptimizer>
+            <lazy_load_general>
+                <lazy_load>1</lazy_load>
+                <lazy_load_script>jquery</lazy_load_script>
+                <preload_images>1</preload_images>
+                <skip_images_count>7</skip_images_count>
+                <ignore_list>lazyOwl</ignore_list>
+            </lazy_load_general>
+        </amoptimizer>
+    </default>
+</config>

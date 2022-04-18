@@ -1,0 +1,71 @@
+//
+//  Amp Carousel Styles
+//  ____________________________________________
+
+//
+//  Common
+//  --------------------------------------------
+
+.amamp-carousel-container {
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 530px;
+    text-align: center;
+}
+
+.amp-carousel-button {
+    width: 30px;
+    height: 30px;
+}
+
+.amamp-carousel-img {
+    .amamp-img {
+        margin: 0 2px;
+    }
+
+    .amamp-img img {
+        object-fit: cover;
+    }
+}
+
+.amamp-carousel-preview {
+    & {
+        .am-flex(center, center);
+
+        margin: @amamp__indent__l 0 0 0;
+    }
+
+    & > * {
+        .am-scrollbar(rgba(0,0,0,.5), x, @amamp__indent / 2);
+    }
+
+    .amp-carousel-slide {
+        & {
+            margin: 0;
+            padding: 0;
+        }
+
+        &:not(:last-child) {
+            margin-right: calc(@amamp__indent__xxl / 2);
+        }
+    }
+
+    [option][selected] {
+        outline: none;
+        border: 1px solid @amamp__color__active;
+        background: none;
+    }
+
+    .amp-carousel-button {
+        display: none;
+    }
+
+    .amamp-img {
+        background: fade(#000, 15%);
+    }
+
+    img {
+        z-index: -1;
+        object-fit: cover;
+    }
+}

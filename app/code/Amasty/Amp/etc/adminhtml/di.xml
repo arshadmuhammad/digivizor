@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Cms\Model\Wysiwyg\Config">
+        <plugin name="Amasty_Amp::add_image_button" type="Amasty\Amp\Plugin\Cms\Model\Wysiwyg\ConfigPlugin" />
+    </type>
+
+    <type name="Magento\Widget\Block\Adminhtml\Widget\Instance\Edit\Tab\Settings">
+        <plugin name="Amasty_Amp::change_widgets_list"
+                type="Amasty\Amp\Plugin\Widget\Block\Adminhtml\Widget\Instance\Edit\Tab\SettingsPlugin" />
+    </type>
+
+    <type name="Magento\Cms\Block\Adminhtml\Wysiwyg\Images\Content">
+        <plugin name="Amasty_Amp::change_add_image_url" type="Amasty\Amp\Plugin\Cms\Block\Adminhtml\Wysiwyg\Images\ContentPlugin" />
+    </type>
+
+    <type name="Magento\Cms\Helper\Wysiwyg\Images">
+        <plugin name="Amasty_Amp::change_image_html" type="Amasty\Amp\Plugin\Cms\Helper\Wysiwyg\ImagesPlugin" />
+    </type>
+
+    <type name="Magento\Widget\Model\Widget">
+        <plugin name="Amasty_Amp::only_our_widgets" type="Amasty\Amp\Plugin\Widget\Model\WidgetPlugin" />
+    </type>
+</config>

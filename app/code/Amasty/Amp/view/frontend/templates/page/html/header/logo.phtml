@@ -1,0 +1,19 @@
+<?php
+/**
+ * Header Logo
+ *
+ * @var \Amasty\Amp\Block\Page\Html\Header\Logo $block
+ */
+
+$storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt();
+?>
+
+<a class="amamp-logo"
+   href="<?= $block->escapeUrl($block->getHomeUrl()) ?>"
+   title="<?= $block->escapeHtml($storeName) ?>">
+    <amp-img alt="<?= $block->escapeHtml($block->getLogoAlt()); ?>"
+             src="<?= $block->escapeUrl($block->getLogoUrl()); ?>"
+        <?= (int)$block->getLogoWidth() ? 'width="' . (int)$block->getLogoWidth() . '"' : 'width="150"'; ?>
+        <?= (int)$block->getLogoHeight() ? 'height="' . (int)$block->getLogoHeight() . '"' : 'height="60"'; ?>>
+    </amp-img>
+</a>

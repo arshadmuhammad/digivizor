@@ -1,0 +1,80 @@
+<?php
+/**
+ * @var \Amasty\Amp\Block\Page\Html\Header $block
+ */
+
+$welcomeMessage = $block->getWelcome();
+$fullName = $block->getCustomerFullname();
+$settingsHtml = $block->getChildHtml('amp.store.settings');
+?>
+
+<header id="amamp-header-container"
+        class="amamp-header-container <?= $block->escapeHtml('-logo-' . $block->getLogoAlignment()) ;?>">
+    <button class="amamp-hamburger-block"
+            role="button"
+            aria-label="<?= $block->escapeHtml(__('open menu')) ?>"
+            on="tap:amamp-menu-sidebar.toggle"
+            tabindex="0">
+        <span class="amamp-line"></span>
+    </button>
+    <?= $block->getChildHtml('amp.logo') ?>
+    <div class="amamp-minibar-block">
+        <?= $block->getChildHtml('amp.top.search') ?>
+        <?= $block->getChildHtml('minicart') ?>
+    </div>
+</header>
+
+<amp-sidebar id="amamp-menu-sidebar" class="amamp-menu-sidebar amamp-sidebar-block" layout="nodisplay" side="left">
+    <button class="amamp-close-icon"
+            role="button"
+            aria-label="<?= $block->escapeHtml(__('close menu')); ?>"
+            on="tap:amamp-menu-sidebar.toggle"
+            tabindex="0">
+    </button>
+    <amp-selector class="amamp-tabs-block"
+                  role="tablist"
+                  on="select:amamp-content-block.toggle(index=event.targetOption, value=true)">
+        <div class="amamp-tabs" role="tab" aria-controls="amamp-tab-links" option="0" selected>
+            <?= $block->escapeHtml(__('Menu')); ?>
+        </div>
+        <div class="amamp-tabs" role="tab" aria-controls="amamp-tab-account" option="1">
+            <?= $block->escapeHtml(__('Account')); ?>
+        </div>
+        <?php if (trim($settingsHtml)): ?>
+            <div class="amamp-tabs" role="tab" aria-controls="amamp-tab-settings" option="2">
+                <?= $block->escapeHtml(__('Settings')); ?>
+            </div>
+        <?php endif; ?>
+    </amp-selector>
+    <amp-selector id="amamp-content-block" class="amamp-content-block tabpanels">
+        <div id="amamp-tab-links" class="amamp-content" role="tabpanel" aria-labelledby="amamp-tab-links" option selected>
+            <?= $block->getChildHtml('amp.catalog.topnav') ?>
+        </div>
+        <ul id="amamp-tab-account" class="amamp-account-list" role="tabpanel" aria-labelledby="amamp-tab-account" option>
+            <li class="amamp-welcome-msg">
+                <?php if ($fullName && $fullName !== ' '): ?>
+                    <?= $block->escapeHtml(__('Welcome, %1!', $fullName)); ?>
+                <?php else: ?>
+                    <?= $block->escapeHtml($welcomeMessage) ?>
+                <?php endif; ?>
+            </li>
+            <?php if ($fullName && $fullName !== ' '): ?>
+                <?= $block->getChildHtml('customer_account_navigation') ?>
+            <?php endif; ?>
+            <?= $block->getChildHtml('top.links') ?>
+        </ul>
+        <?php if ($settingsHtml): ?>
+            <div id="amamp-tab-settings" role="tabpanel" aria-labelledby="amamp-tab-settings" option>
+                <amp-accordion class="amamp-stores-settings">
+                    <?= $block->getChildHtml('amp.store.settings') ?>
+                </amp-accordion>
+            </div>
+        <?php endif; ?>
+    </amp-selector>
+</amp-sidebar>
+
+<amp-position-observer class="amamp-topbtn-observer"
+                       layout="nodisplay"
+                       viewport-margins="0 130vh"
+                       on="enter:showTopBtn.start; exit:hideTopBtn.start">
+</amp-position-observer>

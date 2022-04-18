@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amasty_amp" translate="label" type="text" sortOrder="11316" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>AMP</label>
+            <tab>amasty</tab>
+            <resource>Amasty_Amp::config</resource>
+            <group id="amasty_information" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Information</label>
+                <frontend_model>Amasty\Amp\Block\Adminhtml\System\Config\Information</frontend_model>
+            </group>
+
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable AMP for Product Pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enabled_on_category" translate="label" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable AMP for Category Pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enabled_on_home" translate="label" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable AMP for Home Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enabled_on_cms" translate="label" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable AMP for CMS Pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="redirect_mobile" translate="label" type="select" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Open Accelerated Mobile Pages</label>
+                    <source_model>Amasty\Amp\Model\Config\Source\Accelerated</source_model>
+                    <comment>If ‘Always' option is chosen, users on mobile devices will be invariably redirected to AMP version of the page. Otherwise, AMPs will be available only via links on Google search results pages (in that case the user will stay on AMPs until he/she reaches non-AMP page).</comment>
+                </field>
+            </group>
+
+            <group id="amp" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>AMP Design</label>
+                <group id="logo" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Logo</label>
+                    <field id="image" translate="label comment" type="image" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Image</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                        <upload_dir config="system/filesystem/media" scope_info="1">amasty/amp/logo_html</upload_dir>
+                        <base_url type="media" scope_info="1">amasty/amp/logo_html</base_url>
+                        <comment>Allowed file types: jpeg, png. Maximum file size: 2MB</comment>
+                    </field>
+                    <field id="image_width" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Width</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <validate>required-entry validate-number validate-greater-than-zero validate-number-range number-range-1-180</validate>
+                        <comment>Maximum width is 180px.</comment>
+                    </field>
+                    <field id="image_height" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Height</label>
+                        <validate>required-entry validate-number validate-greater-than-zero validate-number-range number-range-1-60</validate>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>Maximum height is 60px.</comment>
+                    </field>
+                    <field id="logo_alignment" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Logo Alignment</label>
+                        <source_model>Amasty\Amp\Model\Config\Source\Alignment</source_model>
+                    </field>
+                </group>
+                <group id="design" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Design</label>
+                    <field id="button_background_color" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Button Background Color</label>
+                        <frontend_model>Amasty\Amp\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                        <backend_model>Amasty\Amp\Model\Config\Backend\SimpleText</backend_model>
+                    </field>
+                    <field id="button_background_color_focus" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Button Background Color (On Focus)</label>
+                        <frontend_model>Amasty\Amp\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                        <backend_model>Amasty\Amp\Model\Config\Backend\SimpleText</backend_model>
+                    </field>
+                    <field id="button_text_color" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Button Text Color</label>
+                        <frontend_model>Amasty\Amp\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                        <backend_model>Amasty\Amp\Model\Config\Backend\SimpleText</backend_model>
+                    </field>
+                    <field id="button_text_color_focus" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Button Text Color (On Focus)</label>
+                        <frontend_model>Amasty\Amp\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                        <backend_model>Amasty\Amp\Model\Config\Backend\SimpleText</backend_model>
+                    </field>
+                    <field id="link_color" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Link Color</label>
+                        <frontend_model>Amasty\Amp\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                        <backend_model>Amasty\Amp\Model\Config\Backend\SimpleText</backend_model>
+                    </field>
+                    <field id="link_color_focus" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Link Color (On Focus)</label>
+                        <frontend_model>Amasty\Amp\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                        <backend_model>Amasty\Amp\Model\Config\Backend\SimpleText</backend_model>
+                    </field>
+                    <field id="header_background" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Header Background Color</label>
+                        <frontend_model>Amasty\Amp\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                        <backend_model>Amasty\Amp\Model\Config\Backend\SimpleText</backend_model>
+                    </field>
+                    <field id="footer_background" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Footer Background Color</label>
+                        <frontend_model>Amasty\Amp\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                        <backend_model>Amasty\Amp\Model\Config\Backend\SimpleText</backend_model>
+                    </field>
+                </group>
+                <group id="category_image" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category Image</label>
+                    <field id="image_width" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Width</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <validate>required-entry validate-number validate-greater-than-zero validate-number-range</validate>
+                        <comment>The image uploaded into category’s configuration will be resized accordingly.</comment>
+                    </field>
+                    <field id="image_height" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Height</label>
+                        <validate>required-entry validate-number validate-greater-than-zero validate-number-range</validate>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>The image uploaded into category’s configuration will be resized accordingly.</comment>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

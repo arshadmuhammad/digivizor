@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="replace_categories" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Category Pages</label>
+        <field id="enable_custom_replace" translate="label" type="select" sortOrder="5" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Enable Custom Image Replace</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>amoptimizer/replace_images_categories/enable_custom_replace</config_path>
+        </field>
+        <field id="replace_with_webp" translate="label" type="select" sortOrder="10" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Replace With WebP and Image Resolutions</label>
+            <depends>
+                <field id="enable_custom_replace">1</field>
+            </depends>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>amoptimizer/replace_images_categories/webp_resolutions</config_path>
+        </field>
+        <field id="replace_with_webp_ignore" translate="label" type="textarea" sortOrder="15" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Ignore Images that Contain</label>
+            <depends>
+                <field id="enable_custom_replace">1</field>
+                <field id="replace_with_webp">1</field>
+            </depends>
+            <config_path>amoptimizer/replace_images_categories/webp_resolutions_ignore</config_path>
+        </field>
+    </group>
+</include>

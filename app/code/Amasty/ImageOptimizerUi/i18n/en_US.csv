@@ -1,0 +1,82 @@
+"Are you sure you want to do this?","Are you sure you want to do this?"
+Delete,Delete
+"Run Optimization","Run Optimization"
+"Save and Optimize","Save and Optimize"
+"Warning: 'pcntl' php extension is required for parallel image optimization.","Warning: 'pcntl' php extension is required for parallel image optimization."
+"Image setting has been successfully deleted","Image setting has been successfully deleted"
+"Error occurred while deleting image setting with ID %1. Error: %2","Error occurred while deleting image setting with ID %1. Error: %2"
+"Edit Image Folder Settings","Edit Image Folder Settings"
+"This image settings no longer exists.","This image settings no longer exists."
+"New Pattern For Image Folder Optimization","New Pattern For Image Folder Optimization"
+"Image Folder Optimization Settings","Image Folder Optimization Settings"
+"%1 image setting(s) has been successfully deleted","%1 image setting(s) has been successfully deleted"
+"%1 image setting(s) has been failed to delete","%1 image setting(s) has been failed to delete"
+"You saved the item.","You saved the item."
+"Image Settings with specified ID ""%1"" not found.","Image Settings with specified ID ""%1"" not found."
+"Unable to save image setting with ID %1. Error: %2","Unable to save image setting with ID %1. Error: %2"
+"Unable to save new image settings. Error: %1","Unable to save new image settings. Error: %1"
+"Unable to remove image settings with ID %1. Error: %2","Unable to remove image settings with ID %1. Error: %2"
+"Unable to remove image settings. Error: %1","Unable to remove image settings. Error: %1"
+Clear,Clear
+Close,Close
+Copy,Copy
+"Images Queue Generation","Images Queue Generation"
+"Image Optimization Progress:","Image Optimization Progress:"
+"Image Optimization Finished","Image Optimization Finished"
+"Please wait...","Please wait..."
+"Image Example","Image Example"
+"Category Pages","Category Pages"
+"Enable Custom Image Replace","Enable Custom Image Replace"
+"Replace With WebP and Image Resolutions","Replace With WebP and Image Resolutions"
+"Ignore Images that Contain","Ignore Images that Contain"
+"CMS Pages","CMS Pages"
+"Home Page","Home Page"
+"Product Pages","Product Pages"
+"Image Optimizer","Image Optimizer"
+"General Settings","General Settings"
+"Enable Multi-Process Generation","Enable Multi-Process Generation"
+"Multi-Process Optimization significantly boosts the image optimization speed. But it generates extra load to the server as well. We recommend first to run the test image optimization process with the 'multi-process' ON and monitor your server performance.
+                        <br/><br/>
+                        The 'Multi-Process Generation' feature needs the php extension 'pcntl' to be installed on the server. If you enable the feature and no performance boost happens, plase ask your hoster/system administrator to check if the 'pcntl' extension installed.","Multi-Process Optimization significantly boosts the image optimization speed. But it generates extra load to the server as well. We recommend first to run the test image optimization process with the 'multi-process' ON and monitor your server performance.
+                        <br/><br/>
+                        The 'Multi-Process Generation' feature needs the php extension 'pcntl' to be installed on the server. If you enable the feature and no performance boost happens, plase ask your hoster/system administrator to check if the 'pcntl' extension installed."
+"Number of Parallels Processes","Number of Parallels Processes"
+"The more parallel processes are set, the faster is the image optimization process, as well as the higher is the server load","The more parallel processes are set, the faster is the image optimization process, as well as the higher is the server load"
+"Process Images per Request","Process Images per Request"
+"Optimize Images for Enabled Products Only","Optimize Images for Enabled Products Only"
+"User Agent","User Agent"
+"Use User Agent for Loading Images","Use User Agent for Loading Images"
+"Replace Images","Replace Images"
+"Edit Item Reason","Edit Item Reason"
+Back,Back
+Save,Save
+"Save and Continue Edit","Save and Continue Edit"
+"Image Optimization Settings","Image Optimization Settings"
+"Please note, that it is possible to launch queue generation and optimization with the following CLI command:","Please note, that it is possible to launch queue generation and optimization with the following CLI command:"
+"You may also optimize images in bulk using the following command (here 4 is the number of threads):","You may also optimize images in bulk using the following command (here 4 is the number of threads):"
+"Moreover, you can specify the particular pattern (i is the id of the pattern):","Moreover, you can specify the particular pattern (i is the id of the pattern):"
+Enabled,Enabled
+Title,Title
+"Folders for Optimization","Folders for Optimization"
+"Create Image for Mobile","Create Image for Mobile"
+"When a user uses a mobile or tablet device it's no worth to load a high-resolution image on a small display. Using the feature an image with appropriate size will be uploaded, making the upload process faster and positively impacting the Google rank for mobile.","When a user uses a mobile or tablet device it's no worth to load a high-resolution image on a small display. Using the feature an image with appropriate size will be uploaded, making the upload process faster and positively impacting the Google rank for mobile."
+"Create Image for Tablet","Create Image for Tablet"
+"The extension will create a copy of every image in suitable for mobile or tablet size. Please make sure that you have enough disc space on your server.","The extension will create a copy of every image in suitable for mobile or tablet size. Please make sure that you have enough disc space on your server."
+"Resize Algorithm","Resize Algorithm"
+"Resize - the image will be resized proportionally to the original size. Simply it will be the same picture, but smaller in pixels. Crop - when cropping a photo, you cut the part of an image changing its width. While the height of the image would be the same. In the result the cropped image will look like the part of the original picture","Resize - the image will be resized proportionally to the original size. Simply it will be the same picture, but smaller in pixels. Crop - when cropping a photo, you cut the part of an image changing its width. While the height of the image would be the same. In the result the cropped image will look like the part of the original picture"
+"Create Webp Copy","Create Webp Copy"
+"When WebP format is used the extension will create a copy for every image in the WebP format. Please make sure that you have enough disc space on your server.","When WebP format is used the extension will create a copy for every image in the WebP format. Please make sure that you have enough disc space on your server."
+"WebP is a modern image format that provides superior lossless and lossy compression for images on the web. Using WebP, webmasters and web developers can create smaller, richer images that make the web faster. WebP lossless images are 26% smaller in size compared to PNGs. WebP lossy images are 25-34% smaller than comparable JPEG images at equivalent SSIM quality index.","WebP is a modern image format that provides superior lossless and lossy compression for images on the web. Using WebP, webmasters and web developers can create smaller, richer images that make the web faster. WebP lossless images are 26% smaller in size compared to PNGs. WebP lossy images are 25-34% smaller than comparable JPEG images at equivalent SSIM quality index."
+"Create Image Dump","Create Image Dump"
+"Original images will be stored in the ‘pub/media/amasty/amoptimizer_dump’ folder","Original images will be stored in the ‘pub/media/amasty/amoptimizer_dump’ folder"
+"JPEG Optimization Tool","JPEG Optimization Tool"
+"PNG Optimization Tool","PNG Optimization Tool"
+"GIF Optimization Tool","GIF Optimization Tool"
+"Images Optimization","Images Optimization"
+"Add New Pattern","Add New Pattern"
+"Delete items","Delete items"
+"Are you sure you want to delete selected items?","Are you sure you want to delete selected items?"
+ID,ID
+Status,Status
+Folders,Folders
+Edit,Edit

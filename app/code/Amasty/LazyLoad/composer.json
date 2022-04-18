@@ -1,0 +1,22 @@
+{
+    "name": "amasty/module-lazy-load",
+    "description": "Lazy Load by Amasty",
+    "require": {
+        "php": "^7.3.0",
+        "amasty/base": "*",
+        "amasty/module-page-speed-tools": "*"
+    },
+    "type": "magento2-module",
+    "version": "1.1.4",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\LazyLoad\\": ""
+        }
+    }
+}

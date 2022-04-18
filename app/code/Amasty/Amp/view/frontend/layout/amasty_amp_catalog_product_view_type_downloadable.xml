@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="page-product-downloadable"/>
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Downloadable\Block\Catalog\Product\Samples"
+                   name="product.info.downloadable.samples"
+                   as="samples"
+                   template="Amasty_Amp::product/type/downloadable/samples.phtml"
+                   after="product.price.tier"
+            />
+        </referenceContainer>
+        <referenceContainer name="product.info.type">
+            <block class="Magento\Downloadable\Block\Catalog\Product\View\Type"
+                   name="product.info.downloadable"
+                   as="product_type_data"
+                   template="Magento_Downloadable::catalog/product/type.phtml">
+                <block class="Magento\CatalogInventory\Block\Stockqty\DefaultStockqty"
+                       name="product.info.downloadable.extra"
+                       as="product_type_data_extra"
+                       template="Magento_CatalogInventory::stockqty/default.phtml"
+                />
+            </block>
+        </referenceContainer>
+        <referenceBlock name="product.info.options.wrapper">
+            <block class="Magento\Downloadable\Block\Catalog\Product\Links"
+                   name="product.info.downloadable.options"
+                   as="type_downloadable_options"
+                   template="Amasty_Amp::product/type/downloadable/links.phtml"
+                   before="-">
+                <block class="Magento\Catalog\Pricing\Render" name="product.price.link" after="product.info.downloadable.options">
+                    <arguments>
+                        <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                        <argument name="price_type_code" xsi:type="string">link_price</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="product.info.options.wrapper">
+            <block class="Magento\Catalog\Block\Product\View"
+                   name="product.info.addtocart"
+                   as="addtocart"
+                   template="Amasty_Amp::product/content/view/addtocart.phtml">
+            </block>
+        </referenceBlock>
+    </body>
+</page>

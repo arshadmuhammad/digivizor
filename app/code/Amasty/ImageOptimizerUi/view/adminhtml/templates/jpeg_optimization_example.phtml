@@ -1,0 +1,23 @@
+<?php
+/** @var \Amasty\ImageOptimizer\Block\Adminhtml\Settings\JpegOptimizationExample $block */
+?>
+<div data-amoptimizer-js="image-example" data-bind="scope: 'jpeg-example'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+{
+    "[data-amoptimizer-js='image-example']": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "jpeg-example": {
+                    "component": "Amasty_ImageOptimizerUi/js/jpeg-example",
+                    "template": "Amasty_ImageOptimizerUi/jpeg-optimization-example",
+                    "jpegOptimisationSelector": "amimageoptimizer_opti_jpeg_tool",
+                    "images": <?= /* @noEscape */ $block->getImageUrls() ?>
+                }
+            }
+        }
+    }
+}
+</script>

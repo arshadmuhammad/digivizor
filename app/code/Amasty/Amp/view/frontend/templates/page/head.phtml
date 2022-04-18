@@ -1,0 +1,61 @@
+<?php
+/** @var \Amasty\Amp\Block\Page\Head $block */
+?>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="amp-experiments-opt-in" content="amp-next-page">
+
+<?php if ($block->getTitle()): ?>
+    <meta name="title" content="<?= $block->escapeHtml($block->getTitle()) ?>">
+<?php endif; ?>
+<?php if ($block->getDescription()): ?>
+    <meta name="description" content="<?= $block->escapeHtml($block->getDescription()) ?>">
+<?php endif; ?>
+<?php if ($block->getKeywords()): ?>
+    <meta name="keywords" content="<?= $block->escapeHtml($block->getKeywords()) ?>">
+<?php endif; ?>
+
+<title><?= $block->escapeHtml($block->getTitle()) ?></title>
+
+<link rel="canonical" href="<?= $block->escapeUrl($block->getCanonicalUrl()); ?>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+
+<?= $block->getChildHtml('rich_snippets') ?>
+
+<!-- Google Analytics -->
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+<!-- Amp Search Component -->
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+
+<!-- Amp Sidebar Component -->
+<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+<!-- Amp Accordion Component -->
+<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+
+<!-- Amp Selector Component -->
+<script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+
+<!-- Amp Carousel Component -->
+<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+
+<!-- Amp StarRating Component -->
+<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+
+<!-- Amp Animation -->
+<script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
+
+<!-- Amp Anchor Button Component -->
+<script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
+
+<!-- Amp Default Scripts -->
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+
+<!-- Amp Infinity Scroll -->
+<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+
+<!-- Amp Default Styles -->
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>

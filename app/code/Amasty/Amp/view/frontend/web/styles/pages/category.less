@@ -1,0 +1,113 @@
+//
+//  Category Page Styles
+//  ____________________________________________
+
+//
+//  Imports
+//  --------------------------------------------
+
+@import '../_variables';
+@import '../_mixins';
+@import '../_helpers';
+@import '../_icons';
+@import '../components/_category-list';
+@import '../components/_swatchers';
+@import '../components/_rating';
+@import '../components/_filter';
+
+//
+//  Common
+//  --------------------------------------------
+
+.amamp-title-block {
+    .amamp-title {
+        display: block;
+        margin: 0;
+        padding: @amamp__indent__l * 2 0 @amamp__indent 0;
+        letter-spacing: .25px;
+        font-size: 18px;
+    }
+
+    .amamp-description {
+        & {
+            line-height: @amamp__indent__xl;
+        }
+
+        & > * {
+            margin: 0 0 @amamp__indent;
+        }
+    }
+
+    // Amp image styling
+    .amamp-image {
+        & {
+            display: block;
+            margin: 0 0 @amamp__indent;
+            max-width: 100%;
+        }
+
+        img {
+            right: initial;
+            min-width: initial;
+            width: initial;
+            object-fit: contain;
+        }
+    }
+    // end Amp image styling
+}
+
+.amamp-content-wrapper {
+    max-width: 720px;
+}
+
+.amamp-toolbar-block {
+    & {
+        .am-flex(space-between, none, wrap);
+    }
+
+    &.-top {
+        padding: @amamp__indent__l 0 0 0;
+    }
+
+    &.-bottom {
+        padding: @amamp__indent__xl * 2 0 @amamp__indent__xxl * 2 0;
+    }
+
+    .amamp-amount {
+        flex-basis: 100%;
+        padding: @amamp__indent 0;
+        font-size: 12px;
+    }
+}
+
+.amamp-pages-list {
+    & {
+        .am-flex(center, center);
+
+        width: 100%;
+        font-size: 11px;
+    }
+
+    .amamp-item {
+        margin: 0 @amamp__indent / 2;
+    }
+
+    .amamp-item.-current .amamp-link {
+        background: @amamp__background;
+        color: @amamp-line__color;
+    }
+
+    .amamp-link {
+        box-sizing: border-box;
+        padding: 4px 5px;
+        text-decoration: none;
+    }
+}
+
+// Magento blocks customizing
+.price-box .price-from,
+.minimal-price .price-label {
+    display: block;
+    margin: 0 0 @amamp__indent / 2;
+}
+// end Magento blocks customizing

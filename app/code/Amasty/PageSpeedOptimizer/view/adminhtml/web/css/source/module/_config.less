@@ -1,0 +1,407 @@
+//
+//  Amasty Page Speed Optimizer Configuration
+//  ____________________________________________
+
+//
+//  Variables
+//  _____________________________________________
+
+@amoptimizer__border-gray: 1px solid #ebeef5;
+@amoptimizer__medium-speed__color: #ffa400;
+@amoptimizer__low-speed__color: #f27061;
+@amoptimizer__link__color: #f27061;
+@amoptimizer-button-clear__background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iMTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjAzNCAxNmg2Ljk1MWwuODc1LTkuNTU1SDEuMkwyLjAzNCAxNnpNNy40NTIgMi4zNzdWLjU0NkM3LjQ1Mi4yNDQgNy4yNDMgMCA2Ljk4NiAwSDQuMDM1Yy0uMjU4IDAtLjQ2Ni4yNDUtLjQ2Ni41NDZ2MS44Yy0uOTk3LjEzMi0yLjAzNS4zODctMy4wNjkuODIzVjQuODVoMTBWMy4xMjRzLTEuMjItLjQ5My0zLjA0OS0uNzQ3aC4wMDF6bS0uOTI4LS4xYTE0LjM0IDE0LjM0IDAgMDAtMi4wNzYtLjAxNnYtLjk2NmMwLS4xNS4xMDItLjI3Mi4yMzEtLjI3MmgxLjYxMmMuMTMgMCAuMjMzLjEyMi4yMzMuMjcydi45ODF6IiBmaWxsPSIjNUE1NTUyIi8+PC9zdmc+');
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amoptimizer-tabs-container {
+        & {
+            display: flex;
+        }
+
+        .amoptimizer-tab {
+            margin-bottom: -1px;
+            padding: 13px 32px;
+            background: #f1f1f1;
+            cursor: pointer;
+        }
+
+        .amoptimizer-tab.-active {
+            background: #fff;
+        }
+
+        .amoptimizer-tabs-container {
+            border-left: @amoptimizer__border-gray;
+            border-right: @amoptimizer__border-gray;
+        }
+    }
+
+    .amoptimizer-total-chart {
+        & {
+            position: relative;
+            display: inline-block;
+            font-size: 0;
+        }
+
+        .amoptimizer-circle {
+            fill: #fff;
+            stroke-dasharray: 314;
+            stroke-dashoffset: 314;
+            stroke-linecap: round;
+            transition: all 1s linear;
+        }
+
+        .amoptimizer-valuation {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: 0;
+            font-size: 42px;
+            font-weight: 600;
+            transform: translate(-50%, -50%);
+        }
+
+        &.-green .amoptimizer-valuation {
+            color: #48b75f;
+        }
+
+        &.-orange .amoptimizer-valuation {
+            color: @amoptimizer__medium-speed__color;
+        }
+
+        &.-red .amoptimizer-valuation {
+            color: @amoptimizer__low-speed__color;
+        }
+
+        &.-green .amoptimizer-circle {
+            stroke: #48b75f;
+            fill: rgba(72, 183, 95, .2);
+        }
+
+        &.-orange .amoptimizer-circle {
+            stroke: @amoptimizer__medium-speed__color;
+            fill: rgba(255, 164, 0, .2);
+        }
+
+        &.-red .amoptimizer-circle {
+            stroke: @amoptimizer__low-speed__color;
+            fill: rgba(242, 112, 97, .2);
+        }
+    }
+
+    .amoptimizer-circle-svg {
+        transform: rotate(-90deg);
+    }
+
+    .amoptimizer-total-valuation {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .amoptimizer-tab-content {
+        box-sizing: border-box;
+        background: #fff;
+    }
+
+    .amoptimizer-tab-container {
+        & {
+            display: flex;
+        }
+
+        .amoptimizer-time {
+            font-weight: bold;
+        }
+
+        .amoptimizer-time.-red {
+            color: @amoptimizer__low-speed__color;
+        }
+
+        .amoptimizer-time.-yellow {
+            color: #eca254;
+        }
+    }
+
+    .amoptimizer-recommendation-block {
+        & {
+            flex-basis: 75%;
+            overflow: auto;
+            margin-top: 20px;
+            padding: 20px;
+            min-height: 350px;
+            border-left: none;
+            background: #f1f6ff;
+        }
+
+        &.-hide {
+            display: none;
+        }
+    }
+
+    .amoptimizer-links-container {
+        & {
+            align-self: baseline;
+            flex-basis: 36%;
+            margin: 20px 0 10px;
+            min-width: 225px;
+            list-style-type: none;
+        }
+
+        &.-wide {
+            flex-basis: 100%;
+        }
+    }
+
+    .amoptimizer-link-block {
+        & {
+            padding: 5px 10px;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        &:hover {
+            background: #f1f6ff;
+        }
+
+        &.-active {
+            background: #f1f6ff;
+        }
+
+        .amoptimizer-links-container.-wide &:hover,
+        .amoptimizer-links-container.-wide &.-active {
+            background: none;
+        }
+
+        .amoptimizer-links-container.-wide & {
+            cursor: default;
+        }
+    }
+
+    .amoptimizer-title-container {
+        & {
+            margin-bottom: 30px;
+        }
+
+        .amoptimizer-name,
+        .amoptimizer-time {
+            font-weight: bold;
+        }
+    }
+
+    .amoptimizer-google-recommendation .amoptimizer-recommendation {
+        margin-bottom: 10px;
+    }
+
+    .amoptimizer-hint-container .amoptimizer-url {
+        margin-left: 15px;
+    }
+
+    .amoptimizer-hint-block {
+        & {
+            display: flex;
+        }
+
+        .amoptimizer-hint {
+            & {
+                position: relative;
+                margin: 0 15px;
+                padding-left: 30px;
+                font-size: 17px;
+                font-weight: 600;
+            }
+
+            &:before {
+                position: absolute;
+                top: calc(50% - 3px);
+                left: 0;
+                width: 18px;
+                height: 6px;
+                border-radius: 3px;
+                content: '';
+            }
+        }
+
+        .amoptimizer-hint.-green:before {
+            background: #48b75f;
+        }
+
+        .amoptimizer-hint.-red:before {
+            background: @amoptimizer__low-speed__color;
+        }
+
+        .amoptimizer-hint.-orange:before {
+            background: #eca254;
+        }
+    }
+
+    .amoptimizer-main-container {
+        margin-bottom: 40px;
+    }
+
+    .amoptimizer-button.-clear {
+        border: 1px solid #adadad;
+        background: #f6f6f6;
+        color: #5a5552;
+    }
+
+    .amoptimizer-button {
+        padding: 8px 13px;
+        min-width: 120px;
+        border: 0;
+        border-radius: 3px;
+        background: #5a5552;
+        color: #fff;
+        font-weight: 600;
+        transition: opacity .3s ease-in;
+    }
+
+    .amoptimizer-button:hover {
+        opacity: .8;
+    }
+
+    .amoptimizer-request-optimization {
+        font-weight: 600;
+        padding: 0 20px 0 20px;
+    }
+
+    .amoptimizer-diagnostic-container {
+        & {
+            margin: 25px 0;
+        }
+
+        .amoptimizer-title {
+            margin: 10px 0 25px;
+            font-weight: 600;
+            font-size: 17px;
+            color: #000;
+        }
+
+        & .amoptimizer-checkbox-block .amoptimizer-checkbox {
+            margin-left: 5px;
+        }
+    }
+
+    .amoptimizer-checkbox-block {
+        & {
+            display: none;
+            margin-bottom: 40px;
+        }
+
+        .amoptimizer-label {
+            cursor: pointer;
+        }
+
+        .amoptimizer-label:not(:first-child) {
+            margin-left: 30px;
+        }
+    }
+
+    .amoptimizer-recommendation-container .amoptimizer-bold {
+        font-weight: bold;
+    }
+
+    .amoptimizer-ol-container {
+        & {
+            list-style: none;
+            counter-reset: am-counter;
+        }
+
+        .amoptimizer-li {
+            & {
+                counter-increment: am-counter;
+            }
+
+            &::before {
+                content: counter(am-counter) '. ';
+                font-weight: bold;
+            }
+        }
+
+        .amoptimizer-bold {
+            font-weight: bold;
+        }
+
+        .amoptimizer-path {
+            color: #eca254;
+            font-weight: bold;
+            transition: color .3s ease-in;
+        }
+
+        .amoptimizer-link {
+            color: #41362f;
+        }
+
+        .amoptimizer-link:hover {
+            color: @amoptimizer__link__color;
+        }
+
+        .amoptimizer-link:hover .amoptimizer-path {
+            color: @amoptimizer__link__color;
+        }
+    }
+
+    .amoptimizer-diagnostic-template {
+        & {
+            flex-basis: 50%;
+            padding: 15px;
+            max-width: 670px;
+            border-radius: 8px;
+            background: #fbfcff;
+            box-shadow: 0 2px 8px rgba(25, 65, 186, .1);
+        }
+
+        &:first-child {
+            margin-right: 30px;
+        }
+
+        &.-after {
+            align-self: baseline;
+        }
+    }
+
+    .amoptimizer-diagnostic-block {
+        display: flex;
+    }
+
+    .amoptimizer-title-container {
+        & {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &.-sample {
+            align-items: baseline;
+            flex-direction: column;
+        }
+
+        .amoptimizer-sample-container {
+            margin-top: 30px;
+        }
+
+        .amoptimizer-title {
+            margin-bottom: 0;
+            font-weight: 600;
+            font-size: 26px;
+            line-height: 35px;
+        }
+
+        .amoptimizer-date {
+            color: #858585;
+            font-size: 12px;
+        }
+    }
+
+    .adminhtml-system_config-edit .value {
+        .amoptimizer-server-push {
+            height: 132px;
+        }
+
+        .amoptimizer-device-multiselect {
+            height: 102px;
+        }
+    }
+}

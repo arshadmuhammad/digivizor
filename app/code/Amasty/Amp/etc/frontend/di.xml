@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="amasty_amp_router" xsi:type="array">
+                    <item name="class" xsi:type="string">\Amasty\Amp\Controller\Router</item>
+                    <item name="disable" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">13</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Amp\Block\Page">
+        <arguments>
+            <argument name="driver" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Amp\Block\Cms\Widget\CategoryLink">
+        <arguments>
+            <argument name="entityResource" xsi:type="object">Magento\Catalog\Model\ResourceModel\Category</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Amp\Block\Cms\Widget\ProductLink">
+        <arguments>
+            <argument name="entityResource" xsi:type="object">Magento\Catalog\Model\ResourceModel\Product</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Amp\Block\Page\Html\Header\Switcher">
+        <arguments>
+            <argument name="encoder" xsi:type="object">Magento\Framework\Url\EncoderInterface</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\Template">
+        <plugin name="Amasty_Amp::remove_all_wrong_content" type="Amasty\Amp\Plugin\Framework\View\Element\TemplatePlugin" />
+    </type>
+
+    <type name="Amasty\Amp\Block\Page\Html\Header\Topmenu">
+        <plugin name="Amasty_Amp::CatalogTopmenu" type="Amasty\Amp\Plugin\Catalog\Block\TopmenuPlugin" />
+    </type>
+
+    <type name="Amasty\AdvancedReview\Plugin\Review\Block\Form">
+        <plugin name="Amasty_Amp::ReviewForm" type="Amasty\Amp\Plugin\AdvancedReview\Plugin\Review\Block\FormPlugin" />
+    </type>
+
+    <type name="Amasty\AdvancedReview\Plugin\Review\Model\Review">
+        <plugin name="Amasty_Amp::ReviewForm" type="Amasty\Amp\Plugin\AdvancedReview\Plugin\Review\Model\ReviewPlugin" />
+    </type>
+
+    <type name="Magento\Catalog\Block\Product\Image">
+        <plugin name="Amasty_Amp::CatalogProductImage" type="Amasty\Amp\Plugin\Catalog\Block\Product\ImagePlugin" />
+    </type>
+
+    <type name="Magento\Catalog\Helper\Output">
+        <plugin name="Amasty_Amp::ValidateDescription" type="Amasty\Amp\Plugin\Catalog\Helper\OutputPlugin" />
+    </type>
+
+    <type name="Magento\Newsletter\Controller\Subscriber\NewAction">
+        <plugin name="Amasty_Amp::subscribe" type="Amasty\Amp\Plugin\Newsletter\Subscriber\NewActionPlugin" />
+    </type>
+
+    <type name="Magento\Review\Controller\Product\Post">
+        <plugin name="Amasty_Amp::add_comment" type="Amasty\Amp\Plugin\Review\Controller\Product\PostPlugin" />
+    </type>
+
+    <type name="Magento\Framework\View\Page\Config">
+        <plugin name="Amasty_Amp::disable_custom_layout" type="Amasty\Amp\Plugin\Framework\View\Page\ConfigPlugin" />
+    </type>
+
+    <type name="Magento\Config\Model\Config\Backend\Image">
+        <plugin name="Amasty_Amp::image_fix" type="Amasty\Amp\Plugin\Config\Model\Config\Backend\ImagePlugin" />
+    </type>
+
+    <type name="Magento\Checkout\Controller\Cart\Add">
+        <plugin name="Amasty_Amp::add_to_cart" type="Amasty\Amp\Plugin\Checkout\Controller\Cart\AddPlugin" />
+    </type>
+
+    <type name="Magento\Wishlist\Controller\Index\Add">
+        <plugin name="Amasty_Amp::add_to_wishlist" type="Amasty\Amp\Plugin\Wishlist\Controller\Index\AddPlugin" />
+    </type>
+
+    <type name="Magento\Wishlist\Controller\Index\Plugin">
+        <plugin name="Amasty_Amp::authentication" type="Amasty\Amp\Plugin\Wishlist\Controller\Index\IndexPlugin" />
+    </type>
+
+    <type name="Magento\Catalog\Controller\Category\View">
+        <plugin name="Amasty_Amp::category_view" type="Amasty\Amp\Plugin\Catalog\Controller\Category\ViewPlugin" />
+    </type>
+
+    <type name="Magento\Catalog\Controller\Product\View">
+        <plugin name="Amasty_Amp::product_view" type="Amasty\Amp\Plugin\Catalog\Controller\Product\ViewPlugin" />
+    </type>
+
+    <type name="Magento\Cms\Controller\Page\View">
+        <plugin name="Amasty_Amp::cms_view" type="Amasty\Amp\Plugin\Cms\Controller\Page\ViewPlugin" />
+    </type>
+
+    <type name="Magento\Cms\Controller\Index\Index">
+        <plugin name="Amasty_Amp::home_page" type="Amasty\Amp\Plugin\Cms\Controller\Index\IndexPlugin" />
+    </type>
+
+    <type name="Magento\Swatches\Block\LayeredNavigation\RenderLayered">
+        <plugin name="Amasty_Amp::swatches" type="Amasty\Amp\Plugin\Swatches\Block\LayeredNavigation\RenderLayeredPlugin" />
+    </type>
+
+    <type name="Magento\Catalog\Model\Layer\Filter\Item">
+        <plugin name="Amasty_Amp::filter_url" type="Amasty\Amp\Plugin\Catalog\Model\Layer\Filter\ItemPlugin" />
+    </type>
+
+    <type name="Magento\Framework\Data\Form\FormKey\Validator">
+        <plugin name="Amasty_Amp::form_key_fix"
+                type="Amasty\Amp\Plugin\Framework\Data\Form\FormKey\ValidatorPlugin" />
+    </type>
+
+    <type name="Amasty\Shopby\Plugin\Ajax\ProductListWrapper">
+        <plugin name="Amasty_Amp::disable_wrapper" type="Amasty\Amp\Plugin\Shopby\Plugin\Ajax\ProductListWrapperPlugin" />
+    </type>
+
+    <type name="Magento\GiftCard\Pricing\Render\FinalPriceBox">
+        <plugin name="Amasty_Amp::price_cache_giftcart" type="Amasty\Amp\Plugin\Cache\CacheKeyPlugin" />
+    </type>
+
+    <type name="Magento\Framework\App\Http\Context">
+        <plugin name="Amasty_Amp::full_page_cache" type="Amasty\Amp\Plugin\Framework\App\Http\ContextPlugin"/>
+    </type>
+
+    <type name="Magento\PageCache\Observer\ProcessLayoutRenderElement">
+        <plugin name="Amasty_Amp::varnish_esi_cache" type="Amasty\Amp\Plugin\PageCache\Observer\ProcessLayoutRenderElementPlugin"/>
+    </type>
+
+    <type name="Magento\Theme\Controller\Result\JsFooterPlugin">
+        <plugin name="Amasty_Amp::skip_move_js" type="Amasty\Amp\Plugin\Theme\Controller\Result\JsFooterPlugin"/>
+    </type>
+
+    <type name="Amasty\PageSpeedOptimizer\Model\Output\LazyLoadProcessor">
+        <plugin name="Amasty_Amp::remove_lazy_scripts" type="Amasty\Amp\Plugin\PageSpeedOptimizer\Model\Output\LazyLoadProcessor"/>
+    </type>
+</config>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="amasty_amp_catalog_product_view"/>
+    <body>
+        <referenceContainer name="content.aside">
+            <block class="Amasty\Amp\Block\Product\Content\ProductList\Related" name="catalog.product.related"
+                   template="Amasty_Amp::product/content/items.phtml">
+                <arguments>
+                    <argument name="type" xsi:type="string">related-rule</argument>
+                </arguments>
+            </block>
+            <block class="Amasty\Amp\Block\Product\Content\ProductList\Upsell" name="product.info.upsell"
+                   template="Amasty_Amp::product/content/items.phtml">
+                <arguments>
+                    <argument name="type" xsi:type="string">upsell-rule</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,30 @@
+<?php
+/**
+    Amp notification for add to cart button
+ */
+?>
+
+<div submit-success>
+    <template type="amp-mustache">
+        {{#success}}
+        <p class="amamp-notification -success">
+                <span class="amamp-text">
+                    {{success}}
+                </span>
+            <a class="amamp-link" href="{{cart_url}}" aria-label="<?= $block->escapeHtml(__('Open shopping cart')) ?>">
+                <?= $block->escapeHtml(__('shopping cart')) ?>
+            </a>
+        </p>
+        {{/success}}
+        {{#notice}}
+        <p class="amamp-notification -notice">
+            {{notice}}
+        </p>
+        {{/notice}}
+        {{#error}}
+        <p class="amamp-notification -error">
+            {{error}}
+        </p>
+        {{/error}}
+    </template>
+</div>

@@ -1,0 +1,73 @@
+//
+//  Generated file by plugin npm 'iconfont'
+//  ____________________________________________
+
+//
+//  Variables
+//  --------------------------------------------
+<% _.each(glyphs, function(glyph) {%>
+@amamp-<%= cssClass %>-<%= glyph.fileName %>__content: '\<%= glyph.codePoint %>';<% }); %>
+
+//
+//  Fonts
+//  --------------------------------------------
+
+@font-face {
+    font-family: "<%= fontName %>";
+    src: url('{baseDir}<%= fontPath %><%= fontName %>.eot<%= cacheBusterQueryString %>'),
+         url('{baseDir}<%= fontPath %><%= fontName %>.woff2<%= cacheBusterQueryString %>') format('woff2'),
+         url('{baseDir}<%= fontPath %><%= fontName %>.woff<%= cacheBusterQueryString %>') format('woff'),
+         url('{baseDir}<%= fontPath %><%= fontName %>.ttf<%= cacheBusterQueryString %>') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//
+//  Common
+//  --------------------------------------------
+
+._am-icon-block {
+    & {
+        outline: none;
+    }
+
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+
+    &:hover:after,
+    &:hover:before {
+        color: @amamp__color__active;
+    }
+}
+
+._am-icon {
+    .transition;
+    .am-flex(center, center);
+
+    outline: none;
+    text-decoration: none;
+    text-transform: none;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-family: 'amp-icon', sans-serif;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+<% _.each(glyphs, function(glyph) { %>
+.am-<%= cssClass %>-<%= glyph.fileName %> {
+    & {
+        ._am-icon-block;
+    }
+
+    &:after {
+        ._am-icon;
+
+        content: @amamp-<%= cssClass %>-<%= glyph.fileName %>__content;
+    }
+}
+<% }); %>

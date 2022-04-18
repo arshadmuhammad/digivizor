@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="page-with-filter"/>
+        <referenceContainer name="sidebar.main">
+            <block class="Magento\LayeredNavigation\Block\Navigation\Category"
+                   name="catalog.leftnav" before="-" template="Amasty_Amp::category/layer/view.phtml">
+                <block class="Amasty\Amp\Block\Category\Navigation\FilterRenderer"
+                       name="catalog.navigation.renderer" as="renderer"
+                       template="Amasty_Amp::category/layer/filter.phtml"/>
+                <block class="Amasty\Amp\Block\Category\Navigation\State"
+                       name="catalog.navigation.state" as="state">
+                    <arguments>
+                        <argument name="urlConfig" xsi:type="object">Amasty\Amp\Model\UrlConfigProvider</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="category.products.list">
+            <block class="Amasty\Amp\Block\Category\Navigation\Filter\Button" name="amp_filter_button_list"/>
+        </referenceBlock>
+    </body>
+</page>

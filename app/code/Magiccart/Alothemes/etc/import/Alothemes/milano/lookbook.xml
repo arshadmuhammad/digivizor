@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <lookbook>
+    <item>
+      <title><![CDATA[Lookbok]]></title>
+      <identifier><![CDATA[lookbok]]></identifier>
+      <type_id><![CDATA[1]]></type_id>
+      <link><![CDATA[#]]></link>
+      <image><![CDATA[magiccart/lookbook/s/l/slider1_03.jpg]]></image>
+      <options><![CDATA[{"magic_pin":{"0":{"content":"Cras sem sapien(#59)","undefined":"Save pin","product_id":"59","coords":{"lat":"1135.75","long":"386.65"}},"1":{"content":"Wave Ripped Straight(#3)","undefined":"Save pin","product_id":"3","coords":{"lat":"1206.75","long":"675.65"}},"2":{"content":"Primo Court Mid Suede(#1)","undefined":"Save pin","product_id":"1","coords":{"lat":"379.75","long":"313"}},"3":{"content":"The Net Bag in Navy(#2)","undefined":"Save pin","product_id":"2","coords":{"lat":"660.75","long":"480.65"}},"4":{"content":"Fusce nec facilisi(#61)","undefined":"Save pin","product_id":"61","coords":{"lat":"630.75","long":"723.65"}},"canvas":{"src":"https:\/\/m2.alothemes.com\/milano\/pub\/media\/magiccart\/lookbook\/s\/l\/slider1_03.jpg","width":1720,"height":975}}}]]></options>
+      <stores><![CDATA[0]]></stores>
+      <order><![CDATA[0]]></order>
+      <status><![CDATA[1]]></status>
+    </item>
+    <item>
+      <title><![CDATA[Lookbok 2]]></title>
+      <identifier><![CDATA[lookbok2]]></identifier>
+      <type_id><![CDATA[1]]></type_id>
+      <link><![CDATA[#]]></link>
+      <image><![CDATA[magiccart/lookbook/s/l/slider2_03.jpg]]></image>
+      <options><![CDATA[{"magic_pin":{"0":{"content":"Quisque neque(#60)","undefined":"Save pin","product_id":"60","coords":{"lat":"916.75","long":"533.65"}},"2":{"content":"Donec sem tellus(#7)","undefined":"Save pin","product_id":"7","coords":{"lat":"1163.75","long":"695"}},"canvas":{"src":"https:\/\/m2.alothemes.com\/milano\/pub\/media\/magiccart\/lookbook\/s\/l\/slider2_03.jpg","width":1720,"height":975}}}]]></options>
+      <stores><![CDATA[0]]></stores>
+      <order><![CDATA[0]]></order>
+      <status><![CDATA[1]]></status>
+    </item>
+  </lookbook>
+</root>

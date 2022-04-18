@@ -1,0 +1,225 @@
+//
+//  Component Filter
+//  ____________________________________________
+
+//
+//  imports
+//  --------------------------------------------
+
+@import '../_helpers';
+
+//
+//  Common
+//  --------------------------------------------
+
+.amamp-filter-button {
+    & {
+        &:extend(._clear-btn);
+        .am-flex(center, center);
+
+        padding: 13px @amamp__indent / 2;
+        max-width: 48%;
+        width: 100%;
+        background: @amamp__background;
+        text-align: center;
+        letter-spacing: .25px;
+        font-size: 14px;
+    }
+}
+
+.amamp-filter-button.-sort {
+    & {
+        .am-icon-chevron;
+
+        background: @amamp__background;
+    }
+
+    &:hover:after {
+        transform: rotate(0);
+    }
+
+    &:after {
+        margin: 0 0 0 -@amamp__indent;
+        font-size: 5px;
+        transform: rotate(180deg);
+        pointer-events: none;
+    }
+
+    .amamp-filter {
+        & {
+            &:extend(._clear-btn);
+
+            padding: 0 @amamp__indent__l;
+            max-width: 90%;
+            background: @amamp__background;
+            text-align: center;
+            text-align: -webkit-center;
+            text-align-last: center;
+            font-size: 14px;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        &::-ms-expand {
+            display: none;
+        }
+    }
+}
+
+.amamp-filter-button.-filter {
+    & {
+        .am-icon-filter;
+
+        line-height: 15px;
+    }
+
+    &:after {
+        margin: 0 0 0 @amamp__indent;
+        font-size: 11px;
+    }
+
+    &.-checked {
+        & {
+            .am-icon-check;
+        }
+
+        &:hover:after {
+            color: #fff;
+        }
+
+        &:after {
+            box-sizing: border-box;
+            margin-left: @amamp__indent / 2;
+            width: @amamp__indent__l;
+            height: @amamp__indent__l;
+            border: 1px solid;
+            border-radius: 50%;
+            background: @amamp__color__active;
+            color: #fff;
+            font-size: 5px;
+        }
+    }
+}
+
+.amamp-sidebar-block {
+    & {
+        .am-scrollbar();
+    }
+
+    .amamp-sidebar-legend {
+        .am-flex(space-between, center);
+
+        padding: @amamp__indent__xxl @amamp__indent__xxl @amamp__indent__xl;
+    }
+
+    > .amamp-text {
+        padding: @amamp__indent @amamp__indent__xxl;
+    }
+
+    .amamp-tabs-block {
+        padding: 0 @amamp__indent__xxl;
+    }
+
+    .amamp-button {
+        flex-grow: 1;
+    }
+
+    .amamp-button.-clear {
+        & {
+            margin: 0 @amamp__indent__l 0 0;
+            border: 1px solid @amamp-line__color;
+            background: transparent;
+            color: @amamp-line__color;
+        }
+
+        &:focus {
+            background: transparent;
+            color: @amamp-line__color;
+        }
+    }
+
+    .amamp-tab {
+        font-weight: normal;
+        font-size: 16px;
+    }
+
+    .amamp-tab .amamp-title {
+        margin: 0 0 @amamp__indent 0;
+        padding: 12px 18px;
+        border: none;
+        background: @amamp__background;
+    }
+}
+
+.amamp-filters-list {
+    & {
+        .am-flex(none, center, wrap);
+
+        padding: @amamp__indent / 2 18px @amamp__indent__l * 2;
+    }
+
+    .amamp-label {
+        margin: 0;
+    }
+
+    .amamp-radio {
+        margin: 0 @amamp__indent / 2 0 0;
+    }
+
+    .amamp-item {
+        & {
+            padding: 7px 0;
+        }
+
+        &:not(:last-child) {
+            margin: 0 0 @amamp__indent;
+        }
+    }
+
+    .amamp-count {
+        font-size: 14px;
+        opacity: .6;
+    }
+}
+
+.amamp-current-filters {
+    & {
+        .am-flex(none, center, wrap);
+
+        margin-bottom: @amamp__indent;
+        padding: 0 @amamp__indent__xxl;
+        font-size: 12px;
+    }
+
+    .amamp-item {
+        & {
+            .am-flex(center, center);
+
+            margin-bottom: @amamp__indent / 2;
+            padding: @amamp__indent / 2 @amamp__indent;
+            background: @amamp__background;
+            letter-spacing: .5px;
+        }
+
+        &:not(:last-child) {
+            margin-right: @amamp__indent / 2;
+        }
+    }
+
+    .amamp-close {
+        .am-icon-close;
+
+        padding: @amamp__indent / 2 @amamp__indent / 2 @amamp__indent / 2 7px;
+        color: @amamp-line__color;
+        text-decoration: none;
+        font-size: 8px;
+    }
+}
+
+.amamp-filter-toolbar {
+    .am-flex(space-between, stretch);
+
+    margin: 0 0 70px;
+    padding: @amamp__indent__l @amamp__indent__l * 2;
+    background: #fff;
+}

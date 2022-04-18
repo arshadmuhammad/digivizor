@@ -1,0 +1,28 @@
+<?php
+/** @var \Amasty\Amp\Block\Product\Content\Link $block */
+?>
+
+<form class="amamp-form"
+      action-xhr="<?= $block->escapeUrl($block->getWishlistUrl()) ?>"
+      method="post">
+    <input name="amp_page" type="hidden" value="1" />
+    <input name="product" type="hidden" value="<?= (int) $block->getProductId() ?>" />
+    <button class="amamp-wishlist _clear-btn"
+            type="submit"
+            aria-label="<?= $block->escapeHtml(__('Add to Wish List')) ?>">
+    </button>
+    <div submit-success>
+        <template type="amp-mustache">
+            {{#success}}
+            <p class="amamp-notification -success">
+                {{success}}
+            </p>
+            {{/success}}
+            {{#error}}
+            <p class="amamp-notification -error">
+                {{error}}
+            </p>
+            {{/error}}
+        </template>
+    </div>
+</form>

@@ -1,0 +1,12 @@
+<?php
+/** @var \Amasty\PageSpeedOptimizer\Block\Adminhtml\Settings\ProductionModeInfo $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<div class="amoptimizer-notice-container">
+    <?= $escaper->escapeHtml(
+        __(
+            'Please note that Magento Production mode should be set instead of Developer or '
+            . 'Default to get the best performance of the settings below.'
+        )
+    ); ?>
+</div>

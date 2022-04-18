@@ -1,0 +1,42 @@
+<?php
+/* @var $block \Magento\Catalog\Block\Product\AbstractProduct */
+
+$availableClass = '';
+$data = $block->getBlockData();
+?>
+
+<?php if ($data): ?>
+<div class="amamp-upsell-block amamp-products-widget list-view">
+    <strong id="block-<?= $block->escapeHtml($data['class']) ?>-heading" class="amamp-title">
+        <?= $block->escapeHtml($data['title']) ?>
+    </strong>
+    <ul class="amamp-product-list">
+        <?php foreach ($data['items'] as $item): ?>
+            <?php
+            $isSaleable = !$item->isComposite() && $item->isSaleable() && !$item->getRequiredOptions();
+            $availableClass = ($data['type'] == 'related' && $isSaleable) ? '-available' : '';
+            $priceHtml = $block->getProductPrice($item);
+            ?>
+
+            <li class="amamp-product-item <?= $block->escapeHtml($availableClass) ?>">
+                <a href="<?= $block->escapeUrl($block->getAmpProductUrl($item)) ?>">
+                    <?= /* @noEscape */ $block->getImage($item, $data['image'])->toHtml() ?>
+                </a>
+                <div class="amamp-details-block">
+                    <span class="amamp-name">
+                        <?= $block->escapeHtml($item->getName()) ?>
+                    </span>
+                    <div class="amamp-price-block">
+                        <?= /** @noEscape */ $priceHtml ?>
+                        <a class="amamp-button -small"
+                           title="<?= $block->escapeHtml($item->getName()) ?>"
+                           href="<?= $block->escapeUrl($block->getAmpProductUrl($item)) ?>">
+                            <?= $block->escapeHtml(__('See Details')) ?>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach ?>
+    </ul>
+</div>
+<?php endif;?>

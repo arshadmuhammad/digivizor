@@ -1,0 +1,15 @@
+<?php
+/* @var $block \Amasty\Amp\Block\Product\Content\View\Options\Type\Select */
+
+$option = $block->getOption();
+$class = ($option->getIsRequire()) ? 'required' : '';
+$optionType = $option->getType();
+?>
+
+<div class="amamp-options-block">
+    <label class="amamp-label <?= $block->escapeHtml($class) ?>"
+           for="amamp-select-<?= $block->escapeHtml($option->getId()) ?>">
+        <?= $block->escapeHtml($option->getTitle()) ?>
+    </label>
+    <?= $block->getValuesHtml() ?>
+</div>

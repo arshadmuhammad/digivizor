@@ -1,0 +1,30 @@
+<?php
+/** @var \Amasty\Amp\Block\Product\Snippets $block */
+?>
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Product",
+        "mainEntityOfPage": "http://cdn.ampproject.org/article-metadata.html",
+        "name": "<?= $block->escapeHtml($block->getTitle()); ?>",
+        "description": "<?= $block->escapeHtml($block->getMetaDescription()); ?>",
+        "sku": "<?= $block->escapeHtml($block->getSku()); ?>",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "bestRating": 100,
+            "ratingValue": "<?= $block->escapeHtml($block->getRatingValue()) ?>",
+            "reviewCount": "<?= $block->escapeHtml($block->getReviewCount()) ?>"
+        },
+        "image": {
+            "@type": "ImageObject",
+            "url": "<?= $block->escapeUrl($block->getLogoUrl()); ?>",
+            "height": 60,
+            "width": 600
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "<?= $block->escapeUrl($block->getPrice()); ?>",
+            "priceCurrency": "<?= $block->escapeUrl($block->getPriceCurrency()); ?>"
+        }
+    }
+</script>

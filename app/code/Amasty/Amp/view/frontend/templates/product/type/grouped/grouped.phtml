@@ -1,0 +1,66 @@
+<?php
+/*
+ *
+ * Grouped product data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\BaseImage
+ * @var $block \Magento\GroupedProduct\Block\Product\View\Type\Grouped
+ */
+
+$block->setPreconfiguredValue();
+$product = $block->getProduct();
+$associatedProducts = $block->getAssociatedProducts();
+$hasAssociatedProducts = count($associatedProducts) > 0;
+?>
+
+<ul class="amamp-grouped-list">
+    <?php if ($hasAssociatedProducts): ?>
+        <li class="amamp-item">
+            <b class="amamp-name">
+                <?= $block->escapeHtml(__('Product Name')) ?>
+            </b>
+            <b class="amamp-value">
+                <?= $block->escapeHtml(__('Qty')) ?>
+            </b>
+        </li>
+        <?php foreach ($associatedProducts as $item): ?>
+            <?php
+                $canShowPrice = $block->getCanShowProductPrice($product) && $block->getCanShowProductPrice($item);
+                $currentPriceHtml = $block->getProductPriceHtml($item, \Magento\Catalog\Pricing\Price\TierPrice::PRICE_CODE);
+            ?>
+            <li class="amamp-item">
+                <label class="amamp-name">
+                    <span class="amamp-title">
+                        <?= $block->escapeHtml($item->getName()) ?>
+                    </span>
+                    <?php if ($canShowPrice): ?>
+                        <?php $priceHtml = $block->getProductPrice($item) ?>
+                        <?= /* @noEscape */ $priceHtml ?>
+                    <?php endif; ?>
+                    <?php if ($product->isSaleable() && !$item->isSaleable()): ?>
+                        <span class="amamp-status" title="<?= $block->escapeHtml(__('Availability')) ?>">
+                            <?= $block->escapeHtml(__('Out of stock')) ?>
+                        </span>
+                    <?php endif; ?>
+                    <?php if ($canShowPrice && trim($currentPriceHtml)): ?>
+                        <?= /* @noEscape */ $currentPriceHtml ?>
+                    <?php endif; ?>
+                </label>
+                <?php if ($product->isSaleable() && $item->isSaleable()): ?>
+                    <input class="amamp-input amamp-value"
+                           type="number"
+                           min="0"
+                           name="super_group[<?= (int)$item->getId() ?>]"
+                           aria-label="<?= $block->escapeHtml(__('Qty')) ?>"
+                           value="<?= $block->escapeHtml($item->getQty() * 1) ?>"
+                    />
+                <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+    <?php endif; ?>
+    <?php if (!$hasAssociatedProducts): ?>
+        <strong class="amamp-title">
+            <?= $block->escapeHtml(__('No options of this product are available.')) ?>
+        </strong>
+    <?php endif; ?>
+</ul>

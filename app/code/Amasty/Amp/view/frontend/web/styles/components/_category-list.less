@@ -1,0 +1,82 @@
+//
+//  Component list of categories
+//  ____________________________________________
+
+//
+//  Common
+//  --------------------------------------------
+
+.amamp-category-list {
+    & {
+        .am-flex(center, none, wrap);
+
+        margin: 0 -@amamp__indent__xxl / 2 0;
+    }
+
+    .amamp-item {
+        .am-flex(center, stretch, wrap);
+
+        margin: @amamp__indent__l * 2 @amamp__indent__xxl / 2 0;
+        max-width: 150px;
+        width: 100%;
+    }
+
+    .amamp-product-details {
+        .am-flex(none, none, wrap);
+
+        align-content: space-between;
+    }
+
+    .amamp-unavailable {
+        .am-flex(none, center);
+
+        flex-basis: 100%;
+        margin: @amamp__indent__l 0 0 0;
+        height: @amamp__indent__l * 2;
+    }
+
+    .amamp-form {
+        .am-flex(none, none, wrap);
+    }
+
+    .amamp-link {
+        width: 100%;
+    }
+
+    .amamp-image img {
+        object-fit: contain;
+    }
+
+    .amamp-title {
+        flex-basis: 100%;
+        margin: 0;
+        padding: @amamp__indent__l 0 @amamp__indent / 2 0;
+        letter-spacing: .25px;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .amamp-options-block {
+        flex-basis: 100%;
+    }
+
+    .amamp-button {
+        align-self: flex-end;
+        margin: @amamp__indent__l 0 0 0;
+        width: 100%;
+    }
+
+    .amamp-reviews-block {
+        flex-basis: 100%;
+        padding: 0 0 @amamp__indent / 2;
+    }
+
+    // Magento block styling
+    .price-box {
+        flex-basis: 100%;
+        margin: auto 0 0 0;
+        padding: @amamp__indent__xxl 0 0 0;
+    }
+    // end Magento block styling
+}

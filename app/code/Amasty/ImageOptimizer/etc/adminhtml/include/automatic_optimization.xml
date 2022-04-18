@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="opti" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+        <label>Automatic Optimization of the Newly Uploaded Images</label>
+
+        <field id="optimize_automatically" translate="label" type="select" sortOrder="40" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Automatically Optimize Newly Uploaded Images in Catalog and Wysiwyg folders</label>
+            <depends>
+                <field id="optimize_images">1</field>
+            </depends>
+            <source_model>Amasty\ImageOptimizer\Model\OptionSource\YesRecommended</source_model>
+            <config_path>amoptimizer/images/optimize_automatically</config_path>
+            <tooltip><![CDATA[When you install the extension, you have to optimize all previously uploaded images. It can be done from the Content>Image Optimizer>Image Folder Optimization Settings page.<br /><br />But if you upload new images after the optimization (e.g. a new product has been created), use this option to optimize the newly uploaded images on the fly before saving it.<br /><br />Please, make sure that the optimization settings for newly uploaded images and settings for WYSIWYG and Catalog folders on the ‘Content>Image Optimizer>Image Folder Optimization Settings’ page are the same.]]></tooltip>
+            <comment>All images uploaded to the catalog or Wysiwyg folder will be optimized automatically</comment>
+        </field>
+        <field id="jpeg_tool" translate="label" type="select" sortOrder="50" showInDefault="1"
+               showInWebsite="0" showInStore="0">
+            <label>JPEG Optimization Tool</label>
+            <depends>
+                <field id="optimize_images">1</field>
+                <field id="optimize_automatically">1</field>
+            </depends>
+            <source_model>Amasty\ImageOptimizer\Model\Command\JpegCommandProvider</source_model>
+            <config_path>amoptimizer/images/jpeg_tool</config_path>
+        </field>
+        <field id="jpeg_optimisation_example" sortOrder="55" showInDefault="1" showInWebsite="0" showInStore="0">
+            <frontend_model>Amasty\ImageOptimizer\Block\Adminhtml\Settings\JpegOptimizationExample</frontend_model>
+            <depends>
+                <field id="optimize_automatically">1</field>
+                <field id="jpeg_tool" separator=",">jpegoptim100,jpegoptim90,jpegoptim80</field>
+            </depends>
+        </field>
+        <field id="png_tool" translate="label" type="select" sortOrder="60" showInDefault="1"
+               showInWebsite="0" showInStore="0">
+            <label>PNG Optimization Tool</label>
+            <depends>
+                <field id="optimize_images">1</field>
+                <field id="optimize_automatically">1</field>
+            </depends>
+            <source_model>Amasty\ImageOptimizer\Model\Command\PngCommandProvider</source_model>
+            <config_path>amoptimizer/images/png_tool</config_path>
+        </field>
+        <field id="gif_tool" translate="label" type="select" sortOrder="70" showInDefault="1"
+               showInWebsite="0" showInStore="0">
+            <label>GIF Optimization Tool</label>
+            <depends>
+                <field id="optimize_images">1</field>
+                <field id="optimize_automatically">1</field>
+            </depends>
+            <source_model>Amasty\ImageOptimizer\Model\Command\GifCommandProvider</source_model>
+            <config_path>amoptimizer/images/gif_tool</config_path>
+        </field>
+        <field id="webp" translate="label" type="select" sortOrder="75" showInDefault="1"
+               showInWebsite="0" showInStore="0">
+            <label>Create Webp Copy</label>
+            <depends>
+                <field id="optimize_images">1</field>
+                <field id="optimize_automatically">1</field>
+            </depends>
+            <source_model>Amasty\ImageOptimizer\Model\Command\WebpCommandProvider</source_model>
+            <config_path>amoptimizer/images/webp</config_path>
+            <comment>When WebP format is used the extension will create a copy for every image in the WebP format. Please make sure that you have enough disc space on your server.</comment>
+            <tooltip><![CDATA[WebP is a modern image format that provides superior lossless and lossy compression for images on the web. Using WebP, webmasters and web developers can create smaller, richer images that make the web faster.<br><br> WebP lossless images are 26% smaller in size compared to PNGs. WebP lossy images are 25-34% smaller than comparable JPEG images at equivalent SSIM quality index.]]></tooltip>
+        </field>
+        <field id="resolutions" translate="label" type="multiselect" sortOrder="78" showInDefault="1"
+               showInWebsite="0" showInStore="0">
+            <label>Create Images in Smaller Resolutions</label>
+            <frontend_class>amoptimizer-select</frontend_class>
+            <can_be_empty>1</can_be_empty>
+            <depends>
+                <field id="optimize_images">1</field>
+                <field id="optimize_automatically">1</field>
+            </depends>
+            <source_model>Amasty\PageSpeedTools\Model\OptionSource\Resolutions</source_model>
+            <config_path>amoptimizer/images/resolutions</config_path>
+            <comment>The extension will create a copy of every image in suitable for mobile or tablet size. Please make sure that you have enough disc space on your server.</comment>
+            <tooltip>When a user uses a mobile or tablet device it's no worth to load a high-resolution image on a small display. Using the feature an image with appropriate size will be uploaded, making the upload process faster and positively impacting the Google rank for mobile.</tooltip>
+        </field>
+        <field id="resize_algorithm" translate="label" type="select" sortOrder="79" showInDefault="1"
+               showInWebsite="0" showInStore="0">
+            <label>Resize Algorithm</label>
+            <can_be_empty>1</can_be_empty>
+            <depends>
+                <field id="optimize_images">1</field>
+                <field id="resolutions" separator=",">1,2</field>
+                <field id="optimize_automatically">1</field>
+            </depends>
+            <source_model>Amasty\ImageOptimizer\Model\OptionSource\ResizeAlgorithm</source_model>
+            <config_path>amoptimizer/images/resize_algorithm</config_path>
+            <tooltip><![CDATA[Resize - the image will be resized proportionally to the original size. Simply it will be the same picture, but smaller in pixels.<br>Crop - when cropping a photo, you cut the part of an image changing its width. While the height of the image would be the same. In the result the cropped image will look like the part of the original picture]]></tooltip>
+        </field>
+        <field id="dump_original" translate="label" type="select" sortOrder="80" showInDefault="1"
+               showInWebsite="0" showInStore="0">
+            <label>Dump Original Images</label>
+            <depends>
+                <field id="optimize_images">1</field>
+                <field id="optimize_automatically">1</field>
+            </depends>
+            <source_model>Amasty\ImageOptimizer\Model\OptionSource\YesRecommended</source_model>
+            <config_path>amoptimizer/images/dump_original</config_path>
+            <comment>Original images will be stored in the ‘pub/media/amasty/amoptimizer_dump’ folder</comment>
+        </field>
+    </group>
+</include>

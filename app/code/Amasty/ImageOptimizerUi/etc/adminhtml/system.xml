@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amimageoptimizer" translate="label" type="text" sortOrder="90116" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>Image Optimizer</label>
+            <tab>amasty</tab>
+            <resource>Amasty_ImageOptimizer::config</resource>
+            <group id="images_general_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Settings</label>
+                <attribute type="expanded">1</attribute>
+                <field id="multiprocess_enabled" translate="label tooltip" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Enable Multi-Process Generation</label>
+                    <config_path>amoptimizer/images/multiprocess_enabled</config_path>
+                    <tooltip><![CDATA[Multi-Process Optimization significantly boosts the image optimization speed. But it generates extra load to the server as well. We recommend first to run the test image optimization process with the 'multi-process' ON and monitor your server performance.
+                        <br/><br/>
+                        The 'Multi-Process Generation' feature needs the php extension 'pcntl' to be installed on the server. If you enable the feature and no performance boost happens, plase ask your hoster/system administrator to check if the 'pcntl' extension installed.]]></tooltip>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="process_count" translate="label tooltip" type="text" sortOrder="50" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Number of Parallels Processes</label>
+                    <tooltip>The more parallel processes are set, the faster is the image optimization process, as well as the higher is the server load</tooltip>
+                    <validate>validate-greater-than-zero</validate>
+                    <config_path>amoptimizer/images/process_count</config_path>
+                    <depends>
+                        <field id="multiprocess_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="process_images_per_request" translate="label" type="text" sortOrder="86" showInDefault="1"
+                       showInStore="0" showInWebsite="0">
+                    <label>Process Images per Request</label>
+                    <config_path>amoptimizer/images/process_images_per_request</config_path>
+                    <tooltip><![CDATA[The more images are processed per request, the faster the optimization process is. But keep in mind that your server load is higher as well.]]></tooltip>
+                </field>
+                <field id="optimize_enabled_products" translate="label" type="select" sortOrder="100" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Optimize Images for Enabled Products Only</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>amoptimizer/images/optimize_enabled_products</config_path>
+                </field>
+            </group>
+
+            <group id="images_user_agent" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>User Agent</label>
+
+                <field id="replace_images_using_user_agent" translate="label" type="select" sortOrder="13" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Use User Agent for Loading Images</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>amoptimizer/images/replace_images_using_user_agent</config_path>
+                    <tooltip><![CDATA[Using user Agent allows to apply such features as WebP+Resize together with the Lazy Load feature for the same image as well as to set the number of preloaded images separately for desktop and mobile views.<br /><br />There could be a situation, when User Agent doesn’t work properly for some reasons and should be switched OFF. In this case only preloaded images can be served with WebP+Resize features while Lazy Load is enabled. And if Lazy Load feature is disabled all images can be served with WebP+Resize features.]]></tooltip>
+                </field>
+                <field id="replace_images_using_user_agent_ignore_list" translate="label" type="textarea" sortOrder="14" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Ignore Images that Contain</label>
+                    <depends>
+                        <field id="replace_images_using_user_agent">1</field>
+                    </depends>
+                    <config_path>amoptimizer/images/replace_images_using_user_agent_ignore_list</config_path>
+                    <comment><![CDATA[Example: &lt;img class="testImage <b>lazyOwl</b>" src="http://site.com/1.png"/&gt; OR &lt;img src="http://site.com/<b>lazyOwl</b>.png"/&gt; will be excluded.]]></comment>
+                </field>
+            </group>
+
+            <group id="replace_images" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Replace Images</label>
+
+                <field id="replace_with_webp" translate="label" type="select" sortOrder="15" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Replace With WebP and Image Resolutions</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>amoptimizer/replace_images_general/webp_resolutions</config_path>
+                </field>
+                <field id="replace_with_webp_ignore" translate="label" type="textarea" sortOrder="16" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Ignore Images that Contain</label>
+                    <depends>
+                        <field id="replace_with_webp">1</field>
+                    </depends>
+                    <config_path>amoptimizer/replace_images_general/webp_resolutions_ignore</config_path>
+                </field>
+
+                <include path="Amasty_ImageOptimizerUi::include/advanced/home_page.xml"/>
+                <include path="Amasty_ImageOptimizerUi::include/advanced/categories.xml"/>
+                <include path="Amasty_ImageOptimizerUi::include/advanced/products.xml"/>
+                <include path="Amasty_ImageOptimizerUi::include/advanced/cms_page.xml"/>
+            </group>
+
+            <include path="Amasty_ImageOptimizer::include/automatic_optimization.xml"/>
+            <include path="Amasty_ImageOptimizer::include/clear_folders.xml"/>
+        </section>
+    </system>
+</config>

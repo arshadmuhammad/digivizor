@@ -1,0 +1,68 @@
+<?php
+/** @var \Amasty\PageSpeedOptimizer\Block\Adminhtml\Settings\Diagnostic $block
+ * @var $escaper Magento\Framework\Escaper
+ */
+?>
+<div class="amoptimizer-diagnostic-container" data-amoptimizer-js="container">
+    <div class="amoptimizer-checkbox-block">
+        <label for="amoptimizer-homepage" class="amoptimizer-label">
+            <?= $escaper->escapeHtml(__('Homepage')) ?>
+        </label>
+        <input type="checkbox" id="amoptimizer-homepage" class="amoptimizer-checkbox" />
+        <label for="amoptimizer-catalog" class="amoptimizer-label">
+            <?= $escaper->escapeHtml(__('Category Page')) ?>
+        </label>
+        <input type="checkbox" id="amoptimizer-catalog" class="amoptimizer-checkbox" />
+        <label for="amoptimizer-product" class="amoptimizer-label">
+            <?= $escaper->escapeHtml(__('Product Page')) ?>
+        </label>
+        <input type="checkbox" id="amoptimizer-product" class="amoptimizer-checkbox" />
+    </div>
+    <h2 class="amoptimizer-title"><?= $escaper->escapeHtml(__("Diagnose your website's speed")) ?></h2>
+    <input class="amoptimizer-button"
+           value="<?= $escaper->escapeHtml(__('Start Diagnostics')) ?>"
+           type="button"
+           data-amoptimizer-js="diagnostic" />
+    <a href="<?= $escaper->escapeUrl($block->getCustomOptimizationUrl()) ?>"
+       class="amoptimizer-request-optimization"
+       target="_blank">
+        <?= $escaper->escapeHtml(__('Request custom optimization')) ?>
+    </a>
+</div>
+<div class="amoptimizer-diagnostic-block">
+        <!-- ko scope: 'diagnostic' -->
+            <!-- ko if: isActive -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        <!-- /ko -->
+        <!-- ko scope: 'after' -->
+            <!-- ko if: isActive -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        <!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "diagnostic": {
+                            "component": "Amasty_PageSpeedOptimizer/js/diagnostic",
+                            "template": "Amasty_PageSpeedOptimizer/diagnostic",
+                            "baseUrl": "<?= $escaper->escapeHtml($block->getFrontendUrl()) ?>",
+                            "locale": "<?= $escaper->escapeHtml($block->getLocale()) ?>",
+                            "loadUrl": "<?= $escaper->escapeUrl($block->getUrl("amoptimizer/diagnosticResult/load")) ?>",
+                            "saveUrl": "<?= $escaper->escapeUrl($block->getUrl("amoptimizer/diagnosticResult/save")) ?>",
+                            "imageFolderOptimization": "<?= $escaper->escapeUrl($block->getUrl("amimageoptimizer/image/index")) ?>"
+                        },
+                        "after": {
+                            "component": "Amasty_PageSpeedOptimizer/js/render-after",
+                            "template": "Amasty_PageSpeedOptimizer/diagnostic",
+                            "imageFolderOptimization": "<?= $escaper->escapeUrl($block->getUrl("amimageoptimizer/image/index")) ?>"
+                        }
+                    }
+                }
+            }
+        }
+</script>

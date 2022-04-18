@@ -1,0 +1,83 @@
+//
+//  Inputs Styles
+//  ____________________________________________
+
+//
+//  Common
+//  --------------------------------------------
+
+.amamp-label {
+    & {
+        margin: 0 0 @amamp__indent / 2 0;
+    }
+
+    &.required:after {
+        margin: 0 0 0 @amamp__indent / 2;
+        color: #f00;
+        content: '*';
+    }
+}
+
+.amamp-input,
+.amamp-textarea,
+.amamp-select-block {
+    & {
+        box-sizing: border-box;
+        width: 100%;
+        outline: none;
+        border: 1px solid @amamp-border__color;
+        border-radius: 1px;
+        background: #fff;
+        letter-spacing: .25px;
+        font-size: 14px;
+        -webkit-appearance: none;
+    }
+
+    ::placeholder {
+        color: #cfccc3;
+    }
+
+    &:focus {
+        border-color: @amamp__color__active;
+    }
+}
+
+.amamp-input,
+.amamp-select-block {
+    padding: @amamp__indent / 2 @amamp__indent;
+}
+
+.amamp-textarea {
+    padding: @amamp__indent;
+}
+
+.amamp-select-block {
+    .amamp-select-option {
+        padding: @amamp__indent / 2 0;
+    }
+
+    .amamp-select-option:checked {
+        background: #e8f4ff;
+    }
+
+    &.-multiple .amamp-select-option:checked {
+        box-shadow: inset 0 0 @amamp__indent__xl @amamp__indent__xl #e8f4ff;
+    }
+}
+
+.amamp-field {
+    & {
+        .am-flex(none, none, wrap);
+
+        margin: @amamp__indent__xxl 0 0;
+    }
+
+    .amamp-label {
+        flex-basis: 100%;
+    }
+
+    .amamp-input,
+    .amamp-textarea {
+        flex-basis: 100%;
+    }
+}

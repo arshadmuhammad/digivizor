@@ -1,0 +1,326 @@
+//
+//  Component Header
+//  ____________________________________________
+
+//
+//  Variables
+//  --------------------------------------------
+
+@amamp-border__color: #eaeaea;
+
+//
+//  Common
+//  --------------------------------------------
+
+.amamp-header-container {
+    & {
+        .am-flex(space-between, center);
+
+        padding: @amamp__indent / 2 @amamp__indent @amamp__indent / 2 @amamp__indent__xl;
+        background: @amamp__background;
+    }
+
+    &.-logo-left .amamp-logo {
+        margin: 0 auto 0 0;
+    }
+
+    &.-logo-right .amamp-logo {
+        margin: 0 0 0 auto;
+    }
+
+    .amamp-logo {
+        .am-flex();
+
+        padding: 0 @amamp__indent;
+    }
+}
+
+.amamp-header-container .amamp-form {
+    & {
+        .am-flex(none, center);
+    }
+
+    > .amamp-search-btn {
+        padding: @amamp__indent;
+    }
+}
+
+.amamp-minibar-block {
+    & {
+        .am-flex(none, center);
+    }
+
+    .amamp-input {
+        padding: 6px 60px 6px 6px;
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+.amamp-search-block {
+    & {
+        .am-flex(none, center);
+
+        position: absolute;
+        top: @amamp__indent__l;
+        right: 0;
+        left: 0;
+        z-index: 999;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 0 20px;
+        width: 100%;
+    }
+
+    .amamp-button.-reset {
+        .am-flex();
+
+        position: absolute;
+        right: 64px;
+    }
+
+    .amamp-search-btn {
+        position: absolute;
+        right: @amamp__indent__l * 2;
+        padding: @amamp__indent / 2;
+    }
+}
+
+.amamp-minicart-link {
+    & {
+        .am-icon-cart;
+
+        position: relative;
+        padding: @amamp__indent;
+        color: @amamp-line__color;
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+    &.-full:before {
+        display: block;
+    }
+
+    &:before {
+        position: absolute;
+        top: @amamp__indent / 2;
+        right: @amamp__indent / 2;
+        display: none;
+        width: @amamp__indent;
+        height: @amamp__indent;
+        border-radius: 50%;
+        background: #e54d02;
+        content: '';
+    }
+}
+
+.amamp-hamburger-block {
+    & {
+        ._clear-btn;
+
+        position: relative;
+        width: @amamp__indent * 2;
+        height: 12px;
+        cursor: pointer;
+    }
+
+    &:after,
+    &:before {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: @amamp-line__color;
+        content: '';
+    }
+
+    .amamp-line {
+        display: block;
+        margin: 3px 0;
+        width: 100%;
+        height: 2px;
+        background: @amamp-line__color;
+    }
+}
+
+.amamp-navigation > .amamp-category-item:not(:last-child) {
+    border-bottom: 1px solid @amamp-border__color;
+}
+
+.amamp-menu-sidebar {
+    & {
+        .am-scrollbar(@amamp__background);
+
+        padding: @amamp__indent 0 0 0;
+        border: none;
+        background: @amamp__background;
+        color: #000;
+        font-size: 16px;
+    }
+
+    // Magento links styling
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+    // end Magento links styling
+
+    &:not(:last-child) {
+        border-bottom: 1px solid @amamp-border__color;
+    }
+
+    .amamp-close-icon {
+        padding: @amamp__indent @amamp__indent__xl;
+    }
+
+    .amamp-category-item {
+        padding: @amamp__indent__l 0;
+    }
+
+    .amamp-category-item .amamp-category-item.-parent > .amamp-title {
+        font-weight: bold;
+    }
+
+    .amamp-category-item.-parent[expanded] {
+        padding: @amamp__indent__l 0 0;
+    }
+
+    .amamp-list {
+        padding: 0 0 0 @amamp__indent;
+    }
+
+    .amamp-category-item.-parent > .amamp-title {
+        & {
+            .am-icon-chevron;
+
+            width: 100%;
+            text-align: left;
+        }
+
+        &:after {
+            .am-flex(center, center);
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 7px;
+            transform: rotate(180deg);
+        }
+
+        &[aria-expanded='true'] {
+            & {
+                padding: 0 0 @amamp__indent / 2;
+            }
+
+            &:after {
+                transform: rotate(0deg);
+            }
+        }
+    }
+
+    .nested-accordion {
+        padding: 0 0 0 @amamp__indent;
+    }
+
+    .amamp-accordion-sections {
+        padding: @amamp__indent__l 0;
+    }
+
+    .amamp-title {
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+    }
+
+    .amamp-text {
+        display: block;
+        width: 95%;
+        word-break: break-all;
+        word-break: break-word;
+    }
+
+    .amamp-welcome-msg {
+        padding: @amamp__indent__l 0;
+        font-size: 14px;
+    }
+
+    // Magento links override
+    .amamp-item li {
+        & {
+            padding: @amamp__indent__l 0;
+        }
+
+        &:not(:last-child) {
+            border-bottom: 1px solid @amamp-border__color;
+        }
+    }
+    // end Magento links override
+}
+
+.amamp-menu-sidebar .amamp-tabs-block {
+    & {
+        .am-flex();
+
+        padding: @amamp__indent / 2 @amamp__indent__xl 0 @amamp__indent__xl;
+        background: @amamp__background;
+    }
+
+    .amamp-tabs {
+        & {
+            padding: @amamp__indent @amamp__indent / 2;
+        }
+
+        &:not(:last-child) {
+            margin-right: @amamp__indent__xl;
+        }
+    }
+
+    .amamp-tabs[option][selected] {
+        outline: none;
+        border-bottom: 2px solid @amamp__color__active;
+        font-weight: bold;
+    }
+}
+
+.amamp-menu-sidebar .amamp-content-block {
+    & {
+        padding: @amamp__indent__xl @amamp__indent__xl @amamp__indent__xl * 2;
+        min-height: calc(~"100% - 78px");
+        height: auto;
+        background-color: #fff;
+    }
+
+    .amamp-title {
+        border: 0;
+        background: transparent;
+        color: initial;
+        font: inherit;
+    }
+}
+
+.amamp-wishlist {
+    & {
+        .am-flex(center, center);
+        .am-icon-wishlist;
+
+        box-sizing: border-box;
+        margin: @amamp__indent__l 0 @amamp__indent auto;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: @amamp__background;
+        color: @amamp-line__color;
+        text-decoration: none;
+        font-size: 13px;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: @amamp__color__active;
+    }
+}
+
+.amamp-stores-settings > .amamp-category-item:not(:last-child) {
+    border-bottom: 1px solid @amamp-border__color;
+}

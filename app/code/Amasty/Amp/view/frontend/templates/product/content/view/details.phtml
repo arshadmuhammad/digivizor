@@ -1,0 +1,24 @@
+<?php /** @var \Magento\Catalog\Block\Product\View\Details $block */ ?>
+
+<?php if ($detailedInfoGroup = $block->getGroupSortedChildNames('detailed_info', 'getChildHtml')): ?>
+    <?php $layout = $block->getLayout(); ?>
+    <amp-accordion id="amamp-accordion-block"
+                   class="amamp-accordion-block"
+                   disable-session-states>
+        <?php foreach ($detailedInfoGroup as $group):?>
+            <?php
+                $alias = $layout->getElementAlias($group['name']);
+                $labelHtml = $block->getChildData($alias, 'title');
+            ?>
+            <section id="amamp-tab-<?= $block->escapeHtml($alias) ?>"
+                     class="amamp-data-section <?= $block->escapeHtml('-' . $alias) ?>">
+                <h4 class="amamp-title">
+                    <?= /* @noEscape */ $labelHtml ?>
+                </h4>
+                <div class="amamp-content">
+                    <?= /* @noEscape */ $group['html'] ?>
+                </div>
+            </section>
+        <?php endforeach;?>
+    </amp-accordion>
+<?php endif; ?>

@@ -1,0 +1,24 @@
+//
+//  Amp Load More Component
+// --------------------------------------------
+
+amp-list-load-more.amamp-load-more.amp-visible[load-more-button] {
+    .am-flex(space-between, center);
+}
+
+.amamp-load-more {
+    & {
+        .am-flex(space-between, center);
+
+        padding: @amamp__indent__xl 0 0;
+    }
+
+    .amamp-button {
+        width: calc(~"50% - @{amamp__indent__xl}");
+        height: auto;
+    }
+
+    &.-end .amamp-button {
+        width: 100%;
+    }
+}

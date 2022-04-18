@@ -1,0 +1,69 @@
+//
+//  Component Notification
+//  ____________________________________________
+
+//
+//  Common
+//  --------------------------------------------
+
+.amamp-notification {
+    & {
+        position: relative;
+        margin: @amamp__indent__l 0 @amamp__indent;
+        padding: @amamp__indent / 2 @amamp__indent / 2 @amamp__indent / 2 @amamp__indent__l * 2;
+        background: #f3f3f3;
+        font-size: 12px;
+    }
+
+    &:after {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: @amamp__indent;
+        font-size: 10px;
+    }
+
+    &.-success {
+        & {
+            .am-icon-check;
+        }
+
+        &:after {
+            color: #15e1d5;
+        }
+    }
+
+    &.-notice {
+        & {
+            .am-icon-notice;
+        }
+
+        &:after {
+            color: #ff8d06;
+        }
+    }
+
+    &.-error {
+        & {
+            .am-icon-close;
+        }
+
+        &:after {
+            color: #fa1d52;
+        }
+    }
+
+    .amamp-text {
+        padding: 0 @amamp__indent / 2 0 0;
+    }
+}
+
+//
+//  Amp Notification Component Styles
+//  --------------------------------------------
+
+[submit-success],
+[submit-error] {
+    width: 100%;
+}

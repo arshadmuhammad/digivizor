@@ -1,0 +1,65 @@
+<?php
+/**
+ * Category filters template
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+
+$isFilterApplied = $block->getLayer()->getState()->getFilters();
+$navigateUrl = $block->getUrl('*/*/*', ['_current' => true, '_use_rewrite' =>true]);
+$navigateUrl = str_replace(['https:', 'http:'], '', $navigateUrl);
+?>
+
+<amp-sidebar id="amamp-filters-sidebar"
+             class="amamp-filters-sidebar amamp-sidebar-block"
+             layout="nodisplay"
+             side="left">
+    <p class="amamp-sidebar-legend">
+        <strong><?= $block->escapeHtml(__('Filters')) ?></strong>
+        <button class="amamp-close-icon"
+                role="button"
+                aria-label="<?= $block->escapeHtml(__('close sidebar')) ?>"
+                on="tap:amamp-filters-sidebar.toggle"
+                tabindex="0">
+        </button>
+    </p>
+    <?php if ($block->canShowBlock()): ?>
+        <form id="amamp-filter-form"
+              class="amamp-form"
+              action-xhr="<?= $block->escapeUrl($navigateUrl) ?>"
+              method="POST">
+            <input type="hidden" name="amp_page" value="1"/>
+            <?= $block->getChildHtml('state') ?>
+            <amp-accordion animate class="amamp-tabs-block">
+                <?php foreach ($block->getFilters() as $filter): ?>
+                    <?php if ($filter->getItemsCount()): ?>
+                        <section class="amamp-tab">
+                            <h4 class="amamp-title">
+                                <?= $block->escapeHtml(__($filter->getName())) ?>
+                            </h4>
+                            <?= /* @noEscape */ $block->getChildBlock('renderer')->render($filter) ?>
+                        </section>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </amp-accordion>
+            <div class="amamp-filter-toolbar">
+                <a class="amamp-button -clear -small"
+                   href="<?= $block->escapeUrl($block->getClearUrl()) ?>"
+                   aria-label="<?= $block->escapeHtml(__('Clear all filters')) ?>"
+                   [hidden]="!filter_clear_btn"
+                   <?= $block->escapeHtml($isFilterApplied  ? '' : 'hidden') ?>>
+                        <?= $block->escapeHtml(__('Clear')) ?>
+                </a>
+                <button class="amamp-button -apply -small -disabled"
+                        type="submit"
+                        aria-label="<?= $block->escapeHtml(__('Apply filters')) ?>"
+                        [class]="filter_apply_btn ? 'amamp-button -apply -small' : 'amamp-button -apply -small -disabled'">
+                    <?= $block->escapeHtml(__('Apply')) ?>
+                </button>
+            </div>
+        </form>
+    <?php else: ?>
+        <p class="amamp-text">
+            <?= $block->escapeHtml(__('There are no filter options to apply on this page.')) ?>
+        </p>
+    <?php endif; ?>
+</amp-sidebar>

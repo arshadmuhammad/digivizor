@@ -1,0 +1,25 @@
+<?php
+/**
+ * Amp custom notification
+ */
+?>
+
+<div id="amamp-custom-notice" class="amamp-notice-block" [hidden]="!notice" hidden>
+    <p class="amamp-notification -success" [hidden]="!success_message" hidden>
+        <span class="amamp-text" [text]="success_message"></span>
+        <a class="amamp-link"
+           [href]="cart_url"
+           [hidden]="!cart_url"
+           href="#"
+           aria-label="<?= $block->escapeHtml(__('Open shopping cart')) ?>"
+           hidden>
+            <?= $block->escapeHtml(__('shopping cart')) ?>
+        </a>
+    </p>
+    <p class="amamp-notification -notice" [hidden]="!notice_message" hidden>
+        <span class="amamp-text" [text]="notice_message"></span>
+    </p>
+    <p class="amamp-notification -error" [hidden]="!error_message" hidden>
+        <span class="amamp-text" [text]="error_message"></span>
+    </p>
+</div>

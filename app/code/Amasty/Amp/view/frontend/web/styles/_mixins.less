@@ -1,0 +1,123 @@
+//
+//  Mixins
+//  ____________________________________________
+
+.am-flex(
+    @horiz-pos: none,
+    @vert-pos: none,
+    @wrap: none,
+    @inline: none
+) {
+
+    & when (@inline = none) {
+        display: flex;
+    }
+
+    & when not (@inline = none) {
+        display: @inline;
+    }
+
+    & when not (@horiz-pos = none) {
+        justify-content: @horiz-pos;
+    }
+
+    & when not (@vert-pos = none) {
+        align-items: @vert-pos;
+    }
+
+    & when not (@wrap = none) {
+        flex-wrap: @wrap;
+    }
+}
+
+.transition(@del: .1, @style: none) {
+    & when (@style = none) {
+        transition: ~'@{del}s all ease-in';
+    }
+
+    & when not (@style = none) {
+        transition-duration: ~'@{del}s';
+        transition-property: @style;
+    }
+}
+
+.icon(@icon-url: none) {
+    .am-flex(center, center);
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: @icon-url;
+    content: '';
+}
+
+.am-scrollbar(
+    @color: rgba(0,0,0,.5),
+    @direction: y,
+    @width: 2px,
+    @shadow-color: #fff
+) {
+    & {
+        border-radius: @width;
+        overflow: hidden;
+        overflow-@{direction}: scroll;
+        scrollbar-color: @color rgba(255, 255, 255, .2);
+        scrollbar-width: thin;
+    }
+
+    &::-webkit-scrollbar {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: @width;
+        background: @color;
+        cursor: pointer;
+    }
+
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px @shadow-color;
+    }
+
+    & when not (@direction = x) {
+        &::-webkit-scrollbar {
+            width: @width;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            width: @width;
+        }
+
+        ::-webkit-scrollbar-track {
+            width: @width;
+        }
+    }
+
+    & when not (@direction = y) {
+        &::-webkit-scrollbar {
+            height: @width;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            height: @width;
+        }
+
+        ::-webkit-scrollbar-track {
+            height: @width;
+        }
+    }
+}
+
+.concat-content(@value, @count, @index: 0, @defaultValue: '') when (@index <= @count) {
+    & when (@index = 0) {
+        .concat-content(~'@{value} @{value}', @count, (@index + 1), @value);
+    }
+
+    & when (@index > 0) {
+        .concat-content(~'@{value} @{defaultValue}', @count, (@index + 1), @defaultValue);
+    }
+
+    & when (@count = (@index + 1)) {
+        content: ~'"@{value}"';
+    }
+}

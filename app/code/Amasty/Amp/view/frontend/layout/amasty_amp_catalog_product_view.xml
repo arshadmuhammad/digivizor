@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <block class="Magento\Framework\View\Element\FormKey" name="formkey"/>
+        <referenceBlock name="amp.page">
+            <block class="Amasty\Amp\Block\Page" name="amp.custom.styles"
+                   template="Amasty_Amp::product/custom_styles.phtml" />
+            <referenceBlock name="amp.head">
+                <block class="Amasty\Amp\Block\Product\Snippets" name="rich_snippets"
+                       template="Amasty_Amp::product/snippets.phtml"/>
+            </referenceBlock>
+            <referenceContainer name="content">
+                <block class="Amasty\Amp\Block\Product\Content\Link"
+                       ifconfig="wishlist/general/active"
+                       name="amp-multiple-wish-list-link" before="-"/>
+                <container name="product.info.media" htmlTag="div" htmlClass="amamp-carousel-container">
+                    <block class="Amasty\Amp\Block\Product\Content\View\Gallery" name="product.info.media.image"
+                           template="Amasty_Amp::product/content/view/gallery.phtml">
+                        <arguments>
+                            <argument name="imageHelper" xsi:type="object">Amasty\Amp\Helper\Catalog\Image</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <container name="product.info.main" htmlTag="div" htmlClass="amamp-product-info">
+                    <block class="Magento\Theme\Block\Html\Title"
+                           name="page.main.title"
+                           template="Magento_Theme::html/title.phtml"/>
+                    <container name="product.info.stock.sku"
+                               label="Product auxiliary info"
+                               htmlTag="div"
+                               htmlClass="amamp-info-stock">
+                        <container name="product.info.type" before="-"/>
+                        <block class="Amasty\Amp\Block\Product\Content\View\Description" name="product.info.sku"
+                               template="Amasty_Amp::product/content/view/attribute.phtml" after="product.info.type">
+                            <arguments>
+                                <argument name="outputHelper" xsi:type="object">Amasty\Amp\Helper\Catalog\Output</argument>
+                                <argument name="at_call" xsi:type="string">getSku</argument>
+                                <argument name="at_code" xsi:type="string">sku</argument>
+                                <argument name="css_class" xsi:type="string">amamp-sku</argument>
+                                <argument name="at_label" xsi:type="string">default</argument>
+                                <argument name="add_attribute" xsi:type="string">itemprop="sku"</argument>
+                            </arguments>
+                        </block>
+                    </container>
+                </container>
+                <block class="Amasty\Amp\Block\Product\Content\View" name="product.info.review"
+                       template="Magento_Catalog::product/view/review.phtml">
+                    <arguments>
+                        <argument name="reviewRenderer" xsi:type="object">
+                            Amasty\Amp\Block\Product\Content\View\ReviewRenderer
+                        </argument>
+                    </arguments>
+                </block>
+                <block class="Amasty\Amp\Block\Product\Content\View\Description"
+                       name="product.info.overview"
+                       template="Amasty_Amp::product/content/view/attribute.phtml"
+                       group="detailed_info">
+                    <arguments>
+                        <argument name="outputHelper" xsi:type="object">Amasty\Amp\Helper\Catalog\Output</argument>
+                        <argument name="at_call" xsi:type="string">getShortDescription</argument>
+                        <argument name="at_code" xsi:type="string">short_description</argument>
+                        <argument name="css_class" xsi:type="string">amamp-short-desc</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="title" translate="true" xsi:type="string">Overview</argument>
+                        <argument name="add_attribute" xsi:type="string">itemprop="description"</argument>
+                    </arguments>
+                </block>
+                <block class="Amasty\Amp\Block\Product\Content\View" name="product.info"
+                       template="Amasty_Amp::product/content/view/form.phtml">
+                    <block class="Magento\Framework\View\Element\Template"
+                           name="product.info.form.options"
+                           as="options_container">
+                        <block class="Magento\Catalog\Block\Product\View"
+                               name="product.info.options.wrapper"
+                               as="product_options_wrapper"
+                               template="Amasty_Amp::product/content/view/options/wrapper.phtml">
+                            <block class="Amasty\Amp\Block\Product\Content\View\Options"
+                                   name="product.info.options"
+                                   as="product_options"
+                                   template="Amasty_Amp::product/content/view/options.phtml">
+                                <block class="Magento\Catalog\Block\Product\View\Options\Type\DefaultType"
+                                       name="product.info.options.default"
+                                       as="default"
+                                       template="Amasty_Amp::product/content/view/options/type/default.phtml"/>
+                                <block class="Magento\Catalog\Block\Product\View\Options\Type\Text"
+                                       name="product.info.options.text"
+                                       as="text"
+                                       template="Amasty_Amp::product/content/view/options/type/text.phtml"/>
+                                <block class="Amasty\Amp\Block\Product\Content\View\Options\Type\Select"
+                                       name="product.info.options.select"
+                                       as="select"
+                                       template="Amasty_Amp::product/content/view/options/type/select.phtml">
+                                    <arguments>
+                                        <argument name="dropdown" xsi:type="object">Amasty\Amp\Block\Product\Content\View\Options\Type\Select\Dropdown</argument>
+                                        <argument name="multiple" xsi:type="object">Amasty\Amp\Block\Product\Content\View\Options\Type\Select\Multiple</argument>
+                                        <argument name="checkboxRadio" xsi:type="object">Amasty\Amp\Block\Product\Content\View\Options\Type\Select\CheckboxRadio</argument>
+                                    </arguments>
+                                </block>
+                            </block>
+                        </block>
+                    </block>
+                    <container name="product.info.form.content" as="product_info_form_content">
+                        <block class="Magento\Catalog\Block\Product\View"
+                               name="product.info.addtocart"
+                               as="addtocart" template="Amasty_Amp::product/content/view/addtocart.phtml">
+                            <container name="product.price.container" as="product.price.container">
+                                <block class="Magento\Catalog\Pricing\Render" name="product.price.final">
+                                    <arguments>
+                                        <argument name="price_render" xsi:type="string">product.price.render.default
+                                        </argument>
+                                        <argument name="price_type_code" xsi:type="string">final_price</argument>
+                                        <argument name="zone" xsi:type="string">false</argument>
+                                    </arguments>
+                                </block>
+                            </container>
+                        </block>
+                    </container>
+                    <block class="Magento\Framework\View\Element\Template" name="add_tocart_notification"
+                           template="Amasty_Amp::components/notifications/add_tocart.phtml" />
+                </block>
+                <block class="Amasty\Amp\Block\Product\Content\View\Details" name="product.info.details"
+                       template="Amasty_Amp::product/content/view/details.phtml">
+                    <block class="Amasty\Amp\Block\Product\Content\View\Attributes" name="product.attributes"
+                           template="Amasty_Amp::product/content/view/attributes.phtml" group="detailed_info">
+                        <arguments>
+                            <argument translate="true" name="title" xsi:type="string">More Information</argument>
+                            <argument name="sort_order" xsi:type="string">20</argument>
+                        </arguments>
+                    </block>
+                    <block class="Amasty\Amp\Block\Review\Block\Product\Review"
+                           name="reviews.tab"
+                           as="reviews"
+                           template="Amasty_Amp::product/content/view/review.phtml" group="detailed_info">
+                        <arguments>
+                            <argument name="sort_order" xsi:type="string">30</argument>
+                        </arguments>
+                        <block class="Amasty\Amp\Block\Product\Content\View\Review\ListView"
+                               name="product.info.product_additional_data" as="product_additional_data"
+                               template="Amasty_Amp::product/content/view/review/list.phtml"/>
+                        <block class="Magento\Theme\Block\Html\Pager" name="product_review_list.toolbar">
+                            <arguments>
+                                <argument name="show_per_page" xsi:type="boolean">false</argument>
+                                <argument name="show_amounts" xsi:type="boolean">false</argument>
+                            </arguments>
+                        </block>
+                        <block class="Amasty\Amp\Block\Product\Content\View\Review\Form" name="product.review.form"/>
+                    </block>
+                    <block class="Amasty\Amp\Block\Product\Content\View\Description"
+                           name="product.info.description"
+                           as="description"
+                           template="Amasty_Amp::product/content/view/attribute.phtml"
+                           group="detailed_info">
+                        <arguments>
+                            <argument name="outputHelper" xsi:type="object">Amasty\Amp\Helper\Catalog\Output</argument>
+                            <argument name="at_call" xsi:type="string">getDescription</argument>
+                            <argument name="at_code" xsi:type="string">description</argument>
+                            <argument name="css_class" xsi:type="string">description</argument>
+                            <argument name="at_label" xsi:type="string">none</argument>
+                            <argument name="title" translate="true" xsi:type="string">Details</argument>
+                            <argument name="sort_order" xsi:type="string">10</argument>
+                        </arguments>
+                    </block>
+                </block>
+            </referenceContainer>
+        </referenceBlock>
+    </body>
+</page>

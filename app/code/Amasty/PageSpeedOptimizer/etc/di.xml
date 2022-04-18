@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\PageSpeedOptimizer\Api\Data\DiagnosticResultInterface"
+                type="Amasty\PageSpeedOptimizer\Model\DiagnosticResult\DiagnosticResult" />
+    <preference for="Amasty\PageSpeedOptimizer\Api\DiagnosticResultRepositoryInterface"
+                type="Amasty\PageSpeedOptimizer\Model\DiagnosticResult\DiagnosticResultRepository" />
+
+    <type name="Amasty\PageSpeedTools\Model\Output\OutputChain">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="moveJs" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="processor" xsi:type="object">Amasty\PageSpeedOptimizer\Model\Output\MoveJsProcessor</item>
+                </item>
+                <item name="moveCss" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">60</item>
+                    <item name="processor" xsi:type="object">Amasty\PageSpeedOptimizer\Model\Output\MoveCssProcessor</item>
+                </item>
+                <item name="checkBundling" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">80</item>
+                    <item name="processor" xsi:type="object">Amasty\PageSpeedOptimizer\Model\Output\CheckBundlingProcessor</item>
+                </item>
+                <item name="assetCollector" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">100</item>
+                    <item name="processor" xsi:type="object">Amasty\PageSpeedOptimizer\Model\Output\AssetCollectorProcessor</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Asset\Config">
+        <plugin name="excludePagesFromMergeBundle" type="Amasty\PageSpeedOptimizer\Plugin\ExcludePageFromMergeBundle" />
+    </type>
+    <type name="Magento\Deploy\Package\Bundle\RequireJs">
+        <plugin name="amastyBundling" type="Amasty\PageSpeedOptimizer\Plugin\Deploying\Bundling" />
+    </type>
+    <type name="Magento\Deploy\Service\Bundle">
+        <plugin name="getDeployConfig" type="Amasty\PageSpeedOptimizer\Plugin\Deploying\Deploy" />
+    </type>
+    <type name="Magento\Framework\View\Template\Html\Minifier">
+        <plugin name="Amasty_PageSpeedOptimizer::static_deploy_js_minification" type="Amasty\PageSpeedOptimizer\Plugin\View\Template\Html\MinifierPlugin" />
+    </type>
+
+    <type name="Magento\Framework\App\Response\HeaderManager">
+        <arguments>
+            <argument name="headerProviderList" xsi:type="array">
+                <item name="AmastyXFrameOptions" xsi:type="object">Amasty\PageSpeedOptimizer\Model\HeaderProvider\XFrameOptions</item>
+                <item name="AmastyContentSecurityPolicy" xsi:type="object">Amasty\PageSpeedOptimizer\Model\HeaderProvider\ContentSecurityPolicy</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\PageSpeedOptimizer\Model\OptionSource\ServerPushAssetTypes">
+        <arguments>
+            <argument name="assetTypes" xsi:type="array">
+                <item name="js" translatable="true" xsi:type="string">JS Files</item>
+                <item name="css" translatable="true" xsi:type="string">CSS Files</item>
+                <item name="font" translatable="true" xsi:type="string">Font Files</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\PageSpeedOptimizer\Model\Asset\CollectorAdapter">
+        <arguments>
+            <argument name="collectors" xsi:type="array">
+                <item name="js" xsi:type="object">Amasty\PageSpeedOptimizer\Model\Asset\Collector\JsCollector</item>
+                <item name="css" xsi:type="object">Amasty\PageSpeedOptimizer\Model\Asset\Collector\CssCollector</item>
+                <item name="font" xsi:type="object">Amasty\PageSpeedOptimizer\Model\Asset\Collector\FontCollector</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

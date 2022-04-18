@@ -1,0 +1,21 @@
+<?php
+/**
+ * Product additional attributes template
+ *
+ * @var $block \Amasty\Amp\Block\Product\Content\View\Attributes
+ */
+
+$helper = $block->getOutputHelper();
+$product = $block->getProduct();
+?>
+
+<?php if ($additional = $block->getAdditionalData()): ?>
+    <article class="amamp-additional-attributes">
+        <?php foreach ($additional as $data): ?>
+            <h4 class="amamp-title"><?= $block->escapeHtml($data['label']) ?></h4>
+            <p class="amamp-content">
+                <?= $block->escapeHtml($helper->productAttribute($product, $data['value'], $data['code'])); ?>
+            </p>
+        <?php endforeach; ?>
+    </article>
+<?php endif; ?>

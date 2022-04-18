@@ -1,0 +1,70 @@
+<?php
+/** @var $block \Amasty\Amp\Block\Product\Content\View\Type\Configurable */
+
+$product = $block->getProduct();
+$attributes = $block->decorateArray($block->getAllowAttributes());
+?>
+
+<?php if ($product->isSaleable() && count($attributes)): ?>
+    <?php foreach ($attributes as $attribute): ?>
+        <?php $attributeId = $attribute->getAttributeId() ?>
+        <?php $swatches = $block->getSwatchesData(array_column($attribute->getOptions(), 'value_index')); ?>
+        <?php if ($block->isSwatchType() && count($swatches)): ?>
+            <amp-selector class="amamp-options-block" layout="container">
+                <b class="amamp-label">
+                    <?= $block->escapeHtml($attribute->getLabel()) ?>
+                </b>
+                <ul class="amamp-swatch-list">
+                    <?php $index = 0; ?>
+                    <?php foreach ($swatches as $swatch): ?>
+                        <?php
+                            $swatchThumbPath = $block->getSwatchPath('swatch_thumb', $swatch['value']);
+                            $optionText = '';
+                            $optionAttr = '';
+                        ?>
+                        <?php switch ((int)$swatch['type']):
+                            case '0':
+                                $optionText = $swatch['value'];
+                                break;
+                            case '1':
+                                $optionAttr = 'style="background-color:' . $block->escapeHtml($swatch['value']) . '"';
+                                break;
+                            case '2':
+                                $optionAttr = 'style="background-image: url(' . $block->escapeHtml($swatchThumbPath) . ')"';
+                                break;
+                        endswitch; ?>
+                    <li class="amamp-option -<?= $block->escapeHtml(strtolower($attribute->getLabel())) ?>"
+                        option="<?= (int)($index++) ?>"
+                        <?= /* @noEscape */ $optionAttr ?>>
+                            <?= $block->escapeHtml($optionText) ?>
+                        <input class="amamp-checkbox"
+                               type="radio"
+                               name="super_attribute[<?= $block->escapeHtml($attribute->getAttributeId()) ?>]"
+                               value="<?= $block->escapeHtml($swatch['option_id']) ?>"
+                               required
+                        />
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </amp-selector>
+        <?php else: ?>
+            <div class="amamp-options-block">
+                <label class="amamp-label required">
+                    <?= $block->escapeHtml($attribute->getProductAttribute()->getStoreLabel()) ?>
+                </label>
+                <select class="amamp-select-block"
+                        name="super_attribute[<?= (int)$attributeId ?>]"
+                        required>
+                    <option value="0">
+                        <?= $block->escapeHtml(__('Choose an Option...')) ?>
+                    </option>
+                    <?php foreach ($attribute->getOptions() as $option): ?>
+                        <option value="<?= $block->escapeHtml($option['value_index'])?>">
+                            <?= $block->escapeHtml($option['label']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>

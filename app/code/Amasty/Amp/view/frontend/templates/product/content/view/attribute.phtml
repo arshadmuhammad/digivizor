@@ -1,0 +1,23 @@
+<?php
+/**
+ * Product view template
+ *
+ * @var $block \Amasty\Amp\Block\Product\Content\View\Description
+ */
+?>
+<?php
+$helper = $block->getOutputHelper();
+$product = $block->getProduct();
+
+$attributeValue = $block->getAttributeValue();
+$attributeLabel = $block->getAttributeLabel();
+?>
+
+<?php if ($attributeValue): ?>
+    <div class="product attribute <?= $block->escapeHtmlAttr($block->getCssClass()) ?>">
+        <strong class="type"><?= $block->escapeHtml($attributeLabel) ?></strong>
+        <div class="value" <?= /* @noEscape */$block->getAddAttribute(); ?>>
+            <?= /* @noEscape */$attributeValue ?>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Swatches\Helper\Data">
+        <plugin name="Amasty_LazyLoad::SwatchWebPReplace" type="Amasty\LazyLoad\Plugin\Swatches\AjaxImage" />
+    </type>
+    <type name="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable">
+        <plugin name="Amasty_LazyLoad::SwatchGalleryWebpReplace" type="Amasty\LazyLoad\Plugin\Swatches\AjaxGallery" />
+    </type>
+    <type name="Magento\Catalog\Block\Product\View\Gallery">
+        <plugin name="Amasty_LazyLoad::ApplyGalleryWebp" type="Amasty\LazyLoad\Plugin\CatalogProduct\Gallery" sortOrder="10"/>
+    </type>
+    <type name="Magento\Framework\App\Http\Context">
+        <plugin name="Amasty_LazyLoad::varnish" type="Amasty\LazyLoad\Plugin\Framework\App\Http\Context"/>
+    </type>
+</config>

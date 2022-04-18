@@ -1,0 +1,21 @@
+<?php
+/**
+ * Product list sort by template
+ *
+ * @var $block \Amasty\Amp\Block\Category\Product\ProductList\Toolbar
+ */
+?>
+
+<div class="amamp-filter-button -sort">
+    <select class="amamp-filter" on="change:AMP.navigateTo(url=event.value)" aria-label="<?= $block->escapeHtml(__('Sorting products by')) ?>">
+        <?php foreach ($block->getAvailableOrders() as $key => $order): ?>
+            <option aria-label="<?= $block->escapeHtml(__('Sorting by %1', $key)) ?>"
+                    value="<?= $block->escapeUrl($block->getSorterUrl($key)) ?>"
+                <?php if ($block->isOrderCurrent($key)): ?>
+                    selected="selected"
+                <?php endif; ?>>
+                <?= $block->escapeHtml(__($order)) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+</div>

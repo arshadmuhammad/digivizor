@@ -1,0 +1,67 @@
+<?php
+/** @var \Amasty\Amp\Block\Product\Content\View\Review\ListView $block */
+
+$format = $block->getDateFormat() ?: \IntlDateFormatter::LONG;
+$size = $block->getReviewsCollection()->getSize();
+?>
+
+<?php if ($size):?>
+    <amp-list id="amamp-reviews-list"
+              width="auto"
+              height="120"
+              layout="fixed-height"
+              src="<?= $block->escapeUrl($block->getLoadUrl()); ?>"
+              load-more="manual"
+              max-items="4"
+              load-more-bookmark="next">
+        <template type="amp-mustache">
+            {{#nickname}}
+            <ul class="amamp-review-block">
+                <li class="amamp-item">
+                    <div class="amamp-details">
+                        <p class="amamp-author">{{nickname}}</p>
+                        <time class="amamp-date" datetime="{{created_at}}">{{created_at}}</time>
+                    </div>
+                    <div class="amamp-title-block">
+                        <b class="amamp-title">{{title}}</b>
+                        <ul class="amamp-rating-list">
+                            {{#rating_votes}}
+                            <span class="amamp-label">{{rating_code}}</span>
+                            <li class="amamp-view-rating">
+                                <span class="amamp-rating -active" style="width:{{percent}}%"></span>
+                                <span class="amamp-rating"></span>
+                            </li>
+                            {{/rating_votes}}
+                        </ul>
+                    </div>
+                    <div class="amamp-content">
+                        {{detail}}
+                    </div>
+                </li>
+            </ul>
+            {{/nickname}}
+        </template>
+        <amp-list-load-more class="amamp-load-more" load-more-button>
+            <button class="amamp-button -middle -collapse"
+                    aria-label="<?= $block->escapeHtmlAttr(__('Collapse')) ?>"
+                    on="tap:amamp-accordion-block.collapse(section=amamp-tab-reviews), amamp-tab-reviews.scrollTo(duration=200)">
+                <?= $block->escapeHtml(__('Hide')) ?>
+            </button>
+            <button class="amamp-button -middle"
+                    aria-label="<?= $block->escapeHtmlAttr(__('See more')) ?>"
+                    load-more-clickable>
+                <?= $block->escapeHtml(__('See more')) ?>
+            </button>
+        </amp-list-load-more>
+        <amp-list-load-more class="amamp-load-more -end" load-more-end>
+            <button class="amamp-button -middle -collapse"
+                    aria-label="<?= $block->escapeHtmlAttr(__('Collapse')) ?>"
+                    on="tap:amamp-accordion-block.collapse(section=amamp-tab-reviews), amamp-tab-reviews.scrollTo(duration=200)">
+                <?= $block->escapeHtml(__('Hide')) ?>
+            </button>
+        </amp-list-load-more>
+        <button id="amamp-show-reviews" class="amamp-show-reviews amamp-link _clear-btn" on="tap:amamp-reviews-list.changeToLayoutContainer(), amamp-show-reviews.hide()">
+            <?= $block->escapeHtml(__('See more')) ?>
+        </button>
+    </amp-list>
+<?php endif;?>

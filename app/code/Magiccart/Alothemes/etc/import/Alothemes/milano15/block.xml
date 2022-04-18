@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <block>
+    <item>
+      <title><![CDATA[footer_links_company]]></title>
+      <identifier><![CDATA[footer_links_company]]></identifier>
+      <content><![CDATA[<div class="container">
+<div class="main">
+<div class="footer">
+<div class="links">
+<div class="block-title"><strong><span>Company</span></strong></div>
+<ul>
+<li><a href="{{store url=""}}about-magento-demo-store/">About Us</a></li>
+<li><a href="{{store url=""}}contact/">Contact Us</a></li>
+<li><a href="{{store url=""}}customer-service/">Customer Service</a></li>
+<li><a href="{{store url=""}}privacy-policy-cookie-restriction-mode/">Privacy Policy</a></li>
+<li><a href="#">Accessibility</a></li>
+<li><a href="#">Store Directory</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[testimonial]]></title>
+      <identifier><![CDATA[testimonial]]></identifier>
+      <content><![CDATA[<div class="block-static bg-parallax block_testimonials">
+<div class="container">
+<div class="main">
+<div class="row">
+<div class="testimonials col-lg-12">{{widget type="Magiccart\Testimonial\Block\Widget\Testimonial" template="testimonial.phtml"}}</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[category_view_custom_block]]></title>
+      <identifier><![CDATA[category_view_custom_block]]></identifier>
+      <content><![CDATA[<div class="category_view_custom_block"><img class="img-responsive-normal" alt="Banner" src="{{media url="wysiwyg/alothemes/static/block-cate.jpg"}}" /></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[megamenu_custom_block]]></title>
+      <identifier><![CDATA[megamenu_custom_block]]></identifier>
+      <content><![CDATA[<div><img alt="" src="{{media url="wysiwyg/alothemes/static/img-mega.jpg"}}" /></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Map Contacts]]></title>
+      <identifier><![CDATA[block_map_contacts]]></identifier>
+      <content><![CDATA[<div><iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.8277911385558!2d-0.13108129999999998!3d51.51637529999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2d183f5ea3%3A0x8e1c5b00f1b16579!2zMTIgT3hmb3JkIFN0LCBTb2hvLCBMb25kb24gVzFELCBWxrDGoW5nIFF14buRYyBBbmg!5e0!3m2!1svi!2s!4v1434261501432" height="350" width="600"></iframe></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[newsletter_popup]]></title>
+      <identifier><![CDATA[newsletter_popup]]></identifier>
+      <content><![CDATA[			<div class="block-content">
+				<div class="form-subscribe-header block-title">
+                    <label for="newsletter-popup">newsletter</label>
+					</div>
+				<span>Subscribe now to get</span>
+                <span class="saleoff">20%</span>
+                <span>off on any product!</span>
+				<div class="subcribe-box newsletter-new clearfix">
+					<div class="field newsletter input-box">
+						<div class="control">
+							<input name="email" type="email" id="newsletter-popup" class="input-text"
+										placeholder="Enter your email address"
+										data-validate="{required:true, 'validate-email':true}"/>
+						</div>
+					</div>
+					<div class="actions">
+						<button class="action subscribe button" title="'Subscribe'" type="submit">
+							<span>Subscribe'</span>
+						</button>
+					</div>
+				</div>
+                <div class="subscribe-bottom">
+                    <input type="checkbox" />Don’t show this popup again'
+                </div>
+			</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[footer social link]]></title>
+      <identifier><![CDATA[footer-social]]></identifier>
+      <content><![CDATA[<ul class="ft-social">
+				<li><a href="#"><i class="fa fa-facebook"></i><span class="hidden">hidden</span></a></li>
+				<li><a href="#"><i class="fa fa-twitter"></i><span class="hidden">hidden</span></a></li>
+				<li><a href="#"><i class="fa fa-pinterest"></i><span class="hidden">hidden</span></a></li>
+				<li><a href="#"><i class="fa fa-google"></i><span class="hidden">hidden</span></a></li>
+				<li><a href="#"><i class="fa fa-dribbble"></i><span class="hidden">hidden</span></a></li>
+			</ul>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[block-footer-bottom]]></title>
+      <identifier><![CDATA[block-footer-bottom]]></identifier>
+      <content><![CDATA[
+<div class="container">
+    <div class="row">
+        <div class="ft-col">
+            <h2 class="logo-text"><a href="#">milano fashion.</a></h2>     
+            <ul class="ft-list">
+                <li>
+                    <i class="pe-7s-home"></i>
+                    262 Milacina Mrest Street Behansed, Paris
+                    France
+                </li>
+                <li> 
+                    <i class="pe-7s-phone"></i>
+                    +84 912. 345. 678
+                </li>
+                <li>
+                    <i class="pe-7s-mail"></i>
+                    suport@alothemes.com
+                </li>
+            </ul>
+        </div>
+        <div class="ft-col">
+            <div class="ft-block">
+                <h3 class="ft-title toggle-tab">Information</h3>
+                <ul class="ft-linklist toggle-content">
+                    <li><a href="#">Order status</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Free shipping</a></li>
+                    <li><a href="#">Return & exchanges</a></li>
+                    <li><a href="#">International</a></li>
+                </ul>
+            </div>    
+            <div class="ft-block">
+                <h3 class="ft-title toggle-tab">Need help</h3>
+                <ul class="ft-linklist toggle-content">
+                    <li><a href="{{store url='contact'}}">Contact us</a></li>
+                    <li><a href="{{store url='about-magento-demo-store'}}">About us</a></li>
+                    <li><a href="{{store url='privacy-policy-cookie-restriction-mode'}}">Privacy</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Market Terms</a></li>
+                </ul>
+            </div>           
+        </div>
+        <div class="ft-col">
+            <h3 class="ft-title">Newsletter</h3>
+            <p class="newsletter-text">Sign up for our newsletter and get 15% off your next order.</p>
+            {{block class="Magento\Newsletter\Block\Subscribe"
+              template="subscribe.phtml"}}
+            <a href="#"><img src="{{media url=&quot;wysiwyg/alothemes/static/demo14/payment.png&quot;}}" alt="" /></a>
+        </div>
+    </div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[home slide 15]]></title>
+      <identifier><![CDATA[home-slide15]]></identifier>
+      <content><![CDATA[<div class="alo-magicslider">
+    <div class="container">
+        <div class="d-flex">
+            <div class="static-banner">
+                <div class="banner-content">
+                    <a href="#"><img src="{{media url=&quot;wysiwyg/alothemes/static/demo15/image1.jpg&quot;}}" alt="" /></a>
+                </div>
+                <div class="banner-content">
+                    <a href="#"><img src="{{media url=&quot;wysiwyg/alothemes/static/demo15/image2.jpg&quot;}}" alt="" /></a>
+                </div>
+            </div>
+            <div class="main-slider">
+                {{widget type="Magiccart\Magicslider\Block\Widget\Slider" identifier="slide15" class="home-slider" template="magicslider.phtml"}}
+            </div>           
+        </div>
+    </div>   
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[footer-payment]]></title>
+      <identifier><![CDATA[footer-payment]]></identifier>
+      <content><![CDATA[<div class="payment-ft"><a href="#"><img src="{{media url=&quot;wysiwyg/alothemes/static/demo16/payment.png&quot;}}" alt="" /></a></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[home-slide16]]></title>
+      <identifier><![CDATA[home-slide16]]></identifier>
+      <content><![CDATA[<div class="alo-magicslider">{{widget type="Magiccart\Magicslider\Block\Widget\Slider" identifier="slide16" class="home-slider" template="magicslider.phtml"}}</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+  </block>
+</root>

@@ -1,0 +1,13 @@
+<?php
+/**
+ * @var Amasty\Amp\Block\Cms\Widget\ProductLink $block
+ *
+ * Amp widget template for link type block
+ */
+?>
+
+<a class="amamp-link -block"
+   href="<?= $block->escapeHtmlAttr($block->getHref()); ?>"
+   aria-label="<?= $block->escapeHtmlAttr($block->getTitle()); ?>">
+    <?= $block->escapeHtml($block->getLabel()); ?>
+</a>

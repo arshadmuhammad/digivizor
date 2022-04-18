@@ -1,0 +1,27 @@
+<?php
+/** @var \Amasty\Amp\Block\Page $block */
+?>
+
+<!doctype html>
+<html ⚡>
+    <head>
+        <?= $block->getChildHtml('head'); ?>
+        <link rel="icon" type="image/x-icon" href="<?= $block->escapeUrl($block->getFaviconUrl()); ?>">
+        <link rel="shortcut icon" type="image/x-icon" href="<?= $block->escapeUrl($block->getFaviconUrl()); ?>">
+        <style amp-custom>
+            <?= /** @noEscape */ $block->getFileContent('frontend/web/_module'); ?>
+            <?= $block->getChildHtml('amp.custom.styles'); ?>
+            <?= $block->getChildHtml('amp.config.styles'); ?>
+        </style>
+    </head>
+
+    <body class="amamp-body <?= $block->escapeHtmlAttr($block->getBodyClass()); ?>">
+        <?= $block->getChildHtml('amamp.body.start'); ?>
+        <?= $block->getChildHtml('header'); ?>
+        <?= $block->getChildHtml('content'); ?>
+        <?= $block->getChildHtml('content.aside'); ?>
+        <?= $block->getChildHtml('footer'); ?>
+        <?= $block->getChildHtml('amamp.overlay'); ?>
+        <?= $block->getChildHtml('amamp.animations'); ?>
+    </body>
+</html>

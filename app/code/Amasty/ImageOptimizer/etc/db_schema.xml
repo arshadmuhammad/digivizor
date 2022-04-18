@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="amasty_page_speed_optimizer_queue" resource="default" engine="innodb">
+        <column xsi:type="int" name="queue_id" nullable="false" unsigned="true" identity="true"/>
+        <column xsi:type="varchar" name="filename" length="1024" nullable="false"/>
+        <column xsi:type="varchar" name="extension" length="255" nullable="false"/>
+        <column xsi:type="varchar" name="resolutions" length="255" nullable="false" default=""/>
+        <column xsi:type="boolean" name="dump_original" nullable="true" default="false"/>
+        <column xsi:type="smallint" name="resize_algorithm" nullable="true" unsigned="true" default="0"/>
+        <column xsi:type="varchar" name="tool" length="255" nullable="false" default="0"/>
+        <column xsi:type="varchar" name="webp_tool" length="255" nullable="false" default="0"/>
+        <column xsi:type="varchar" name="queue_type" length="255" nullable="false" default="0"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="queue_id"/>
+        </constraint>
+        <index referenceId="AM_IMAGE_OPTIMIZER_QUEUE_TYPE" indexType="btree">
+            <column name="queue_type"/>
+        </index>
+        <index referenceId="AM_IMAGE_OPTIMIZER_FILENAME" indexType="btree">
+            <column name="filename"/>
+        </index>
+    </table>
+</schema>

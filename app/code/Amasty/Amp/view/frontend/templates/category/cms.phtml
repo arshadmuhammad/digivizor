@@ -1,0 +1,12 @@
+<?php
+/**
+ * Category view template
+ * @var $block \Amasty\Amp\Block\Category\View
+ */
+?>
+
+<?php if ($block->isContentMode() || $block->isMixedMode()): ?>
+    <div class="amamp-cms">
+        <?= /* @noEscape */ $block->getCmsContent() ?>
+    </div>
+<?php endif; ?>

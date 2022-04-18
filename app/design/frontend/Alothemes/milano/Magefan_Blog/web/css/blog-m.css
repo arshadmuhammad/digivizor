@@ -1,0 +1,129 @@
+/**
+ * Copyright © 2015 Ihor Vansach (ihor@magefan.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+
+.clearfix:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+.post-holder {margin-bottom: 20px;}
+.post-list .post-holder{margin-bottom: 50px;}
+.post-holder .post-header {position:relative;}
+.post-holder .post-header .post-info {padding: 0 0 10px 0;}
+.post-holder .post-header .post-info .item,
+.post-holder .post-header .post-info .dash {display: inline-block;}
+.post-holder .post-header .post-info .dash{padding: 0 5px;}
+.post-holder .post-header .post-info .item .label{font-weight: 600;}
+.post-holder .post-header .post-info .item .label,
+.post-holder .post-header .post-info .item a,
+.block-categories .accordion li a,.block-recent-posts .item a,
+.block-archive .item a,.post-bottom .block-content .item a{font-size: 14px;}
+.post-holder .post-header .post-info .value {font-style: italic;}
+.post-list {list-style: none;}
+.post-list .post-content .post-read-more { border: 1px solid #aaaaaa;color: #333333;display: inline-block;font-size: 12px;line-height: 35px;margin: 20px 0 0;padding: 0 18px;text-transform: uppercase;}
+.post-list .post-content .post-read-more:hover {background-color: #ff5555;border: 1px solid #ff5555;color: #ffffff;}
+.post-content .post-description img {margin:0 15px 0 15px;}
+.post-content .post-description ul,
+.post-content .post-description ol {list-style-position: inside;}
+.post-content .post-description .post-ftimg-hld {float: left; margin: 0 25px 0 0; width: 50%}
+.post-content .post-description .post-ftimg-hld img {width:100%; padding:0px; margin:0px;}
+.blog-index-index.page-layout-2columns-left .column.main, .blog-index-index.page-layout-2columns-right .column.main,.blog-post-view.page-layout-2columns-right .column.main,.blog-post-view.page-layout-2columns-left .column.main{margin-top:0;}
+@media (max-width: 496px) {
+  .post-content .post-description .post-ftimg-hld {width: 100%; margin:0px;}
+}
+
+.post-list .post-header .post-title {max-width:80%;}
+.post-list .post-header .post-title a,.post-view .post-header .post-title a {color: #333333;font-size: 25px;font-weight: bold;letter-spacing: 3px;line-height: 25px;outline: medium none;text-decoration: none;text-transform: uppercase;}
+.post-list .post-header .post-title,.post-view .post-header .post-title {margin: 0px;padding: 10px 0 25px;float:left;}
+.post-list .post-holder .post-header .addthis_toolbox {float: right; padding-top: 20px;}
+.post-text-hld p{color: #666666; font-size: 14px;line-height: 25px;}
+
+.post-view .post-holder .post-header .addthis_toolbox {float: right;padding-top: 20px;}
+.post-view .post-bottom {margin-top:30px;}
+.post-bottom .block.related .block-title strong {font-size: 18px;font-weight: 500;line-height: normal;padding: 0;text-transform: uppercase;letter-spacing: 1px;}
+.post-view .block {margin-bottom: 30px;}
+.widget.block-recent-posts .block-content .item { padding: 8px 0 0px 0px;}
+.widget.block-categories ul {list-style: initial;padding-left:0px;}
+.widget.block-categories ul ul {margin-left:20px;}
+.widget.block-categories ul,
+.widget.block-categories li {margin: 5px 0 5px 9px;padding: 0px;}
+.widget.block-rss .rss-icon {float: left; width: 23px; padding-right: 10px;}
+.widget.blog-search {width:100%;margin-bottom: 40px;position: relative;z-index: 4;}
+.widget.blog-search .block-content {margin-bottom: 0;}
+.block.blog-search .actions{padding:0;}
+.widget.blog-search  label {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    text-decoration: none;
+    display: inline-block;
+    float: right;
+}
+
+.widget.blog-search .control {
+    border-top: 0;
+    margin: 0;
+    padding: 0;
+    clear: both;
+}
+
+.widget.blog-search input {
+    position: static;
+    padding-right: 35px;
+    margin: 0;
+    left: -300%;
+}
+
+.widget.blog-search .action.search {
+    position: absolute;
+    right: 0px;
+    top: 0;
+    z-index: 1;
+    display: inline-block;
+    background-image: none;
+    background: none;
+    -moz-box-sizing: content-box;
+    border: 0;
+    box-shadow: none;
+    line-height: inherit;
+    margin: 0;
+    text-decoration: none;
+    text-shadow: none;
+    font-weight: 400;
+}
+
+.widget.blog-search .action.search:before {
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    line-height: 32px;
+    color: #8f8f8f;
+    content: attr(data-icon);
+     font-family: "Simple-Line-Icons";
+    margin: 0;
+    vertical-align: top;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+}
+
+.widget.blog-search .action.search > span {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}

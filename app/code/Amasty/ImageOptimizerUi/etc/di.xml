@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\ImageOptimizerUi\Api\ImageSettingRepositoryInterface" type="Amasty\ImageOptimizerUi\Model\Image\Repository"/>
+    <preference for="Amasty\ImageOptimizer\Api\Data\ImageSettingInterface" type="Amasty\ImageOptimizerUi\Model\Image\ImageSetting"/>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="amimageopt_optimize" xsi:type="object">Amasty\ImageOptimizerUi\Console\Command\OptimizeCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\ImageOptimizerUi\Console\Command\OptimizeCommand">
+        <arguments>
+            <argument name="optimizeCommand" xsi:type="object">Amasty\ImageOptimizerUi\Console\Command\Operation\Optimize\Proxy</argument>
+        </arguments>
+    </type>
+</config>

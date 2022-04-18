@@ -1,0 +1,20 @@
+<?php
+/* @var $block \Amasty\Amp\Block\Product\Content\View\Options\Type\Select\Multiple */
+
+$option = $block->getOption();
+$required = $option->getIsRequire() ? 'required' : '';
+?>
+
+<select id="amamp-select-<?= $block->escapeHtml($option->getOptionId()); ?>"
+        class="amamp-select-block -multiple"
+        name="options[<?= $block->escapeHtml($option->getOptionId()) ?>][]"
+        multiple
+        <?= $block->escapeHtml($required) ?>>
+    <?php foreach ($option->getValues() as $value): ?>
+        <?php $priceHtml = $block->formatPrice($value); ?>
+        <option class="amamp-select-option"
+                value="<?= $block->escapeHtml($value->getId()) ?>">
+            <?= $block->escapeHtml($value->getTitle()) ?> <?= /* @noEscape */ $priceHtml ?>
+        </option>
+    <?php endforeach; ?>
+</select>

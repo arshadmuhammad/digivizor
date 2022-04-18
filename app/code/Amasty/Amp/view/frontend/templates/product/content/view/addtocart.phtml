@@ -1,0 +1,35 @@
+<?php
+/** @var $block \Magento\Catalog\Block\Product\View */
+
+$product = $block->getProduct();
+$buttonTitle = __('Add to Cart');
+?>
+
+<?php if ($product->isSaleable()): ?>
+    <div class="amamp-tocart-block">
+        <?php if ($block->shouldRenderQuantity() && $product->getTypeId() != \Magento\Downloadable\Model\Product\Type::TYPE_DOWNLOADABLE): ?>
+            <div class="amamp-qty-block">
+                <label class="amamp-label" for="qty">
+                    <?= $block->escapeHtml(__('Qty')); ?>
+                </label>
+                <input id="qty"
+                       class="amamp-input"
+                       type="number"
+                       name="qty"
+                       min="1"
+                       value="<?= (int)$block->getProductDefaultQty() ?>"
+                       aria-label="<?= $block->escapeHtml(__('Set Qty')); ?>"
+                       required
+                />
+            </div>
+        <?php endif; ?>
+        <?= $block->getChildHtml('product.price.container') ?>
+        <button id="product-addtocart-button"
+                class="amamp-button -full"
+                type="submit"
+                aria-label="<?= $block->escapeHtml($buttonTitle) ?>"
+                [text]="addtocart_text">
+                <?= $block->escapeHtml($buttonTitle); ?>
+        </button>
+    </div>
+<?php endif; ?>

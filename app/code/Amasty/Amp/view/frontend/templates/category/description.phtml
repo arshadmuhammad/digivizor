@@ -1,0 +1,11 @@
+<?php
+/** @var \Amasty\Amp\Block\Category\View $block */
+
+$description = $block->getDescription();
+?>
+
+<?php if ($description): ?>
+    <div class="amamp-description">
+        <?= /* @noEscape */ $description ?>
+    </div>
+<?php endif; ?>

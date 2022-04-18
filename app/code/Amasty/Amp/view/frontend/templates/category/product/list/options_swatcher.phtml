@@ -1,0 +1,49 @@
+<?php
+/**
+ * Product Options swatchers template
+ * @var $block \Amasty\Amp\Block\Category\Product\ProductList\Renderer\Configurable
+ */
+
+$productId = $block->getProduct()->getId();
+$swatches = $block->getSwatchesData();
+?>
+
+<?php foreach ($block->getAllowAttributes() as $attribute): ?>
+    <?php
+    if (!isset($swatches[$attribute->getAttributeId()])) {
+        continue;
+    }
+    ?>
+
+    <amp-selector class="amamp-options-block" layout="container">
+        <ul class="amamp-swatch-list">
+            <?php $index = 0; ?>
+            <?php foreach ($swatches[$attribute->getAttributeId()] as $optionId => $swatch): ?>
+                <?php $optionText = $optionAttr = ''; ?>
+                <?php switch ((int)$swatch['type']):
+                    case 0:
+                        $optionText = $swatch['value'];
+                        break;
+                    case 1:
+                        $optionAttr = 'style="background-color:' . $block->escapeHtml($swatch['value']) . '"';
+                        break;
+                    case 2:
+                        $optionAttr = 'style="background-image: url(' . $block->escapeHtml($swatch['value'])  . ')"';
+                        break;
+                endswitch; ?>
+
+                <li class="amamp-option -<?= $block->escapeHtml(strtolower($attribute->getLabel())) ?>"
+                    option="<?= (int)($index++) ?>"
+                    <?= /* @noEscape */ $optionAttr ?>>
+                    <?= $block->escapeHtml($optionText) ?>
+                    <input class="amamp-checkbox"
+                           type="radio"
+                           name="super_attribute[<?= $block->escapeHtml($attribute->getAttributeId()) ?>]"
+                           value="<?= $block->escapeHtml($optionId) ?>"
+                           required
+                    />
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </amp-selector>
+<?php endforeach; ?>

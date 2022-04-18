@@ -1,0 +1,32 @@
+<?php
+/**
+ * Product list toolbar top template
+ *
+ * @var $block \Amasty\Amp\Block\Category\Product\ProductList\Toolbar
+ */
+
+$pager = $block->getPagerHtml();
+?>
+
+<?php if ($block->getCollection()->getSize()): ?>
+    <?php if (!$block->getIsBottom()): ?>
+        <div class="amamp-toolbar-block -top">
+            <?= $block->getChildHtml('amp_sorter') ?>
+            <?= $block->getChildHtml('amp_filter_button') ?>
+
+            <p class="amamp-amount">
+                <?php if ($block->getLastPageNum() > 1): ?>
+                    <?= $block->escapeHtml(__('Items %1 to %2 of %3 total', $block->getFirstNum(), $block->getLastNum(), $block->getTotalNum())) ?>
+                <?php elseif ($block->getTotalNum() == 1): ?>
+                    <?= $block->escapeHtml(__('%1 Item', $block->getTotalNum())) ?>
+                <?php else: ?>
+                    <?= $block->escapeHtml(__('%1 Item(s)', $block->getTotalNum())) ?>
+                <?php endif; ?>
+            </p>
+        </div>
+    <?php else: ?>
+        <div class="amamp-toolbar-block -bottom">
+            <?= /* @noEscape */ $pager ?>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

@@ -1,0 +1,25 @@
+<?php
+/**
+ * Category applied filters list template
+ * @var $block \Amasty\Amp\Block\Category\Navigation\State
+ */
+
+$filters = $block->getActiveFilters()
+?>
+
+<?php if (!empty($filters)): ?>
+    <ul class="amamp-current-filters">
+        <?php foreach ($filters as $filter): ?>
+            <li class="amamp-item">
+                <p class="amamp-text">
+                    <b><?= $block->escapeHtml(__($filter->getName())); ?>:</b>
+                    <span><?= $block->escapeHtml(__($block->stripTags($filter->getLabel()))); ?></span>
+                </p>
+                <a class="amamp-close"
+                   href="<?= $block->escapeUrl($filter->getRemoveUrl()) ?>"
+                   aria-label="<?= $block->escapeHtml(__('Remove filter by %1 ', $filter->getName())) ?>">
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>

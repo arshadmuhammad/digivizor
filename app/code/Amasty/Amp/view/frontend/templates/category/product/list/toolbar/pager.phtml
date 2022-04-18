@@ -1,0 +1,79 @@
+<?php
+/**
+ * Pager toolbar template
+ *
+ * @see \Amasty\Amp\Block\Category\Product\ProductList\Toolbar\Pager $block
+ */
+?>
+
+<?php if ($block->getCollection()->getSize() && $block->getLastPageNum() > 1): ?>
+    <ul class="amamp-pages-list" aria-label="<?= $block->escapeHtml(__('List of pages')) ?>">
+        <?php if (!$block->isFirstPage()): ?>
+            <li class="amamp-item -previous">
+                <a class="amamp-link"
+                   href="<?= $block->escapeUrl($block->getPreviousPageUrl()) ?>"
+                   aria-label="<?= $block->escapeHtml(__('Go to previous page')) ?>"><</a>
+            </li>
+        <?php endif;?>
+
+        <?php if ($block->canShowFirst()): ?>
+            <li class="amamp-item">
+                <a class="amamp-link"
+                   href="<?= $block->escapeUrl($block->getFirstPageUrl()) ?>"
+                   aria-label="<?= $block->escapeHtml(__('Go to first page')) ?>">1</a>
+            </li>
+        <?php endif;?>
+
+        <?php if ($block->canShowPreviousJump()): ?>
+            <li class="amamp-item">
+                <a class="amamp-link"
+                   href="<?= $block->escapeUrl($block->getPreviousJumpUrl()) ?>"
+                   aria-label="<?= $block->escapeHtml(__('Go to previous page')) ?>">...</a>
+            </li>
+        <?php endif;?>
+
+        <?php foreach ($block->getFramePages() as $page): ?>
+            <?php if ($block->isPageCurrent($page)): ?>
+                <li class="amamp-item -current">
+                    <span class="amamp-link">
+                        <?= $block->escapeHtml($page) ?>
+                    </span>
+                </li>
+            <?php else: ?>
+                <li class="amamp-item">
+                    <a class="amamp-link"
+                       href="<?= $block->escapeUrl($block->getPageUrl($page)) ?>"
+                       aria-label="<?= $block->escapeHtml(__('Go to page number %1', $block->escapeHtml($page))) ?>">
+                            <?= $block->escapeHtml($page) ?>
+                    </a>
+                </li>
+            <?php endif;?>
+        <?php endforeach;?>
+
+        <?php if ($block->canShowNextJump()): ?>
+            <li class="amamp-item">
+                <a class="amamp-link"
+                   href="<?= $block->escapeUrl($block->getNextJumpUrl()) ?>"
+                   aria-label="<?= $block->escapeHtml(__('Go to previous page')) ?>">...</a>
+            </li>
+        <?php endif;?>
+
+        <?php if ($block->canShowLast()): ?>
+            <li class="amamp-item">
+                <a class="amamp-link"
+                   href="<?= $block->escapeUrl($block->getLastPageUrl()) ?>"
+                   aria-label="<?= $block->escapeHtml(__('Go to the last page')) ?>">
+                        <?= $block->escapeHtml($block->getLastPageNum()) ?>
+                </a>
+            </li>
+        <?php endif;?>
+
+        <?php if (!$block->isLastPage()): ?>
+            <li class="amamp-item">
+                <a class="amamp-link"
+                   href="<?= $block->escapeUrl($block->getNextPageUrl()) ?>"
+                   aria-label="<?= $block->escapeHtml(__('Go to next page')) ?>">></a>
+            </li>
+        <?php endif;?>
+    </ul>
+<?php endif ?>

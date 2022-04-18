@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="lazy_home" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Home Page</label>
+        <field id="enable_custom_lazyload" translate="label" type="select" sortOrder="5" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Enable Custom Lazy Load</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>amoptimizer/lazy_load_home/enable_custom_lazyload</config_path>
+        </field>
+        <field id="lazy_load" translate="label" type="select" sortOrder="10" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Use Lazy Loading Images</label>
+            <depends>
+                <field id="enable_custom_lazyload">1</field>
+            </depends>
+            <source_model>Amasty\LazyLoad\Model\OptionSource\YesRecommended</source_model>
+            <config_path>amoptimizer/lazy_load_home/lazy_load</config_path>
+        </field>
+        <field id="lazy_load_script" translate="label" type="select" sortOrder="20" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Lazy Load Script</label>
+            <depends>
+                <field id="enable_custom_lazyload">1</field>
+                <field id="lazy_load">1</field>
+            </depends>
+            <source_model>Amasty\LazyLoad\Model\LazyScript\LazyScriptProvider</source_model>
+            <config_path>amoptimizer/lazy_load_home/lazy_load_script</config_path>
+        </field>
+        <field id="preload_images" translate="label" type="select" sortOrder="30" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Preload Images</label>
+            <depends>
+                <field id="enable_custom_lazyload">1</field>
+                <field id="lazy_load">1</field>
+            </depends>
+            <source_model>Amasty\LazyLoad\Model\OptionSource\YesRecommended</source_model>
+            <config_path>amoptimizer/lazy_load_home/preload_images</config_path>
+        </field>
+        <field id="skip_images_count_desktop" translate="label" type="text" sortOrder="32" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Desktop Preload Images Number</label>
+            <if_module_enabled>Amasty_ImageOptimizer</if_module_enabled>
+            <depends>
+                <field id="enable_custom_lazyload">1</field>
+                <field id="lazy_load">1</field>
+                <field id="preload_images">1</field>
+                <field id="*/images_user_agent/replace_images_using_user_agent">1</field>
+            </depends>
+            <config_path>amoptimizer/lazy_load_home/skip_images_count_desktop</config_path>
+        </field>
+        <field id="skip_images_count_tablet" translate="label" type="text" sortOrder="33" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Tablet Preload Images Number</label>
+            <if_module_enabled>Amasty_ImageOptimizer</if_module_enabled>
+            <depends>
+                <field id="enable_custom_lazyload">1</field>
+                <field id="lazy_load">1</field>
+                <field id="preload_images">1</field>
+                <field id="*/images_user_agent/replace_images_using_user_agent">1</field>
+            </depends>
+            <config_path>amoptimizer/lazy_load_home/skip_images_count_tablet</config_path>
+        </field>
+        <field id="skip_images_count_mobile" translate="label" type="text" sortOrder="34" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Mobile Preload Images Number</label>
+            <if_module_enabled>Amasty_ImageOptimizer</if_module_enabled>
+            <depends>
+                <field id="enable_custom_lazyload">1</field>
+                <field id="lazy_load">1</field>
+                <field id="preload_images">1</field>
+                <field id="*/images_user_agent/replace_images_using_user_agent">1</field>
+            </depends>
+            <config_path>amoptimizer/lazy_load_home/skip_images_count_mobile</config_path>
+        </field>
+        <field id="preload_images_strategy" translate="label" type="select" sortOrder="40" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Preload Images Strategy</label>
+            <if_module_enabled>Amasty_ImageOptimizer</if_module_enabled>
+            <depends>
+                <field id="enable_custom_lazyload">1</field>
+                <field id="preload_images">1</field>
+                <field id="lazy_load">1</field>
+                <field id="*/images_user_agent/replace_images_using_user_agent">0</field>
+            </depends>
+            <source_model>Amasty\LazyLoad\Model\OptionSource\PreloadStrategy</source_model>
+            <config_path>amoptimizer/lazy_load_home/preload_images_strategy</config_path>
+        </field>
+        <field id="skip_images_count" translate="label" type="text" sortOrder="50" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Preload Images Count</label>
+            <depends>
+                <field id="enable_custom_lazyload">1</field>
+                <field id="preload_images">1</field>
+                <field id="lazy_load">1</field>
+                <field id="*/images_user_agent/replace_images_using_user_agent">0</field>
+            </depends>
+            <config_path>amoptimizer/lazy_load_home/skip_images_count</config_path>
+        </field>
+        <field id="ignore_list" translate="label" type="textarea" sortOrder="60" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Ignore Images that Contain</label>
+            <depends>
+                <field id="enable_custom_lazyload">1</field>
+                <field id="lazy_load">1</field>
+            </depends>
+            <config_path>amoptimizer/lazy_load_home/ignore_list</config_path>
+        </field>
+    </group>
+</include>

@@ -1,0 +1,11 @@
+<?php /** @var $block \Magento\Catalog\Block\Product\Image */ ?>
+
+<figure class="amamp-product-image">
+    <amp-img class="amamp-image"
+             src="<?= $block->escapeUrl($block->getImageUrl()) ?>"
+             width="1"
+             height="1"
+             layout="responsive"
+             alt="<?= $block->escapeHtml($block->stripTags($block->getLabel(), null, true)) ?>">
+    </amp-img>
+</figure>

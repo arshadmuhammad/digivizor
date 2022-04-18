@@ -1,0 +1,25 @@
+<!-- Default wysiwyg content for Amp Home Page -->
+
+<div id="amamp-home-banner"
+     class="amamp-home-banner"
+     style="background-image: linear-gradient(180deg, #4DB2DE 0%, #117ACD 100%); color: #fff;">
+    <amp-img class="amamp-image -wysiwyg"
+             src="{{media url='amasty/amp/images/bubbles.png'}}"
+             alt="background image"
+             width="300"
+             height="300"
+             layout="responsive">
+    </amp-img>
+    <h1 class="amamp-title slide-top-animation" style="font-size: 51px; text-align: center;">Welcome to our store!</h1>
+    <button class="amamp-banner-link am-icon-chevron"
+            aria-label="Start shopping"
+            on="tap:slide-top-animation.start, amamp-home-content.scrollTo(duration=900, position='top')">
+        Start
+    </button>
+</div>
+
+<div id="amamp-home-content">
+    {{widget type="Amasty\Amp\Block\Cms\Widget\NewProductsList" title="New Arrivals" display_type="new_products" products_count="10" template="Amasty_Amp::cms/widget/product/slider.phtml"}}
+
+    {{widget type="Amasty\Amp\Block\Cms\Widget\ProductsList" title="On Sale" products_count="10" template="Amasty_Amp::cms/widget/product/list.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`sale`,`operator`:`==`,`value`:`1`^]^]"}}
+</div>

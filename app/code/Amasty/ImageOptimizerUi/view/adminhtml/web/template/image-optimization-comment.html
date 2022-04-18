@@ -1,0 +1,18 @@
+<div class="admin__field">
+    <label class="admin__field-label">
+        <span>&nbsp</span>
+    </label>
+    <div class="admin__field-control amoptimizer-comment-container">
+        <!-- ko foreach: $data.commands -->
+            <div class="amoptimizer-comment-label" data-bind="text: label"></div>
+            <div class="amoptimizer-command-container">
+                <input class="amoptimizer-page-code" readonly
+                       data-bind="
+                            value: code,
+                            attr: {'data-amoptimizer-js': 'copy' + $index()}" />
+                <button class="amoptimizer-copy"
+                        data-bind="i18n: 'Copy', click: $parent.copyText.bind($data, $index())"></button>
+            </div>
+        <!--/ko-->
+    </div>
+</div>

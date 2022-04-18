@@ -1,0 +1,176 @@
+//
+//  Base Styles
+//  ____________________________________________
+
+//
+//  Imports
+//  --------------------------------------------
+
+@import '_helpers';
+@import 'pages/_demo';
+
+//
+//  Common
+//  --------------------------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0 0 @amamp__indent 0;
+    font-weight: inherit;
+}
+
+html {
+    scrollbar-width: none;
+}
+
+body {
+    .am-scrollbar();
+
+    width: 100%;
+    color: @amamp-line__color;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+.-disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.amamp-image {
+    max-width: 100%;
+}
+
+.amamp-overlay {
+    .transition;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background: fade(#000, 80%);
+}
+
+.amamp-content-wrapper {
+    ._wrapper;
+
+    min-height: 78vh;
+}
+
+.amamp-link {
+    & {
+        color: @amamp__color__active;
+    }
+
+    &.-block {
+        display: block;
+    }
+
+    &.-inline {
+        display: inline-block;
+        padding: 0 @amamp__indent / 2 0 0;
+    }
+}
+
+.amamp-sidebar-block {
+    & {
+        position: relative;
+        max-width: 355px;
+        width: 100%;
+        background: #fff;
+    }
+
+    .amamp-sidebar-legend {
+        letter-spacing: .25px;
+        font-size: 16px;
+    }
+}
+
+// Magento blocks customizing
+.price-box {
+    & {
+        letter-spacing: .25px;
+        line-height: 20px;
+    }
+
+    > span {
+        display: block;
+    }
+
+    .price {
+        display: block;
+        font-weight: 700;
+    }
+}
+
+.price-container {
+    .am-flex(none, center, wrap);
+
+    text-align: left;
+}
+
+.price-label {
+    margin: 0 @amamp__indent 0 0;
+}
+
+.old-price {
+    text-decoration-line: line-through;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.price-notice {
+    .am-flex(center, center);
+
+    padding: 0 0 0 @amamp__indent / 2;
+}
+
+.price-container .weee {
+    & {
+        .am-flex();
+
+        flex-basis: 100%;
+        padding: 2px 0;
+    }
+
+    &:after,
+    &:before {
+        margin: 0 @amamp__indent / 2 0 0;
+        content: attr(data-label) ': ';
+        font-weight: 100;
+        font-size: 12px;
+    }
+
+    &:after {
+        content: ')';
+    }
+
+    &:before {
+        content: '(' attr(data-label) ': ';
+    }
+}
+
+.price-excluding-tax {
+    & {
+        .am-flex(none, center);
+
+        flex-basis: 100%;
+    }
+
+    &:before {
+        margin: 0 @amamp__indent / 2 0 0;
+        content: attr(data-label) ': ';
+        font-weight: 100;
+        font-size: 12px;
+    }
+}
+// end Magento blocks customizing

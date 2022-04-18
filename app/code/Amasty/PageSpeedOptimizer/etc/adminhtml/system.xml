@@ -1,0 +1,333 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amoptimizer" translate="label" type="text" sortOrder="71516" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>Google Page Speed Optimizer</label>
+            <tab>amasty</tab>
+            <resource>Amasty_PageSpeedOptimizer::config</resource>
+            <!--<group id="tutorial" showInDefault="1" showInWebsite="1" showInStore="1">-->
+            <!--<label>Tutorial</label>-->
+            <!--<field id="tutorial" type="button" sortOrder="10" showInDefault="1"-->
+            <!--showInWebsite="1" showInStore="1">-->
+            <!--<frontend_model>Amasty\PageSpeedOptimizer\Block\Adminhtml\Settings\Tutorial</frontend_model>-->
+            <!--</field>-->
+            <!--</group>-->
+            <group id="amasty_information" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Information</label>
+                <frontend_model>Amasty\PageSpeedOptimizer\Block\Adminhtml\System\Config\Information</frontend_model>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General</label>
+
+                <attribute type="expanded">1</attribute>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="diagnostic" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Diagnostic</label>
+                    <frontend_model>Amasty\PageSpeedOptimizer\Block\Adminhtml\Settings\Diagnostic</frontend_model>
+                </field>
+            </group>
+            <group id="html" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>HTML:</label>
+                <field id="info_html" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Amasty\PageSpeedOptimizer\Block\Adminhtml\Settings\ProductionModeInfo</frontend_model>
+                </field>
+                <field id="minify_html" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Minify HTML</label>
+                    <frontend_class>amoptimizer-field-container</frontend_class>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\YesRecommended</source_model>
+                    <config_path>dev/template/minify_html</config_path>
+                    <comment>'bin/magento setup:static-content:deploy' command must be run in the console when any of the settings in the field been changed.</comment>
+                </field>
+            </group>
+            <group id="javascript" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>JavaScript:</label>
+
+                <field id="info_javascript" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Amasty\PageSpeedOptimizer\Block\Adminhtml\Settings\ProductionModeInfo</frontend_model>
+                </field>
+                <field id="bundling_type" translate="label tooltip" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Amasty JS Optimization</label>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\BundlingType</source_model>
+                    <config_path>amoptimizer/javascript/bundling_type</config_path>
+                    <tooltip><![CDATA[Amasty JS optimization is a unique process that will significantly optimize JavaScript for your Magento website using Advanced JS Bundling feature and JS Minification.<br><br>You will need to use CLI commands to run through the optimization. Please make sure that you have access to the console and know how to do it.<br><br>Please create a full backup of your Magento instance and follow the instructions that are displayed in the 'Run Optimization" section. ]]></tooltip>
+                </field>
+                <field id="is_cloud" translate="label tooltip" type="select" sortOrder="11" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>JS Optimization for Magento Cloud</label>
+                    <tooltip>If the setting is enabled, Amasty JS Optimization will correctly work for Magento Cloud hosting platform. The setting may be also used in case you have automatic deployment. Please, find more details on how to set it up from the user guide.</tooltip>
+                    <depends>
+                        <field id="bundling_type">1</field>
+                    </depends>
+                    <config_path>amoptimizer/javascript/is_cloud</config_path>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="super_bundling" translate="label" type="button" sortOrder="12" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Run Optimization</label>
+                    <depends>
+                        <field id="bundling_type">1</field>
+                    </depends>
+                    <frontend_model>Amasty\PageSpeedOptimizer\Block\Adminhtml\Settings\SuperBundling</frontend_model>
+                </field>
+                <field id="super_bundling_clear" translate="label" type="button" sortOrder="14" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Clear Bundle</label>
+                    <depends>
+                        <field id="bundling_type">1</field>
+                    </depends>
+                    <frontend_model>Amasty\PageSpeedOptimizer\Block\Adminhtml\Settings\SuperBundlingClear</frontend_model>
+                </field>
+                <field id="merge_js" translate="label comment" type="select" sortOrder="18" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Merge JavaScript Files</label>
+                    <depends>
+                        <field id="bundling_type">0</field>
+                    </depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>dev/js/merge_files</config_path>
+                    <comment>'bin/magento setup:static-content:deploy' command must be run in the console when any of the settings in the field been changed.</comment>
+                </field>
+                <field id="js_bundling" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Enable JavaScript Bundling</label>
+                    <depends>
+                        <field id="bundling_type">0</field>
+                    </depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>dev/js/enable_js_bundling</config_path>
+                    <comment>'bin/magento setup:static-content:deploy' command must be run in the console when any of the settings in the field been changed.</comment>
+                </field>
+                <field id="minify_js" translate="label" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Minify JavaScript Files</label>
+                    <depends>
+                        <field id="bundling_type">0</field>
+                    </depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>dev/js/minify_files</config_path>
+                    <comment>'bin/magento setup:static-content:deploy' command must be run in the console when any of the settings in the field been changed.</comment>
+                </field>
+                <field id="minify_js_phtml" translate="label comment tooltip" type="select" sortOrder="31" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Minify JavaScript in PHTML Files</label>
+                    <depends>
+                        <field id="bundling_type">0</field>
+                        <field id="minify_js">1</field>
+                    </depends>
+                    <comment>The setting will be not performed if the deployment of statics runs with --no-html-minify flag.</comment>
+                    <tooltip>This setting is recommended to be run on testing environment first.</tooltip>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="minify_js_phtml_blacklist" translate="label comment" type="textarea" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Specify Path to Templates to be Ignored</label>
+                    <depends>
+                        <field id="bundling_type">0</field>
+                        <field id="minify_js">1</field>
+                        <field id="minify_js_phtml">1</field>
+                    </depends>
+                    <comment>Each template from new line. Example: vendor/magento/module-catalog/view/frontend/templates/product/breadcrumbs.phtml</comment>
+                </field>
+                <field id="merge_and_bundle_adminhtml" translate="label tooltip" type="select" sortOrder="33" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Include JS of the Admin Area Pages into Merged JS File</label>
+                    <depends>
+                        <field id="merge_js">1</field>
+                        <field id="js_bundling">1</field>
+                    </depends>
+                    <tooltip>Optimizing the admin area pages sometimes lead to malfunctions and doesn't affect the Google rating</tooltip>
+                    <config_path>amoptimizer/javascript/merge_and_bundle_adminhtml</config_path>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\NoRecommended</source_model>
+                </field>
+                <field id="not_merge_and_bundle_urls" translate="label comment" type="textarea" sortOrder="34" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Exclude URLs from JS Bundling and Merge</label>
+                    <depends>
+                        <field id="merge_js">1</field>
+                        <field id="js_bundling">1</field>
+                    </depends>
+                    <comment>Each URL or part of the URL from new line</comment>
+                    <config_path>amoptimizer/javascript/not_merge_and_bundle_urls</config_path>
+                </field>
+                <field id="movejs" translate="label" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Move JavaScript To Page Bottom</label>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\YesRecommended</source_model>
+                </field>
+                <field id="movejs_exclude_url" translate="label comment" type="textarea" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Ignore URL List</label>
+                    <depends>
+                        <field id="movejs">1</field>
+                    </depends>
+                    <comment>Each URL or part of the URL from new line</comment>
+                    <config_path>amoptimizer/javascript/movejs_exclude_url</config_path>
+                </field>
+                <field id="movejs_exclude_part" translate="label" type="textarea" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Ignore Scripts that Contain</label>
+                    <depends>
+                        <field id="movejs">1</field>
+                    </depends>
+                    <comment><![CDATA[Example: &lt;script <b>data-template="bundle-</b>option" type="text/x-magento-template"&gt;&lt;div&gt;&lt;%- data._quantity_ %&gt; x &lt;%- data._label_ %&gt;&lt;/div&gt;&lt;/script&gt; will be excluded.]]></comment>
+                    <config_path>amoptimizer/javascript/movejs_exclude_part</config_path>
+                </field>
+            </group>
+            <group id="css" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>CSS:</label>
+
+                <field id="info_css" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Amasty\PageSpeedOptimizer\Block\Adminhtml\Settings\ProductionModeInfo</frontend_model>
+                </field>
+                <field id="merge_css" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Merge CSS Files</label>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\YesRecommended</source_model>
+                    <config_path>dev/css/merge_css_files</config_path>
+                    <comment>'bin/magento setup:static-content:deploy' command must be run in the console when any of the settings in the field been changed.</comment>
+                </field>
+                <field id="merge_css_adminhtml" translate="label tooltip" type="select" sortOrder="11" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Merge CSS Files in Admin Area</label>
+                    <depends>
+                        <field id="merge_css">1</field>
+                    </depends>
+                    <config_path>amoptimizer/css/merge_css_adminhtml</config_path>
+                    <tooltip>Optimizing the admin area pages sometimes lead to malfunctions and doesn't affect the Google rating</tooltip>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\NoRecommended</source_model>
+                </field>
+                <field id="not_merge_css_urls" translate="label comment" type="textarea" sortOrder="12" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Exclude URLs from CSS Merge</label>
+                    <depends>
+                        <field id="merge_css">1</field>
+                    </depends>
+                    <comment>Each URL or part of the URL from new line</comment>
+                    <config_path>amoptimizer/css/not_merge_css_urls</config_path>
+                </field>
+                <field id="minify_css" translate="label" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Minify CSS Files</label>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\YesRecommended</source_model>
+                    <config_path>dev/css/minify_files</config_path>
+                    <comment>'bin/magento setup:static-content:deploy' command must be run in the console when any of the settings in the field been changed.</comment>
+                </field>
+                <field id="move_font" translate="label" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Defer Fonts Loading</label>
+                    <depends>
+                        <field id="merge_css">1</field>
+                        <field id="minify_css">1</field>
+                    </depends>
+                    <comment>Fonts will be loaded later in a separate css file. 'bin/magento setup:static-content:deploy' command must be run in the console when any of the settings in the field been changed.</comment>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\YesRecommended</source_model>
+                </field>
+                <field id="move_font_for_device" translate="label" type="multiselect" sortOrder="35" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Defer Fonts for</label>
+                    <can_be_empty>1</can_be_empty>
+                    <depends>
+                        <field id="move_font">1</field>
+                        <field id="merge_css">1</field>
+                        <field id="minify_css">1</field>
+                    </depends>
+                    <frontend_class>amoptimizer-device-multiselect</frontend_class>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\DeviceType</source_model>
+                </field>
+                <field id="font_ignore_list" translate="label comment" type="textarea" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Do Not Defer Fonts That Contain</label>
+                    <depends>
+                        <field id="move_font">1</field>
+                        <field id="merge_css">1</field>
+                        <field id="minify_css">1</field>
+                    </depends>
+                    <comment>Example: Luma-Icons</comment>
+                </field>
+                <field id="move_print_css" translate="label" type="select" sortOrder="45" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Move Print CSS Files to Page Bottom</label>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\YesRecommended</source_model>
+                    <config_path>amoptimizer/css/move_print</config_path>
+                    <tooltip>These styles are used for printing the page and can be moved to the bottom.</tooltip>
+                </field>
+            </group>
+            <group id="flat_tables" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Flat Tables:</label>
+
+                <field id="flat_category" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Use Flat Catalog Category</label>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\FlatTableRecommendation</source_model>
+                    <config_path>catalog/frontend/flat_catalog_category</config_path>
+                </field>
+                <field id="flat_product" translate="label" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Use Flat Catalog Product</label>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\FlatTableRecommendation</source_model>
+                    <config_path>catalog/frontend/flat_catalog_product</config_path>
+                </field>
+            </group>
+            <group id="server_push" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Server Push:</label>
+                <field id="info_enabled" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Amasty\PageSpeedOptimizer\Block\Adminhtml\Settings\ServerPushInfo</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Server Push</label>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\YesRecommended</source_model>
+                    <config_path>amoptimizer/server_push/enabled</config_path>
+                    <tooltip><![CDATA[A powerful feature of HTTP/2 represents the ability of the server to send multiple responses for a single client request. That is, in addition to the response to the original request, the server can push additional resources to the client, without the client having to request each one explicitly.<br><br>The setting allows you to eliminate the extra latency and let the server push the associated resources ahead of time. The server already knows which resources the client will require; that’s server push.]]></tooltip>
+                </field>
+                <field id="server_push_types" translate="label comment" type="multiselect" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Asset Types to Server Push</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <frontend_class>amoptimizer-server-push</frontend_class>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\ServerPushAssetTypes</source_model>
+                    <config_path>amoptimizer/server_push/server_push_types</config_path>
+                </field>
+                <field id="server_push_exclude" translate="label comment" type="textarea" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Exclude URLs from Server Push</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>Each URL or part of the URL from new line</comment>
+                    <config_path>amoptimizer/server_push/server_push_exclude</config_path>
+                </field>
+            </group>
+            <group id="other_settings" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Other Settings:</label>
+
+                <field id="sign_static_files" translate="label" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Sign Static Files</label>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\YesRecommended</source_model>
+                    <config_path>dev/static/sign</config_path>
+                </field>
+                <field id="async_indexing" translate="label" type="select" sortOrder="50" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Asynchronous indexing</label>
+                    <source_model>Amasty\PageSpeedOptimizer\Model\OptionSource\EnableRecommended</source_model>
+                    <config_path>dev/grid/async_indexing</config_path>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

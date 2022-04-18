@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\PageSpeedTools\Model\Output\OutputChainInterface" type="Amasty\PageSpeedTools\Model\Output\OutputChain"/>
+    <preference for="Amasty\PageSpeedTools\Model\Image\ReplacerCompositeInterface" type="Amasty\PageSpeedTools\Model\Image\ReplacerComposite"/>
+    <type name="Amasty\PageSpeedTools\Model\Output\OutputChain">
+        <arguments>
+            <argument name="ampProcessors" xsi:type="array">
+                <item name="isHtml" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">0</item>
+                    <item name="processor" xsi:type="object">Amasty\PageSpeedTools\Model\Output\CheckIsOutputHtmlProcessor</item>
+                </item>
+            </argument>
+            <argument name="processors" xsi:type="array">
+                <item name="isHtml" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">0</item>
+                    <item name="processor" xsi:type="object">Amasty\PageSpeedTools\Model\Output\CheckIsOutputHtmlProcessor</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\PageSpeedTools\Model\Image\ReplacerCompositeInterface">
+        <arguments>
+            <argument name="imageReplacers" xsi:type="array">
+                <item name="replace_with_best" xsi:type="object">Amasty\PageSpeedTools\Model\Image\Replacer\BestReplacer</item>
+                <item name="replace_with_picture" xsi:type="object">Amasty\PageSpeedTools\Model\Image\Replacer\PictureTagReplacer</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\PageSpeedTools\Plugin\ProcessPageResult">
+        <arguments>
+            <argument name="outputChain" xsi:type="object">Amasty\PageSpeedTools\Model\Output\OutputChain\Proxy</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\TemplateEngineFactory">
+        <plugin name="Amasty_PageSpeedTools::DebugHints" type="Amasty\PageSpeedTools\Plugin\Debug\TemplateHints" sortOrder="20"/>
+    </type>
+</config>

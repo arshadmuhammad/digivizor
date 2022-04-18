@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="amasty_amp_products_list" class="Amasty\Amp\Block\Cms\Widget\ProductsList" is_email_compatible="true"
+            placeholder_image="Magento_CatalogWidget::images/products_list.png" ttl="86400">
+        <label translate="true">Amasty Amp Catalog Products List</label>
+        <description translate="true">List of Products</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products to Display</label>
+                <value>10</value>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="true" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="grid" value="Amasty_Amp::cms/widget/product/grid.phtml" selected="true">
+                        <label translate="true">Grid</label>
+                    </option>
+                    <option name="list" value="Amasty_Amp::cms/widget/product/list.phtml">
+                        <label translate="true">List</label>
+                    </option>
+                    <option name="slider" value="Amasty_Amp::cms/widget/product/slider.phtml">
+                        <label translate="true">Slider</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">
+                    <![CDATA[Time in seconds between the widget updates.
+                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
+                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.]]>
+                </description>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" visible="true" required="true" sort_order="10"
+                       class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="amasty_amp_new_products" class="Amasty\Amp\Block\Cms\Widget\NewProductsList" is_email_compatible="true"
+            placeholder_image="Magento_Catalog::images/product_widget_new.png" ttl="86400">
+        <label translate="true">Amasty Amp Catalog New Products List</label>
+        <description translate="true">List of Products that are set as New</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="display_type" xsi:type="select" required="true" visible="true">
+                <label translate="true">Display Type</label>
+                <description translate="true">All products - recently added products, New products - products marked as new</description>
+                <options>
+                    <option name="default" value="all_products" selected="true">
+                        <label translate="true">All products</label>
+                    </option>
+                    <option name="item" value="new_products">
+                        <label translate="true">New products</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products to Display</label>
+                <value>10</value>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="true" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="grid" value="Amasty_Amp::cms/widget/product/grid.phtml" selected="true">
+                        <label translate="true">Grid</label>
+                    </option>
+                    <option name="list" value="Amasty_Amp::cms/widget/product/list.phtml">
+                        <label translate="true">List</label>
+                    </option>
+                    <option name="slider" value="Amasty_Amp::cms/widget/product/slider.phtml">
+                        <label translate="true">Slider</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">
+                    <![CDATA[Time in seconds between the widget updates.
+                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
+                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.]]>
+                </description>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="amasty_amp_catalog_category_link"
+            class="Amasty\Amp\Block\Cms\Widget\CategoryLink"
+            is_email_compatible="true"
+            placeholder_image="Magento_Catalog::images/category_widget_link.png">
+        <label translate="true">Amasty Amp Catalog Category Link</label>
+        <description translate="true">Link to a Specified Category</description>
+        <parameters>
+            <parameter name="id_path" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">Category</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Category...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true">
+                <label translate="true">Anchor Custom Text</label>
+                <description translate="true">If empty, we'll use the category name here.</description>
+            </parameter>
+            <parameter name="title" xsi:type="text" visible="true">
+                <label translate="true">Anchor Custom Title</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="block"
+                            value="Amasty_Amp::cms/widget/link/block.phtml"
+                            selected="true">
+                        <label translate="true">Category Link Block Template</label>
+                    </option>
+                    <option name="inline" value="Amasty_Amp::cms/widget/link/inline.phtml">
+                        <label translate="true">Category Link Inline Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="amasty_amp_catalog_product_link"
+            class="Amasty\Amp\Block\Cms\Widget\ProductLink"
+            is_email_compatible="true"
+            placeholder_image="Magento_Catalog::images/product_widget_link.png">
+        <label translate="true">Amasty Amp Catalog Product Link</label>
+        <description translate="true">Link to a Specified Product</description>
+        <parameters>
+            <parameter name="id_path" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">Product</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Product\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Product...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true">
+                <label translate="true">Anchor Custom Text</label>
+                <description translate="true">If empty, we'll use the product name here.</description>
+            </parameter>
+            <parameter name="title" xsi:type="text" visible="true">
+                <label translate="true">Anchor Custom Title</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="block"
+                            value="Amasty_Amp::cms/widget/link/block.phtml"
+                            selected="true">
+                        <label translate="true">Product Link Block Template</label>
+                    </option>
+                    <option name="inline" value="Amasty_Amp::cms/widget/link/inline.phtml">
+                        <label translate="true">Product Link Inline Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="amasty_amp_cms_page_link" class="Amasty\Amp\Block\Cms\Widget\CmsLink" is_email_compatible="true"
+            placeholder_image="Magento_Cms::images/widget_page_link.png">
+        <label translate="true">Amasty Amp CMS Page Link</label>
+        <description translate="true">Link to a CMS Page</description>
+        <parameters>
+            <parameter name="page_id" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">CMS Page</label>
+                <block class="Magento\Cms\Block\Adminhtml\Page\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Page...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true">
+                <label translate="true">Anchor Custom Text</label>
+                <description translate="true">If empty, the Page Title will be used</description>
+            </parameter>
+            <parameter name="title" xsi:type="text" visible="true">
+                <label translate="true">Anchor Custom Title</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="block"
+                            value="Amasty_Amp::cms/widget/link/block.phtml"
+                            selected="true">
+                        <label translate="true">Cms Page Link Block Template</label>
+                    </option>
+                    <option name="inline" value="Amasty_Amp::cms/widget/link/inline.phtml">
+                        <label translate="true">Cms Page Link Inline Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

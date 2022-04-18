@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <block>
+    <item>
+      <title><![CDATA[featured-menu]]></title>
+      <identifier><![CDATA[featured-menu]]></identifier>
+      <content><![CDATA[<div class="content-mega">
+	<div class="content-mega-custom">
+	    <div class="container-full">
+			<ul class="mage-column cat-mega">
+				<li class="children level1">
+				   <a href="#"><span>Product Types</span></a>
+				   <ul class="level1">
+                        <li class="level2"><a href="primo-court-mid-suede.html"><span>Simple Product</span></a></li>
+						<li class="level2"><a href="grouped-product.html"><span>Grouped Product</span></a></li>
+						<li class="level2"><a href="configurable-product.html"><span>Configurable Product</span></a></li>
+						<li class="level2"><a href="sprite-yoga-companion-kit.html"><span>Bundle Product</span></a></li>
+						<li class="level2"><a href="downloadable-product.html"><span>Downloadable Product</span></a></li>
+				  </ul>
+				</li>
+				<li class="children level1 last">
+				   <a href="#"><span>Product Features</span></a>
+				   <ul class="level1">
+						<li class="level2"><a href="marco-lightweight-active.html"><span>Product with Related</span></a></li>
+						<li class="level2"><a href="fusce-nec-facilisi.html"><span>Product with Upsell</span></a></li>
+                                                <li class="level2"><a href="the-net-bag-in-navy.html"><span>Product with Video</span></a></li>
+				  </ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[home slide4]]></title>
+      <identifier><![CDATA[home-slide4]]></identifier>
+      <content><![CDATA[<!-- home slide-->
+<div class="slide-showcase alo-block-slide">
+<div class="container1">
+<div class="alo-magicslider home-slider">{{widget type="Magiccart\Magicslider\Block\Widget\Slider" identifier="slide4" template="magicslider.phtml"}}</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Social Newletter]]></title>
+      <identifier><![CDATA[block-footer-top]]></identifier>
+      <content><![CDATA[<div class="container">
+	<div class="main">
+		<div class="footer">
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<h2 class="logo-text">milano fashion.</h2>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<ul class="list-inline">
+						<li><a class="social-link twitter" href="#"><em class="fa fa-twitter"><span class="hidden">twitter</span></em></a></li>
+						<li><a class="social-link google-plus" href="#"><em class="fa fa-google-plus"><span class="hidden">google-plus</span></em></a></li>
+						<li><a class="social-link facebook" href="#"><em class="fa fa-facebook"><span class="hidden">facebook</span></em></a></li>
+						<li><a class="social-link tumblr" href="#"><em class="fa fa-tumblr"><span class="hidden">tumblr</span></em></a></li>
+						<li><a class="social-link pinterest" href="#"><em class="fa fa-pinterest"><span class="hidden">pinterest</span></em></a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 col-sm-12 col-xs-12 clearboth">
+					<div class="collapsible mobile-collapsible">
+						<div class="block-newletter">{{block class="Magento\Newsletter\Block\Subscribe" template="subscribe.phtml"}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[block-footer-bottom]]></title>
+      <identifier><![CDATA[block-footer-bottom]]></identifier>
+      <content><![CDATA[<div class="container">
+<div class="main">
+<div class="footer">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<div class="collapsible mobile-collapsible">
+<h3 class="block-title heading">about</h3>
+<div class="block1 block-content-statick">
+<ul>
+<li class="feature-icon first">
+<p class="no-margin"><span>Add</span>,262 Milacina Mrest Street Behansed, Paris France</p>
+</li>
+<li class="feature-icon">
+<p><span>Tel</span>.+84 912. 345. 678</p>
+</li>
+<li class="feature-icon">
+<p><span>Email</span>.suport@alothemes.com</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<div class="collapsible mobile-collapsible">
+<h3 class="block-title heading">Userful Links</h3>
+<div class="block-content block-content-statick">
+<ul class="bullet">
+<li><a href="#">Help</a></li>
+<li><a href="#">Gift Cards</a></li>
+<li><a href="#">Order Status</a></li>
+<li><a href="#">Free Shipping</a></li>
+<li><a href="#">Returns &amp; Exchanges</a></li>
+<li><a href="#">International</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<div class="collapsible mobile-collapsible">
+<h3 class="block-title heading">Customer Care</h3>
+<div class="block-content block-content-statick">
+<ul class="bullet">
+<li><a href="#">About Us</a></li>
+<li><a href="#">Jobs</a></li>
+<li><a href="#">Affiliates</a></li>
+<li><a href="#">Meet The Maker</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<div class="collapsible mobile-collapsible">
+<h3 class="block-title heading">Customer Care</h3>
+<div class="block-content block-content-statick">
+<ul class="bullet">
+<li><a href="#">Security</a></li>
+<li><a href="#">Privacy</a></li>
+<li><a href="#">Text Messaging</a></li>
+<li><a href="#">Legal</a></li>
+<li><a href="#">Supply chain</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[footer_links_company]]></title>
+      <identifier><![CDATA[footer_links_company]]></identifier>
+      <content><![CDATA[<div class="container">
+<div class="main">
+<div class="footer">
+<div class="links">
+<div class="block-title"><strong><span>Company</span></strong></div>
+<ul>
+<li><a href="{{store url=""}}about-magento-demo-store/">About Us</a></li>
+<li><a href="{{store url=""}}contact/">Contact Us</a></li>
+<li><a href="{{store url=""}}customer-service/">Customer Service</a></li>
+<li><a href="{{store url=""}}privacy-policy-cookie-restriction-mode/">Privacy Policy</a></li>
+<li><a href="#">Accessibility</a></li>
+<li><a href="#">Store Directory</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[testimonial]]></title>
+      <identifier><![CDATA[testimonial]]></identifier>
+      <content><![CDATA[<div class="block-static bg-parallax block_testimonials">
+<div class="container">
+<div class="main">
+<div class="row">
+<div class="testimonials col-lg-12">{{widget type="Magiccart\Testimonial\Block\Widget\Testimonial" template="testimonial.phtml"}}</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[category_view_custom_block]]></title>
+      <identifier><![CDATA[category_view_custom_block]]></identifier>
+      <content><![CDATA[<div class="category_view_custom_block"><img class="img-responsive-normal" alt="Banner" src="{{media url="wysiwyg/alothemes/static/block-cate.jpg"}}" /></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[megamenu_custom_block]]></title>
+      <identifier><![CDATA[megamenu_custom_block]]></identifier>
+      <content><![CDATA[<div><img alt="" src="{{media url="wysiwyg/alothemes/static/img-mega.jpg"}}" /></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Map Contacts]]></title>
+      <identifier><![CDATA[block_map_contacts]]></identifier>
+      <content><![CDATA[<div><iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.8277911385558!2d-0.13108129999999998!3d51.51637529999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2d183f5ea3%3A0x8e1c5b00f1b16579!2zMTIgT3hmb3JkIFN0LCBTb2hvLCBMb25kb24gVzFELCBWxrDGoW5nIFF14buRYyBBbmg!5e0!3m2!1svi!2s!4v1434261501432" height="350" width="600"></iframe></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[newsletter_popup]]></title>
+      <identifier><![CDATA[newsletter_popup]]></identifier>
+      <content><![CDATA[			<div class="block-content">
+				<div class="form-subscribe-header block-title">
+                    <label for="newsletter-popup">newsletter</label>
+					</div>
+				<span>Subscribe now to get</span>
+                <span class="saleoff">20%</span>
+                <span>off on any product!</span>
+				<div class="subcribe-box newsletter-new clearfix">
+					<div class="field newsletter input-box">
+						<div class="control">
+							<input name="email" type="email" id="newsletter-popup" class="input-text"
+										placeholder="Enter your email address"
+										data-validate="{required:true, 'validate-email':true}"/>
+						</div>
+					</div>
+					<div class="actions">
+						<button class="action subscribe button" title="'Subscribe'" type="submit">
+							<span>Subscribe'</span>
+						</button>
+					</div>
+				</div>
+                <div class="subscribe-bottom">
+                    <input type="checkbox" />Don’t show this popup again'
+                </div>
+			</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[footer social link]]></title>
+      <identifier><![CDATA[footer-social]]></identifier>
+      <content><![CDATA[<ul class="ft-social">
+				<li><a href="#"><i class="fa fa-facebook"></i><span class="hidden">hidden</span></a></li>
+				<li><a href="#"><i class="fa fa-twitter"></i><span class="hidden">hidden</span></a></li>
+				<li><a href="#"><i class="fa fa-pinterest"></i><span class="hidden">hidden</span></a></li>
+				<li><a href="#"><i class="fa fa-google"></i><span class="hidden">hidden</span></a></li>
+				<li><a href="#"><i class="fa fa-dribbble"></i><span class="hidden">hidden</span></a></li>
+			</ul>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[footer-payment]]></title>
+      <identifier><![CDATA[footer-payment]]></identifier>
+      <content><![CDATA[<div class="payment-ft"><a href="#"><img src="{{media url=&quot;wysiwyg/alothemes/static/demo16/payment.png&quot;}}" alt="" /></a></div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[home-slide16]]></title>
+      <identifier><![CDATA[home-slide16]]></identifier>
+      <content><![CDATA[<div class="alo-magicslider">{{widget type="Magiccart\Magicslider\Block\Widget\Slider" identifier="slide16" class="home-slider" template="magicslider.phtml"}}</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+  </block>
+</root>

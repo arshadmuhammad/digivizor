@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amoptimizer>
+            <images>
+                <process_images_per_request>10</process_images_per_request>
+                <multiprocess_enabled>0</multiprocess_enabled>
+                <process_count>4</process_count>
+                <optimization_type>immediately</optimization_type>
+            </images>
+        </amoptimizer>
+    </default>
+</config>

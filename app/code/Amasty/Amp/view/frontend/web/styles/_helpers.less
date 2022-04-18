@@ -1,0 +1,47 @@
+//
+//  Helpers
+//  --------------------------------------------
+
+._clear-btn {
+    & {
+        padding: 0;
+    }
+
+    &,
+    &:focus,
+    &:hover {
+        border: none;
+        background: none;
+        box-shadow: none;
+    }
+}
+
+._wrapper {
+    margin: 0 auto;
+    padding: 0 @amamp__indent__xl;
+    max-width: 1280px;
+}
+
+//
+//  Animations
+//  --------------------------------------------
+
+@keyframes slideTop {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-200%);
+    }
+}
+
+@keyframes slideBottom {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(200%);
+    }
+}

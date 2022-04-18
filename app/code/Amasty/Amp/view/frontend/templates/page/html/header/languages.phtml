@@ -1,0 +1,28 @@
+<?php
+/**
+ * Language switcher
+ *
+ * @var \Amasty\Amp\Block\Page\Html\Header\Switcher $block
+ */
+?>
+
+<?php if (count($block->getStores()) > 1): ?>
+    <?php $id = $block->getIdModifier() ? '-' . $block->getIdModifier() : '' ?>
+        <section class="amamp-category-item -parent">
+            <h4 class="amamp-title">
+                <?= $block->escapeHtml(__('Language')) ?>
+            </h4>
+            <ul class="amamp-list">
+                <?php foreach ($block->getStores() as $store): ?>
+                    <?php if (!$block->isCurrentStore($store)): ?>
+                        <li class="amamp-view-<?= $block->escapeHtml($store->getCode()) ?> amamp-accordion-sections">
+                            <a title="<?= $block->escapeHtml($store->getName()) ?>"
+                               href="<?= $block->escapeUrl($block->getStoreUrlAmp($store)) ?>">
+                                <?= $block->escapeHtml($store->getName()) ?>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </section>
+<?php endif; ?>

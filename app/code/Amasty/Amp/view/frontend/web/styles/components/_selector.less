@@ -1,0 +1,64 @@
+//
+//  Amp Selectors Styles
+//  ____________________________________________
+
+//
+//  Common
+//  --------------------------------------------
+
+amp-selector[role=tablist].tabs-with-flex {
+    & {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    [role=tab] {
+        text-align: center;
+    }
+
+    [role=tab][selected] {
+        & {
+            outline: none;
+        }
+
+        & + [role=tabpanel] {
+            display: block;
+        }
+    }
+
+    [role=tabpanel] {
+        display: none;
+        width: 100%;
+        order: 1;
+    }
+}
+
+amp-selector[role=tablist].tabs-with-selector {
+    & {
+        display: flex;
+    }
+
+    [role=tab][selected] {
+        outline: none;
+    }
+
+    [role=tab] {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+amp-selector.tabpanels {
+    [role=tabpanel] {
+        display: none;
+    }
+
+    [role=tabpanel][selected] {
+        display: block;
+        outline: none;
+    }
+}
+
+amp-selector[role=tablist] [role=tab][selected] + [role=tabpanel] {
+    display: block;
+}

@@ -1,0 +1,94 @@
+//
+//  Swatchers Component Styles
+//  ____________________________________________
+
+//
+//  Imports
+//  --------------------------------------------
+
+@import '../_variables';
+@import '../_mixins';
+
+//
+//  Common
+//  --------------------------------------------
+
+.amamp-options-block {
+    .amamp-label {
+        .am-flex(none, center);
+
+        margin: 0;
+    }
+
+    .amamp-checkbox {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+
+    .amamp-select-option {
+        margin: 0 @amamp__indent 0 0;
+    }
+}
+
+.amamp-swatch-list {
+    & {
+        .am-flex(none, center, wrap);
+    }
+
+    .amamp-option {
+        & {
+            .am-flex(center, center, none, inline-flex);
+            .transition();
+
+            position: relative;
+            display: inline-flex;
+            box-sizing: border-box;
+            margin-top: @amamp__indent / 2;
+            margin-right: @amamp__indent / 2;
+            padding: 0 2px;
+            min-width: @amamp__indent__xxl;
+            height: @amamp__indent__xxl;
+            border: 1px solid transparent;
+            line-height: 13px;
+        }
+
+        &[selected] {
+            outline: none;
+            border: 1px solid @amamp__color__active;
+        }
+    }
+
+    .amamp-option .amamp-link {
+        .am-flex(center, center);
+
+        width: 100%;
+        height: 100%;
+        color: @amamp-line__color;
+        text-decoration: none;
+    }
+
+    .amamp-option.-color,
+    .amamp-option.-custom,
+    .amamp-option.-image {
+        & {
+            margin-right: 12px;
+            border: 1px solid @amamp__color__active;
+            border-radius: 50%;
+            background-size: cover;
+        }
+
+        &[selected] {
+            outline: none;
+            border: 1px solid @amamp__color__active;
+            box-shadow: inset 0 0 1px 2px #fff;
+            transform: scale(1.2);
+        }
+    }
+}

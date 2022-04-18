@@ -1,0 +1,25 @@
+<?php
+/** @var \Amasty\ImageOptimizer\Block\Adminhtml\Settings\ClearFoldersButton $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<div class="amoptimizer-clear-container" data-bind="scope: 'clear-button'">
+    <!-- ko if: message -->
+    <p class="amoptimizer-message" data-bind="css: {'-error': isError, '-show': message}, text: message"></p>
+    <!-- /ko -->
+    <button class="amoptimizer-clear" data-bind="click: submitCheckboxes"><?= $escaper->escapeHtml(__('Clear')) ?></button>
+</div>
+
+<script type="text/x-magento-init">
+{
+    "[data-amoptimizer-js='image-example']": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "clear-button": {
+                    "component": "Amasty_ImageOptimizerUi/js/clear-button",
+                    "submitUrl": "<?= /** @noEscape */ $block->getActionUrl() ?>"
+                }
+            }
+        }
+    }
+}
+</script>

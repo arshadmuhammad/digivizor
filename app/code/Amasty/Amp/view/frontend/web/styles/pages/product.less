@@ -1,0 +1,442 @@
+//
+//  Product Page Styles
+//  ____________________________________________
+
+//
+//  Imports
+//  --------------------------------------------
+
+@import '../_variables';
+@import '../_mixins';
+@import '../_icons';
+@import '../components/_rating';
+@import '../components/_swatchers';
+@import '../components/_slider';
+@import '../components/_product-list';
+
+//
+//  Common
+//  --------------------------------------------
+
+.amamp-product-info {
+    .am-flex(space-between, center, wrap);
+
+    padding: @amamp__indent__xxl 0 0 0;
+}
+
+.amamp-options-block {
+    & {
+        padding: 0 0 @amamp__indent__xxl 0;
+    }
+
+    .price-container {
+        flex-wrap: nowrap;
+    }
+
+    .price:not(:last-child) {
+        margin-right: @amamp__indent / 2;
+    }
+
+    .price-excluding-tax {
+        &:after {
+            content: ')';
+        }
+
+        &:before {
+            content: '(' attr(data-label) ': ';
+        }
+    }
+
+    .price-excluding-tax,
+    .price-including-tax {
+        margin-right: @amamp__indent / 2;
+    }
+
+    &:first-child {
+        padding-top: @amamp__indent__xl;
+    }
+
+    .amamp-label {
+        margin: 0 0 @amamp__indent / 2 0;
+    }
+
+    .amamp-select-block {
+        -webkit-appearance: listbox;
+    }
+}
+
+.amamp-info-stock {
+    & {
+        flex-basis: 30%;
+        box-sizing: border-box;
+        text-align: right;
+    }
+
+    // Magento block styling
+    .stock {
+        margin: 0 0 2px;
+        text-transform: uppercase;
+        letter-spacing: .25px;
+        font-weight: 700;
+        font-size: 11px;
+    }
+
+    // end Magento block styling
+}
+
+.amamp-sku {
+    & {
+        .am-flex(flex-end);
+
+        white-space: nowrap;
+        letter-spacing: .25px;
+        font-size: 11px;
+    }
+
+    // Magento block styling
+    .type {
+        & {
+            margin: 0 @amamp__indent / 2 0 0;
+            font-weight: 400;
+        }
+
+        &:after {
+            content: ':';
+        }
+    }
+
+    // end Magento block styling
+}
+
+.amamp-short-desc {
+    overflow: hidden;
+    margin: @amamp__indent__xl 0 @amamp__indent;
+    max-height: 60px;
+    text-overflow: ellipsis;
+    letter-spacing: .25px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+}
+
+.amamp-add-form {
+    .amamp-notification {
+        margin: 0;
+    }
+
+    // Magento blocks styling
+    .price-box > span {
+        margin: 0 0 @amamp__indent;
+    }
+
+    // end Magento blocks styling
+}
+
+.amamp-reviews-block {
+    & {
+        .am-flex(none, center);
+
+        padding: @amamp__indent 0 0;
+    }
+
+    .amamp-mark {
+        margin: 0 @amamp__indent;
+        letter-spacing: .25px;
+    }
+
+    .amamp-rating-block {
+        margin: 0 @amamp__indent 0 0;
+    }
+}
+
+.amamp-tocart-block {
+    & {
+        padding: @amamp__indent 0 0 0;
+    }
+
+    // Magento blocks customizing
+    .price-container {
+        flex-wrap: wrap;
+    }
+
+    .price-label {
+        .am-flex();
+
+        flex-basis: 100%;
+        margin: 0 0 @amamp__indent / 2;
+    }
+
+    .price-box {
+        margin: @amamp__indent__l 0 0 0;
+    }
+
+    .price-wrapper {
+        font-size: 23px;
+    }
+
+    .price-from {
+        margin-bottom: @amamp__indent;
+    }
+
+    .amamp-text {
+        .transition(.3);
+    }
+
+    .price-including-tax,
+    .price-excluding-tax {
+        padding: @amamp__indent / 2 0;
+    }
+
+    // end Magento blocks customizing
+}
+
+.amamp-qty-block {
+    & {
+        padding: 0 0 @amamp__indent__l;
+    }
+
+    .amamp-input {
+        padding: 6px 8px;
+        max-width: 50px;
+        border: 1px solid #ededed;
+    }
+
+    .amamp-label {
+        display: block;
+        margin: 0 0 @amamp__indent / 2 0;
+        font-weight: 700;
+    }
+}
+
+.amamp-data-section.-reviews {
+    .amamp-info {
+        margin: @amamp__indent__xxl 0 0;
+    }
+
+    > .amamp-content {
+        padding: @amamp__indent / 2 0 @amamp__indent;
+    }
+
+    .amamp-show-reviews {
+        .am-flex(flex-end);
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: @amamp__indent__xxl 0 @amamp__indent__xl;
+        width: 100%;
+        background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 70%);
+        box-shadow: 0 -@amamp__indent @amamp__indent 0 #fff;
+    }
+}
+
+.amamp-data-section.-description > .amamp-content {
+    line-height: 25px;
+}
+
+.amamp-sidebar-legend {
+    & {
+        padding: @amamp__indent / 2 @amamp__indent @amamp__indent__xl @amamp__indent__xl;
+        background: @amamp__background;
+    }
+
+    .amamp-title {
+        .am-flex(space-between, center);
+
+        margin: 0;
+    }
+}
+
+.amamp-setreview-block {
+    & {
+        .am-flex(none, center);
+
+        padding: @amamp__indent__xl @amamp__indent__l @amamp__indent__l;
+        background: @amamp__background;
+    }
+
+    .amamp-text {
+        margin: 0;
+        padding: 0 0 0 @amamp__indent;
+        color: #787878;
+        word-break: break-word;
+    }
+
+    .amamp-button {
+        padding: @amamp__indent 6px;
+    }
+}
+
+.amamp-setreview-sidebar {
+    & {
+        .am-scrollbar();
+    }
+
+    .amamp-rating-form {
+        padding: @amamp__indent__l * 2 @amamp__indent__xl;
+    }
+
+    .amamp-fieldset {
+        margin: 0 0 @amamp__indent__xl * 2;
+        padding: @amamp__indent__l * 2 @amamp__indent__xl 0;
+    }
+
+    .amamp-button {
+        margin-top: @amamp__indent__l * 2;
+    }
+
+    .amamp-textarea {
+        resize: vertical;
+    }
+
+    .amamp-close-icon {
+        padding: @amamp__indent;
+    }
+}
+
+.amamp-review-block {
+    & {
+        padding: @amamp__indent 0;
+    }
+
+    &:first-child {
+        margin-top: @amamp__indent;
+    }
+
+    &:not(:first-child) {
+        border-top: 1px solid #eaeaea;
+    }
+
+    .amamp-details {
+        .am-flex(space-between, center);
+    }
+
+    .amamp-author {
+        margin: 0;
+    }
+
+    .amamp-date {
+        color: #585858;
+        font-size: 12px;
+    }
+
+    .amamp-title-block {
+        padding: @amamp__indent__xl 0 0 0;
+    }
+
+    .amamp-title {
+        display: block;
+        padding: 0 0 @amamp__indent / 2;
+        word-break: break-all;
+        word-break: break-word;
+    }
+
+    .amamp-content {
+        padding: @amamp__indent 0 0;
+        letter-spacing: .25px;
+        line-height: 20px;
+    }
+}
+
+.amamp-additional-attributes {
+    .amamp-title {
+        font-weight: 700;
+    }
+
+    .amamp-content {
+        margin: 0;
+        padding: 0 0 @amamp__indent__l;
+    }
+}
+
+.amamp-samples-block {
+    & {
+        flex-basis: 100%;
+        padding: @amamp__indent__l 0 0;
+    }
+
+    .amamp-title {
+        display: block;
+        padding: 0 0 @amamp__indent;
+    }
+
+    .amamp-item {
+        padding: 0 0 @amamp__indent;
+    }
+}
+
+.amamp-downloads {
+    & {
+        padding: @amamp__indent__l 0;
+    }
+
+    > .amamp-title {
+        margin: 0;
+        padding: 0 0 @amamp__indent__l 0;
+    }
+
+    .amamp-label {
+        .am-flex(none, center);
+
+        margin: 0;
+        padding: 0 0 @amamp__indent__l;
+        width: 100%;
+    }
+}
+
+.amamp-grouped-list {
+    & {
+        padding: @amamp__indent__l 0;
+    }
+
+    .amamp-item {
+        & {
+            .am-flex(space-between, center);
+
+            padding: @amamp__indent 0;
+        }
+
+        &:not(:last-child) {
+            border-bottom: 1px solid @amamp-border__color;
+        }
+    }
+
+    .amamp-input {
+        max-width: 50px;
+        text-align: center;
+    }
+
+    .amamp-title {
+        display: block;
+        padding: 0 0 @amamp__indent 0;
+    }
+}
+
+.amamp-products-widget.list-view:not(:last-child) {
+    padding-bottom: 10px;
+}
+
+.amamp-subscribe-block {
+    padding-top: @amamp__indent__xxl * 2;
+}
+
+// Magento block styling
+.page-title-wrapper {
+    & {
+        flex-basis: 55%;
+        box-sizing: border-box;
+        padding: 0 @amamp__indent / 2 0 0;
+    }
+
+    .page-title {
+        margin: 0;
+        letter-spacing: .25px;
+        font-weight: 400;
+        font-size: 18px;
+    }
+}
+
+// end Magento blocks styling

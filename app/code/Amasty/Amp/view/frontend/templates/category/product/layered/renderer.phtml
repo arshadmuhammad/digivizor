@@ -1,0 +1,47 @@
+<?php
+/** @var $block \Magento\Swatches\Block\LayeredNavigation\RenderLayered */
+
+$swatchData = $block->getSwatchData();
+$cssClass = '';
+?>
+
+<amp-selector class="amamp-options-block" layout="container">
+    <ul class="amamp-swatch-list amamp-filters-list">
+        <?php $index = 0; ?>
+        <?php foreach ($swatchData['options'] as $option => $label): ?>
+            <?php $swatchThumbPath = $block->getSwatchPath('swatch_thumb', $swatchData['swatches'][$option]['value']); ?>
+            <?php $optionText = $optionAttr = ''; ?>
+            <?php if (isset($swatchData['swatches'][$option]['type'])): ?>
+                <?php switch ($swatchData['swatches'][$option]['type']):
+                    case '3':
+                        $cssClass = '-custom';
+                        break;
+                    case '2':
+                        $cssClass = '-image';
+                        $optionAttr = 'style="background-image: url(' . $swatchThumbPath . ')"';
+                        break;
+                    case '1':
+                        $cssClass = '-color';
+                        $optionAttr = 'style="background-color:' . $swatchData['swatches'][$option]['value'] . '"';
+                        break;
+                    case '0':
+                        $cssClass = '-text';
+                        $optionText = $block->escapeHtml($swatchData['swatches'][$option]['value']);
+                        break;
+                endswitch; ?>
+            <?php endif; ?>
+            <li class="amamp-option <?= $block->escapeHtmlAttr($cssClass) ?>" <?= /* @noEscape */ $optionAttr ?> option="<?= (int)($index++) ?>">
+                <?= $block->escapeHtml($optionText) ?>
+                <input class="amamp-checkbox"
+                       type="radio"
+                       name="<?= $block->escapeHtml($swatchData['attribute_code']) ?>"
+                       value="<?= $block->escapeHtml($option) ?>"
+                       on="change: AMP.setState({
+                                    filter_clear_btn: true,
+                                    filter_apply_btn: true
+                                })"
+                />
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</amp-selector>

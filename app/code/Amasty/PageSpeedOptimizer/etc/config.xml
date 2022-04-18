@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amoptimizer>
+            <tutorial>
+                <show_tutorial>1</show_tutorial>
+            </tutorial>
+            <general>
+                <enabled>1</enabled>
+            </general>
+            <javascript>
+                <bundling_type>0</bundling_type>
+                <is_cloud>0</is_cloud>
+                <movejs_exclude_part>data-template="bundle-</movejs_exclude_part>
+                <minify_js_phtml>0</minify_js_phtml>
+            </javascript>
+            <css>
+                <move_print>1</move_print>
+                <move_font_for_device>desktop,tablet,mobile</move_font_for_device>
+            </css>
+        </amoptimizer>
+    </default>
+</config>

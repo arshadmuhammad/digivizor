@@ -1,0 +1,42 @@
+<?php
+/** @var \Amasty\Amp\Block\Newsletter\Subscribe $block */
+?>
+
+<div class="amamp-title">
+    <?= $block->escapeHtml(__('Subscription')) ?>
+</div>
+<form class="amamp-form"
+      action-xhr="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"
+      method="post">
+    <?= $block->getBlockHtml('formkey') ?>
+    <input name="amp_page" type="hidden" value="1" />
+    <div class="amamp-fieldset">
+        <input id="amamp-subscribe-input"
+               class="amamp-input"
+               name="email"
+               type="email"
+               placeholder="<?= $block->escapeHtml(__('Enter your email address')) ?>"
+               required
+        />
+        <button id="amamp-subscribe-btn"
+                class="amamp-button -middle"
+                type="submit"
+                aria-label="<?= $block->escapeHtml(__('Subscribe')) ?>">
+            <?= $block->escapeHtml(__('Subscribe')) ?>
+        </button>
+    </div>
+    <div submit-success>
+        <template type="amp-mustache">
+            {{#success}}
+            <p class="amamp-notification -success">
+                {{success}}
+            </p>
+            {{/success}}
+            {{#error}}
+            <p class="amamp-notification -error">
+                {{error}}
+            </p>
+            {{/error}}
+        </template>
+    </div>
+</form>

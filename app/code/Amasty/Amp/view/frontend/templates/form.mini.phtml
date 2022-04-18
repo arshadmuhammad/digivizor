@@ -1,0 +1,42 @@
+<?php
+/** @var $block \Amasty\Amp\Block\Search\Form */
+
+$helper = $block->getHelper();
+?>
+
+<form id="amamp-search-mini"
+      class="amamp-form"
+      target="_top"
+      action="<?= $block->escapeUrl($block->getResultUrl()) ?>"
+      method="get">
+    <div id="amamp-search-block" class="amamp-search-block" hidden>
+        <input class="amamp-input"
+               type="text"
+               name="<?= $block->escapeHtml($helper->getQueryParamName()) ?>"
+               value="<?= $block->escapeHtml($helper->getEscapedQueryText()) ?>"
+               placeholder="<?= $block->escapeHtml(__('Search entire store here ...')) ?>"
+               maxlength="<?= $block->escapeHtml($helper->getMaxQueryLength()); ?>"
+               role="combobox"
+               aria-haspopup="false"
+               aria-autocomplete="both"
+               on="input-throttled: amamp-search-reset.show"
+        />
+        <button id="amamp-search-reset"
+                class="amamp-button -reset"
+                type="reset"
+                title="<?= $block->escapeHtml(__('Reset')) ?>"
+                on="tap:amamp-search-reset.hide"
+                hidden>
+        </button>
+        <button class="amamp-search-btn"
+                type="submit"
+                title="<?= $block->escapeHtml(__('Search')) ?>">
+        </button>
+    </div>
+    <button id="amamp-search-btn"
+            class="amamp-search-btn"
+            type="button"
+            title="<?= $block->escapeHtml(__('Open search pop up')) ?>"
+            on="tap:amamp-search-block.show, amamp-search-btn.hide, amamp-overlay.show, amamp-search-reset.hide">
+    </button>
+</form>

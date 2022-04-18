@@ -1,0 +1,28 @@
+<?php
+/**
+ * Downloadable product links
+ *
+ * @var $block \Magento\Downloadable\Block\Catalog\Product\Samples
+ */
+
+$samples = $block->getSamples();
+?>
+
+<?php if ($block->hasSamples()): ?>
+<div class="amamp-samples-block">
+     <b class="amamp-title">
+        <?= $block->escapeHtml($block->getSamplesTitle()) ?>
+     </b>
+    <ul class="amamp-samples-list">
+        <?php foreach ($samples as $sample): ?>
+            <li class="amamp-item">
+                <a class="amamp-link"
+                   href="<?= $block->escapeUrl($block->getSampleUrl($sample)) ?>"
+                   aria-label="<?= $block->escapeHtml($sample->getTitle()) ?>">
+                    <?= $block->escapeHtml($sample->getTitle()) ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>

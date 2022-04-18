@@ -1,0 +1,19 @@
+<?php
+/* @var $block \Amasty\Amp\Block\Product\Content\View\Options\Type\Select\CheckboxRadio */
+
+$option = $block->getOption();
+$optionType = $option->getType();
+$required = $option->getIsRequire() ? 'required' : '';
+?>
+
+<?php foreach ($option->getValues() as $value): ?>
+    <?php $priceHtml = $block->formatPrice($value); ?>
+    <label class="amamp-label">
+        <input class="amamp-select-option"
+               name="options[<?= $block->escapeHtml($value->getOptionId()) ?>]<?= $block->escapeHtml($optionType !== 'radio' ? '[]' : '') ?>"
+               type='<?= $block->escapeHtml($optionType) ?>'
+               value="<?= $block->escapeHtml($value->getId()) ?>"
+        />
+        <?= $block->escapeHtml($value->getTitle()) ?> <?= /* @noEscape */ $priceHtml ?>
+    </label>
+<?php endforeach; ?>

@@ -1,0 +1,11 @@
+<?php
+/**
+ * @var $block \Amasty\Amp\Block\Page\Html\Header\Topmenu
+ */
+
+$columnsLimit = $block->getColumnsLimit() ?: 0;
+?>
+
+<amp-accordion class="amamp-navigation" animate disable-session-states>
+    <?= /* @noEscape */ $block->getMenuHtml('level-top', 'submenu') ?>
+</amp-accordion>

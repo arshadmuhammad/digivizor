@@ -1,0 +1,18 @@
+<?php
+/**
+ * @var \Magento\Catalog\Block\Product\View $block
+ */
+
+$product = $block->getProduct();
+?>
+
+<?php if ($product->isSaleable() && $block->hasOptions()): ?>
+<div class="amamp-tocart-block">
+    <?= $block->getChildHtml('product.price.container') ?>
+    <a class="amamp-button -full"
+       aria-label="<?= $block->escapeHtml(__('Customize and Add to Cart')) ?>"
+       href="<?= $block->escapeUrl($product->getProductUrl()) ?>">
+        <?= $block->escapeHtml(__('Customize and Add to Cart')) ?>
+    </a>
+</div>
+<?php endif; ?>

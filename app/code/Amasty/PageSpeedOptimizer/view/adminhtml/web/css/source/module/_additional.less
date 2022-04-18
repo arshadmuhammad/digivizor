@@ -1,0 +1,114 @@
+//
+//  Amasty Page Speed Optimizer Additional Styles
+//  ____________________________________________
+
+//
+//  Variables
+//  ____________________________________________
+
+@amoptimizer-notice__icon__background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05Ljg2NiAwQzQuMzQ0LjA3Ni0uMDczIDQuNjEzIDAgMTAuMTM2LjA3NSAxNS42NTQgNC42MTIgMjAuMDczIDEwLjEzNCAyMGM1LjUyMS0uMDc0IDkuOTM5LTQuNjEgOS44NjUtMTAuMTM0LS4wNzItNS41Mi00LjYxMi05LjkzOC0xMC4xMzMtOS44NjR6bTEuMTA5IDMuMzMzYzEuMDE2IDAgMS4zMTYuNTkgMS4zMTYgMS4yNjUgMCAuODQyLS42NzQgMS42MjItMS44MjYgMS42MjItLjk2MyAwLTEuNDItLjQ4NS0xLjM5My0xLjI4NSAwLS42NzUuNTY1LTEuNjAzIDEuOTAzLTEuNjAzdi4wMDF6TTguMzY5IDE2LjI1Yy0uNjk1IDAtMS4yMDMtLjQyMi0uNzE4LTIuMjc1bC43OTgtMy4yODdjLjEzNy0uNTI4LjE2LS43NCAwLS43NC0uMjA4IDAtMS4xMS4zNjUtMS42NDQuNzI0bC0uMzQ2LS41NjhjMS42OS0xLjQxMSAzLjYzMi0yLjI0IDQuNDY2LTIuMjQuNjk0IDAgLjgxLjgyMy40NjIgMi4wODdsLS45MTMgMy40NTVjLS4xNi42MTItLjA5LjgyMy4wNy44MjMuMjA3IDAgLjg5LS4yNTIgMS41NjItLjc4bC4zOTMuNTI3Yy0xLjY0NCAxLjY0My0zLjQzNiAyLjI3Ni00LjEzMSAyLjI3NmwuMDAxLS4wMDJ6IiBmaWxsPSIjMDA3QkRCIi8+PC9zdmc+') no-repeat center;
+
+//
+//  Common
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+    // config styles
+    tr#row_amoptimizer_tutorial_tutorial,
+    tr#row_amoptimizer_images_opti_jpeg_optim_result {
+        & > td:not(.value) {
+            display: none;
+        }
+    }
+
+    tr#row_amoptimizer_general_diagnostic {
+        .value,
+        .label {
+            display: none;
+        }
+    }
+
+    tr#row_amoptimizer_server_push_enabled,
+    tr#row_amoptimizer_css_merge_css,
+    tr#row_amoptimizer_javascript_bundling_type,
+    tr#row_amoptimizer_html_minify_html {
+        .label,
+        .value {
+            padding-top: 0;
+        }
+    }
+
+    tr#row_amoptimizer_images_lazy_ignore_list .tooltip {
+        margin-top: 0;
+    }
+
+    .amoptimizer-select {
+        max-height: 80px;
+    }
+
+    .amoptimizer-btn {
+        min-width: 215px;
+    }
+
+    // config styles end
+
+    .amasty-page-step {
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .amasty-page-code {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #454d55;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+    }
+
+    .amoptimizer-notice-container {
+        & {
+            position: relative;
+            padding: 15px 15px 15px 54px;
+            background: #fffddd;
+        }
+
+        &:before {
+            position: absolute;
+            top: 50%;
+            left: 17px;
+            width: 20px;
+            height: 20px;
+            background: @amoptimizer-notice__icon__background;
+            content: '';
+            transform: translateY(-50%);
+        }
+    }
+
+    .amoptimizer-progress-bar {
+        & {
+            margin-top: 20px;
+        }
+
+        & .amprogressbar-progress-wrapper {
+            overflow: hidden;
+            width: 94%;
+            height: 20px;
+            border-radius: 20px;
+        }
+    }
+
+    .amoptimizer-progress-bar .amprogressbar-progress-container {
+        & {
+            position: relative;
+            display: flex;
+            margin: auto;
+            max-width: 60%;
+        }
+
+        .amprogressbar-value {
+            margin-left: 20px;
+            min-width: 50px;
+        }
+    }
+}

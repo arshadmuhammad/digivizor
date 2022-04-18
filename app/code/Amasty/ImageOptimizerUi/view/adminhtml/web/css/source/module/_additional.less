@@ -1,0 +1,222 @@
+//
+//  Amasty ImageOptimizerUi Attitional Styles
+//  ____________________________________________
+
+//
+//  Variables
+//  _____________________________________________
+
+@amoptimizer-copy-button__background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMy45NjF2MTEuNTk1YS40MzIuNDMyIDAgMDAuMTM1LjMxNC40Ni40NiAwIDAwLjMyNS4xM2g5LjQ1NmEuNDc1LjQ3NSAwIDAwLjMyNi0uMTMuNDQyLjQ0MiAwIDAwLjEzNC0uMzE0VjcuMzdhLjQzNy40MzcgMCAwMC0uMTM0LS4zMTRsLTMuNDktMy4zODRhLjQ1OC40NTggMCAwMC0uMzUtLjE1NUguNDZhLjQ3NC40NzQgMCAwMC0uMzI1LjEzQS40NDQuNDQ0IDAgMDAwIDMuOTZ6bS45Mi40NDRoNS4xM3YzLjAyMmMwIC4wNy4wMy4xMzkuMDgyLjE5LjA1Mi4wNS4xMjMuMDc4LjE5Ni4wNzhoMy4xMjh2Ny40MTZILjkyVjQuNDA1eiIgZmlsbD0iIzVBNTU1MiIvPjxwYXRoIGQ9Ik0xMS4wMzkgMTEuNTk1di44ODloMi41YS40NzUuNDc1IDAgMDAuMzI2LS4xMy40NDMuNDQzIDAgMDAuMTM1LS4zMTVWMy44NTNhLjQzNy40MzcgMCAwMC0uMTM0LS4zMTNMMTAuMzUxLjEzQS40Ni40NiAwIDAwMTAuMDI0IDBoLTUuOTRhLjQ3NC40NzQgMCAwMC0uMzI2LjEzLjQ0NC40NDQgMCAwMC0uMTM1LjMxNHYyLjQzMmguOTJWLjg5aDUuMTMxVjMuOTFjMCAuMDcxLjAzLjE0LjA4MS4xOS4wNTIuMDUuMTIzLjA3OC4xOTcuMDc4aDMuMTI4djcuNDE3aC0yLjA0MXoiIGZpbGw9IiM1QTU1NTIiLz48L3N2Zz4=') no-repeat center;
+@amoptimizer-clear-icon__background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iMTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjAzNCAxNmg2Ljk1MWwuODc1LTkuNTU1SDEuMkwyLjAzNCAxNnpNNy40NTIgMi4zNzdWLjU0NkM3LjQ1Mi4yNDQgNy4yNDMgMCA2Ljk4NiAwSDQuMDM1Yy0uMjU4IDAtLjQ2Ni4yNDUtLjQ2Ni41NDZ2MS44Yy0uOTk3LjEzMi0yLjAzNS4zODctMy4wNjkuODIzVjQuODVoMTBWMy4xMjRzLTEuMjItLjQ5My0zLjA0OS0uNzQ3aC4wMDF6bS0uOTI4LS4xYTE0LjM0IDE0LjM0IDAgMDAtMi4wNzYtLjAxNnYtLjk2NmMwLS4xNS4xMDItLjI3Mi4yMzEtLjI3MmgxLjYxMmMuMTMgMCAuMjMzLjEyMi4yMzMuMjcydi45ODF6IiBmaWxsPSIjNUE1NTUyIi8+PC9zdmc+') no-repeat center;
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    // config styles
+    fieldset#amimageoptimizer_replace_images_replace_categories,
+    fieldset#amimageoptimizer_replace_images_replace_product,
+    fieldset#amimageoptimizer_replace_images_replace_home,
+    fieldset#amimageoptimizer_replace_images_replace_cms {
+        .value > .admin__control-select,
+        .value > .admin__control-textarea {
+            width: ~'calc(100% - 10px)';
+        }
+    }
+
+    fieldset#amimageoptimizer_delete_previously .amoptimizer-checkbox {
+        & {
+            border-radius: 1px;
+        }
+
+        &:after {
+            width: 14px;
+            background: #007bdb;
+            color: #fff;
+            font-size: 10px;
+            line-height: 14px;
+        }
+    }
+
+    tr#row_amoptimizer_tutorial_tutorial {
+        & > td:not(.value) {
+            display: none;
+        }
+    }
+
+    tr#row_amoptimizer_images_opti_jpeg_optim_result {
+        & > td:not(.value) {
+            display: none;
+        }
+    }
+
+    tr#row_amoptimizer_images_lazy_ignore_list .tooltip {
+        margin-top:0;
+    }
+
+    .amoptimizer-select {
+        max-height: 80px;
+    }
+
+    .amoptimizer-btn {
+        min-width: 215px;
+    }
+
+    // config styles end
+
+    .amasty-page-step {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .amasty-page-code {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #454d55;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+    }
+
+    .amoptimizer-progress-bar {
+        & {
+            margin-top: 20px;
+        }
+
+        & .amprogressbar-progress-wrapper {
+            width: 94%;
+            height: 20px;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+    }
+
+    .amoptimizer-progress-bar .amprogressbar-progress-container {
+        & {
+            position: relative;
+            display: flex;
+            margin: auto;
+            max-width: 60%;
+        }
+
+        .amprogressbar-value {
+            margin-left: 20px;
+            min-width: 50px;
+        }
+    }
+
+    .amoptimizer-jpeg-example {
+        & {
+            width: 100%;
+            height: 188px;
+        }
+
+        .amoptimizer-image {
+            width: 100%;
+            max-width: 470px;
+        }
+    }
+
+    .amoptimizer-pattern-form {
+        .admin__action-multiselect-wrap,
+        .admin__control-select,
+        .admin__control-text,
+        .admin__field-note {
+            width: ~'calc(100% - 45px - 4px)';
+        }
+
+        .admin__field .amoptimizer-comment-container {
+            width: ~'calc( (100%) * 0.5 - 79px )';
+        }
+    }
+
+    .amoptimizer-command-container {
+        & {
+            display: flex;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 50px;
+        }
+
+        &:last-child {
+            margin-bottom: 20px;
+        }
+
+        .amoptimizer-copy {
+            position: relative;
+            box-sizing: border-box;
+            padding: 7px 20px 7px 40px;
+            border: 1px solid #adadad;
+            border-radius: 3px;
+            background: #f6f6f6;
+            transition: background-color .3s ease-in;
+        }
+
+        .amoptimizer-copy:hover {
+            background-color: #dbdbdb;
+        }
+
+        .amoptimizer-copy:before {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            width: 14px;
+            height: 16px;
+            background: @amoptimizer-copy-button__background;
+            content: '';
+            transform: translateY(-50%);
+        }
+    }
+
+    .amoptimizer-page-code {
+        flex-basis: 100%;
+        margin-right: 15px;
+        padding: 10px;
+        border: 1px solid #454d55;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+    }
+
+    .amoptimizer-comment-label {
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    .amoptimizer-clear-container {
+        .amoptimizer-message {
+            display: none;
+            padding: 10px;
+            background: #fffbbb;
+        }
+
+        .amoptimizer-message.-show {
+            display: block;
+        }
+
+        .amoptimizer-message.-error {
+            background: #fcc;
+        }
+
+        .amoptimizer-clear {
+            position: relative;
+            box-sizing: border-box;
+            padding: 8px 30px 8px 55px;
+            border: 1px solid #adadad;
+            border-radius: 3px;
+            background: #f6f6f6;
+        }
+
+        .amoptimizer-clear:before {
+            position: absolute;
+            top: 50%;
+            left: 35px;
+            width: 10px;
+            height: 16px;
+            background: @amoptimizer-clear-icon__background;
+            content: '';
+            transform: translateY(-50%);
+        }
+    }
+}

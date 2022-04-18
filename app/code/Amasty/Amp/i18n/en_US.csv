@@ -1,0 +1,182 @@
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+"We recommend using the 3rd-party library to improve the mobile detection algorithm. Please, run the following command in the SSH: composer require mobiledetect/mobiledetectlib","We recommend using the 3rd-party library to improve the mobile detection algorithm. Please, run the following command in the SSH: composer require mobiledetect/mobiledetectlib"
+"Related Products","Related Products"
+"We found other products you might like!","We found other products you might like!"
+" (Excl. tax: "," (Excl. tax: "
+Review,Review
+Reviews,Reviews
+"From AMP Google results only","From AMP Google results only"
+Always,Always
+Left,Left
+Center,Center
+Right,Right
+"Invalid argument. Argument is not URL.","Invalid argument. Argument is not URL."
+"You added %1 to your","You added %1 to your"
+"File validation failed.","File validation failed."
+"%1 has been added to your Wish List.","%1 has been added to your Wish List."
+"\nThe current version of Magento is not supported. The AMP extension is designed only for Magento versions starting with 2.3 and higher.\nPlease contact Amasty Support Team to get information about the custom solutions or please update Magento to 2.3 or higher.\n","\nThe current version of Magento is not supported. The AMP extension is designed only for Magento versions starting with 2.3 and higher.\nPlease contact Amasty Support Team to get information about the custom solutions or please update Magento to 2.3 or higher.\n"
+"Filter by %1","Filter by %1"
+"Remove filter by %1 ","Remove filter by %1 "
+Filters,Filters
+"close sidebar","close sidebar"
+"Clear all filters","Clear all filters"
+Clear,Clear
+"Apply filters","Apply filters"
+Apply,Apply
+"There are no filter options to apply on this page.","There are no filter options to apply on this page."
+"Add to Cart","Add to Cart"
+"Adding ...","Adding ..."
+"We can't find products matching the selection.","We can't find products matching the selection."
+"Out of stock","Out of stock"
+"Open filters sidebar","Open filters sidebar"
+"Items %1 to %2 of %3 total","Items %1 to %2 of %3 total"
+"%1 Item","%1 Item"
+"%1 Item(s)","%1 Item(s)"
+"List of pages","List of pages"
+"Go to previous page","Go to previous page"
+"Go to first page","Go to first page"
+"Go to page number %1","Go to page number %1"
+"Go to the last page","Go to the last page"
+"Go to next page","Go to next page"
+"Sorting products by","Sorting products by"
+"Sorting by %1","Sorting by %1"
+"See Details","See Details"
+"Go to top of the page","Go to top of the page"
+"Open shopping cart","Open shopping cart"
+"shopping cart","shopping cart"
+"open review list","open review list"
+Subscription,Subscription
+"Enter your email address","Enter your email address"
+Subscribe,Subscribe
+"Search entire store here ...","Search entire store here ..."
+Reset,Reset
+Search,Search
+"Open search pop up","Open search pop up"
+"Open cart page","Open cart page"
+"open menu","open menu"
+"close menu","close menu"
+Menu,Menu
+Account,Account
+Settings,Settings
+"Welcome, %1!","Welcome, %1!"
+Currency,Currency
+Language,Language
+"View All %1","View All %1"
+Qty,Qty
+"Set Qty","Set Qty"
+"Customize and Add to Cart","Customize and Add to Cart"
+"product photo","product photo"
+"main product photo","main product photo"
+"Please Select","Please Select"
+"Maximum characters %1","Maximum characters %1"
+"Write a review","Write a review"
+"Share your thoughts with other customers","Share your thoughts with other customers"
+"You're reviewing:","You're reviewing:"
+"%1 %2","%1 %2"
+Nickname,Nickname
+Summary,Summary
+"Submit Review","Submit Review"
+"Only registered users can write reviews. 
+                Please <a class=""amamp-link"" href=""%1"">Sign in</a> or <a class=""amamp-link"" href=""%2"">create an account
+                </a>","Only registered users can write reviews. 
+                Please <a class=""amamp-link"" href=""%1"">Sign in</a> or <a class=""amamp-link"" href=""%2"">create an account
+                </a>"
+Collapse,Collapse
+Hide,Hide
+"See more","See more"
+"Add to Wish List","Add to Wish List"
+"Choose an Option...","Choose an Option..."
+"Download sample of product","Download sample of product"
+sample,sample
+"Product Name","Product Name"
+Availability,Availability
+"No options of this product are available.","No options of this product are available."
+AMP,AMP
+Information,Information
+General,General
+"Enable AMP for Product Pages","Enable AMP for Product Pages"
+"Enable AMP for Category Pages","Enable AMP for Category Pages"
+"Enable AMP for Home Page","Enable AMP for Home Page"
+"Enable AMP for CMS Pages","Enable AMP for CMS Pages"
+"Open Accelerated Mobile Pages","Open Accelerated Mobile Pages"
+"AMP Design","AMP Design"
+Logo,Logo
+Image,Image
+"Allowed file types: jpeg, png. Maximum file size: 2MB","Allowed file types: jpeg, png. Maximum file size: 2MB"
+Width,Width
+"Maximum width is 180px.","Maximum width is 180px."
+Height,Height
+"Maximum height is 60px.","Maximum height is 60px."
+"Logo Alignment","Logo Alignment"
+Design,Design
+"Button Background Color","Button Background Color"
+"Button Background Color (On Focus)","Button Background Color (On Focus)"
+"Button Text Color","Button Text Color"
+"Button Text Color (On Focus)","Button Text Color (On Focus)"
+"Link Color","Link Color"
+"Link Color (On Focus)","Link Color (On Focus)"
+"Header Background Color","Header Background Color"
+"Footer Background Color","Footer Background Color"
+"Category Image","Category Image"
+"The image uploaded into category’s configuration will be resized accordingly.","The image uploaded into category’s configuration will be resized accordingly."
+"Amasty Amp Catalog Products List","Amasty Amp Catalog Products List"
+"List of Products","List of Products"
+Title,Title
+"Number of Products to Display","Number of Products to Display"
+Template,Template
+Grid,Grid
+List,List
+Slider,Slider
+"Cache Lifetime (Seconds)","Cache Lifetime (Seconds)"
+"
+                    Time in seconds between the widget updates.
+                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
+                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.
+                ","
+                    Time in seconds between the widget updates.
+                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
+                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.
+                "
+Conditions,Conditions
+"Amasty Amp Catalog New Products List","Amasty Amp Catalog New Products List"
+"List of Products that are set as New","List of Products that are set as New"
+"Display Type","Display Type"
+"All products - recently added products, New products - products marked as new","All products - recently added products, New products - products marked as new"
+"All products","All products"
+"New products","New products"
+"Amasty Amp Catalog Category Link","Amasty Amp Catalog Category Link"
+"Link to a Specified Category","Link to a Specified Category"
+Category,Category
+"Select Category...","Select Category..."
+"Anchor Custom Text","Anchor Custom Text"
+"If empty, we'll use the category name here.","If empty, we'll use the category name here."
+"Anchor Custom Title","Anchor Custom Title"
+"Category Link Block Template","Category Link Block Template"
+"Category Link Inline Template","Category Link Inline Template"
+"Amasty Amp Catalog Product Link","Amasty Amp Catalog Product Link"
+"Link to a Specified Product","Link to a Specified Product"
+Product,Product
+"Select Product...","Select Product..."
+"If empty, we'll use the product name here.","If empty, we'll use the product name here."
+"Product Link Block Template","Product Link Block Template"
+"Product Link Inline Template","Product Link Inline Template"
+"Amasty Amp CMS Page Link","Amasty Amp CMS Page Link"
+"Link to a CMS Page","Link to a CMS Page"
+"CMS Page","CMS Page"
+"Select Page...","Select Page..."
+"If empty, the Page Title will be used","If empty, the Page Title will be used"
+"Cms Page Link Block Template","Cms Page Link Block Template"
+"Cms Page Link Inline Template","Cms Page Link Inline Template"
+"AMP Content","AMP Content"
+Overview,Overview
+"More Information","More Information"
+Details,Details
+"Create an Account","Create an Account"
+"My Account","My Account"
+"My Wish List","My Wish List"
+"Search Terms","Search Terms"
+"Privacy and Cookie Policy
+                                ","Privacy and Cookie Policy
+                                "
+"Contact Us","Contact Us"
+"Advanced Search","Advanced Search"

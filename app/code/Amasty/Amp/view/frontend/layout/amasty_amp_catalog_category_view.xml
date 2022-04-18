@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="amp.page">
+            <block class="Amasty\Amp\Block\Page" name="amp.custom.styles"
+                   template="Amasty_Amp::category/custom_styles.phtml"/>
+            <referenceContainer name="content">
+                <container name="category.view.container" htmlTag="div" htmlClass="amamp-title-block">
+                    <block class="Magento\Theme\Block\Html\Title"
+                           name="page.main.title"
+                           template="Amasty_Amp::category/title.phtml"/>
+                    <block class="Amasty\Amp\Block\Category\View" name="category.image"
+                           template="Amasty_Amp::category/image.phtml">
+                        <arguments>
+                            <argument name="configProvider" xsi:type="object">Amasty\Amp\Model\ConfigProvider</argument>
+                        </arguments>
+                    </block>
+                    <block class="Amasty\Amp\Block\Category\View" name="category.description"
+                           template="Amasty_Amp::category/description.phtml">
+                        <arguments>
+                            <argument name="outputHelper" xsi:type="object">Amasty\Amp\Helper\Catalog\Output</argument>
+                        </arguments>
+                    </block>
+                    <block class="Amasty\Amp\Block\Category\View" name="category.cms"
+                           template="Amasty_Amp::category/cms.phtml">
+                        <arguments>
+                            <argument name="htmlValidator" xsi:type="object">Amasty\Amp\Model\HtmlValidator</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <block class="Magento\Catalog\Block\Category\View" name="category.products"
+                       after="category.view.container"
+                       template="Amasty_Amp::category/products.phtml">
+                    <block class="Amasty\Amp\Model\Category\Product\ListProduct"
+                           name="category.products.list" as="product_list"
+                           template="Amasty_Amp::category/product/list.phtml">
+                        <arguments>
+                            <argument name="reviewRenderer" xsi:type="object">Amasty\Amp\Block\Product\Content\View\ReviewRenderer</argument>
+                            <argument name="outputHelper" xsi:type="object">Amasty\Amp\Helper\Catalog\Output</argument>
+                            <argument name="urlConfig" xsi:type="object">Amasty\Amp\Model\UrlConfigProvider</argument>
+                        </arguments>
+                        <block class="Magento\Framework\View\Element\Template" name="custom_notification"
+                               template="Amasty_Amp::components/notifications/custom.phtml" />
+                        <block class="Magento\Framework\View\Element\RendererList"
+                               name="category.product.type.details.renderers" as="details.renderers">
+                            <block class="Magento\Framework\View\Element\Template"
+                                   name="category.product.type.details.renderers.default" as="default"/>
+                            <block class="Amasty\Amp\Block\Category\Product\ProductList\Renderer\Configurable"
+                                   name="category.product.type.details.renderers.configurable" as="configurable"
+                                   template="Amasty_Amp::category/product/list/options_swatcher.phtml"
+                                   ifconfig="catalog/frontend/show_swatches_in_product_list"/>
+                        </block>
+                        <block class="Magento\Catalog\Block\Product\ProductList\Item\Container"
+                               name="category.product.addto" as="addto"/>
+                        <block class="Amasty\Amp\Block\Category\Product\ProductList\Toolbar" name="product_list_toolbar"
+                               template="Amasty_Amp::category/product/list/toolbar.phtml">
+                            <block class="Amasty\Amp\Block\Category\Product\ProductList\Toolbar" name="amp_sorter"
+                                   template="Amasty_Amp::category/product/list/toolbar/sorter.phtml">
+                                <arguments>
+                                    <argument name="urlConfig" xsi:type="object">Amasty\Amp\Model\UrlConfigProvider</argument>
+                                </arguments>
+                            </block>
+
+                            <block class="Amasty\Amp\Block\Category\Navigation\Filter\Button" name="amp_filter_button"/>
+
+                            <block class="Amasty\Amp\Block\Category\Product\ProductList\Toolbar\Pager"
+                                   name="product_list_toolbar_pager">
+                                <arguments>
+                                    <argument name="urlConfig" xsi:type="object">Amasty\Amp\Model\UrlConfigProvider</argument>
+                                </arguments>
+                            </block>
+                        </block>
+                        <block class="Amasty\Amp\Block\Category\Product\ProductList\ToolbarBottom"
+                               name="amp_bottom_toolbar"/>
+                        <action method="setToolbarBlockName">
+                            <argument name="name" xsi:type="string">product_list_toolbar</argument>
+                        </action>
+                    </block>
+                </block>
+                <container name="sidebar.main" as="sidebar_main" label="Sidebar Main"/>
+            </referenceContainer>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,39 @@
+<?php
+/**
+ * @var \Amasty\Amp\Block\Page\Html\Header\TopmenuItem $block
+ */
+
+$item = $block->getItem();
+?>
+
+<?php if (!$item->hasChildren()): ?>
+    <section class="amamp-category-item" expanded>
+        <h4 class="amamp-title" role="none" hidden></h4>
+        <a class="amamp-title"
+           href="<?= $block->escapeUrl($block->convertToAmpUrl($item->getUrl())) ?>"
+           title="<?= $block->escapeUrl($item->getName()) ?>" >
+            <?= $block->escapeHtml($item->getName()) ?>
+        </a>
+    </section>
+<?php else: ?>
+    <section class="amamp-category-item -parent">
+        <h4 class="amamp-title" role="button" aria-expanded="true" tabindex="0">
+            <span class="amamp-text">
+                <?= $block->escapeHtml($item->getName()) ?>
+            </span>
+        </h4>
+        <amp-accordion animate class="nested-accordion">
+            <section class="amamp-accordion-sections">
+                <h4 class="amamp-title">
+                    <a class="amamp-text"
+                       title="<?= $block->escapeHtml(__('View All %1', $item->getName())) ?>"
+                       href="<?= $block->escapeUrl($block->convertToAmpUrl($item->getUrl())) ?>">
+                        <?= $block->escapeHtml(__('View All %1', $item->getName())) ?>
+                    </a>
+                </h4>
+                <div class="amamp-content-block"></div>
+            </section>
+            <?= $block->getChildItemsHtml() ?>
+        </amp-accordion>
+    </section>
+<?php endif; ?>

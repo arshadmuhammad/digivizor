@@ -1,0 +1,90 @@
+//
+//  Component Accordion
+//  ____________________________________________
+
+//
+//  Common
+//  --------------------------------------------
+
+.amamp-accordion-block {
+    & {
+        padding: @amamp__indent__xl 0 0 0;
+        line-height: @amamp__indent__xl;
+    }
+
+    .table-caption {
+        display: none;
+    }
+
+    // Magento editor tag styling
+    p {
+        margin: 0 0 @amamp__indent 0;
+    }
+    // end Magento styling
+}
+
+.amamp-data-section {
+    & {
+        .am-flex(none, center, wrap);
+
+        text-align: left;
+        word-break: break-all;
+        word-break: break-word;
+    }
+
+    > .amamp-content {
+        padding: @amamp__indent @amamp__indent__l @amamp__indent;
+        width: 100%;
+    }
+
+    > .amamp-title {
+        & {
+            .am-flex(none, center);
+            .am-icon-chevron;
+
+            position: relative;
+            flex-basis: 100%;
+            margin: 0;
+            padding: 12px @amamp__indent__l;
+            border: none;
+            background: @amamp__background;
+            text-transform: unset;
+            letter-spacing: .25px;
+            font-weight: normal;
+        }
+
+        &:after {
+            position: absolute;
+            top: 0;
+            right: @amamp__indent__l;
+            bottom: 0;
+            width: 12px;
+            text-align: center;
+            font-size: 7px;
+        }
+
+        &[aria-expanded='false'] {
+            & {
+                margin: 0 0 @amamp__indent;
+            }
+
+            &:after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    > .amamp-title .counter {
+        & {
+            font-weight: bold;
+        }
+
+        &:before {
+            content: '(';
+        }
+
+        &:after {
+            content: ')';
+        }
+    }
+}

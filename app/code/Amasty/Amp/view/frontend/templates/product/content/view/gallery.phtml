@@ -1,0 +1,58 @@
+<?php
+/**
+ * @var $block \Amasty\Amp\Block\Product\Content\View\Gallery
+ */
+
+$images = $block->getGalleryImages()->getItems();
+$helper = $block->getData('imageHelper');
+$mainImageData = $block->getMainImageData($images, $helper);
+?>
+
+<?php if (count($images) > 1): ?>
+    <amp-carousel id="productCarousel"
+                  class="amamp-carousel-img"
+                  width="400" height="300"
+                  layout="responsive"
+                  type="slides"
+                  on="slideChange: productCarouselSelector.toggle(index=event.index, value=true), productCarouselPreview.goToSlide(index=event.index)">
+        <?php foreach ($images as $image): ?>
+            <?php $imageSrc = $image ? $image->getData('medium_image_url') : $helper->getDefaultPlaceholderUrl('image'); ?>
+            <amp-img layout="responsive"
+                     class="amamp-img"
+                     src="<?= $block->escapeUrl($imageSrc) ?>"
+                     width="200"
+                     height="200"
+                     alt="<?= $block->escapeHtml(__('product photo')) ?>">
+            </amp-img>
+        <?php endforeach; ?>
+    </amp-carousel>
+    <amp-selector id="productCarouselSelector"
+                  on="select:productCarousel.goToSlide(index=event.targetOption)"
+                  layout="container">
+        <amp-carousel id="productCarouselPreview"
+                      class="amamp-carousel-preview"
+                      height="98"
+                      type="carousel">
+            <?php $index = 0; ?>
+            <?php foreach ($images as $image): ?>
+                <?php $imageSrc = $image ? $image->getData('medium_image_url') : $helper->getDefaultPlaceholderUrl('image'); ?>
+                <amp-img option="<?= (int)$index ?>"
+                         class="amamp-img"
+                         src="<?= $block->escapeUrl($imageSrc) ?>"
+                         width="95"
+                         height="95"
+                         alt="<?= $block->escapeHtml(__('product photo')) ?>"
+                         <?= $block->escapeHtml(!(int)$index++ ? ' selected' : '') ?>>
+                </amp-img>
+            <?php endforeach; ?>
+        </amp-carousel>
+    </amp-selector>
+<?php else: ?>
+    <amp-img class="amamp-solo-img"
+             src="<?= $block->escapeUrl($mainImageData) ?>"
+             width="280"
+             height="280"
+             layout="responsive"
+             alt="<?= $block->escapeHtml(__('main product photo')) ?>">
+    </amp-img>
+<?php endif; ?>

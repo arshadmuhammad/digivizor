@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="Amasty\Amp\Block\AmpLink" name="am_amp_canonical_cms"
+                   ifconfig="amasty_amp/general/enabled_on_cms" template="Amasty_Amp::amplink.phtml"/>
+        </referenceBlock>
+    </body>
+</page>

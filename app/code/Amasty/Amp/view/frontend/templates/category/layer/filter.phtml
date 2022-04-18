@@ -1,0 +1,29 @@
+<?php
+/**
+ * Template for filter items block
+ * @var $block \Amasty\Amp\Block\Category\Navigation\FilterRenderer
+ */
+?>
+
+<ul class="amamp-filters-list">
+    <?php foreach ($filterItems as $filterItem): ?>
+        <li class="amamp-item">
+            <label class="amamp-label">
+                <input class="amamp-radio"
+                       type="radio"
+                       name="<?= $block->escapeHtml($filterItem->getFilter()->getRequestVar()) ?>"
+                       aria-label="<?= $block->escapeHtml(__('Filter by %1', $filterItem->getLabel())) ?>"
+                       value="<?= $block->escapeHtml($filterItem->getValue()) ?>"
+                       on="change: AMP.setState({
+                                    filter_clear_btn: true,
+                                    filter_apply_btn: true
+                                })"
+                />
+                <?= /* @noEscape */ $filterItem->getLabel() ?>
+                <?php if ($block->shouldDisplayProductCountOnLayer()): ?>
+                    <span class="amamp-count">(<?= $block->escapeHtml($filterItem->getCount()) ?>)</span>
+                <?php endif; ?>
+            </label>
+        </li>
+    <?php endforeach ?>
+</ul>

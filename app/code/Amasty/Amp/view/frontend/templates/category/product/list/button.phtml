@@ -1,0 +1,13 @@
+<?php
+/**
+ * Product list toolbar filter button
+ *
+ * @var $block \Amasty\Amp\Block\Category\Navigation\Filter\Button
+ */
+?>
+
+<button class="amamp-filter-button -filter <?= $block->escapeHtmlAttr($block->isFilterSelected() ? '-checked' : '') ?>"
+        aria-label="<?= $block->escapeHtml(__('Open filters sidebar')) ?>"
+        on="tap:amamp-filters-sidebar.toggle">
+    <?= $block->escapeHtml(__('Filters')) ?>
+</button>

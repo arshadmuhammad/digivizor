@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amasty_fpc" translate="label" type="text" sortOrder="62116" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="optimizer" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Lazy Load Compatibility Settings</label>
+                <field id="webp_support" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>User Agents</label>
+                    <source_model>Amasty\LazyLoad\Model\OptionSource\Crawler\UserAgents</source_model>
+                    <tooltip><![CDATA[WebP is a modern method of lossy and lossless compression that can be used on a large variety of photographic, translucent and graphical images found on the web. Webmasters interested in improving site performance can easily create optimized WebP alternatives for their current images, and serve them on a targeted basis to browsers that support WebP (for example, Google Chrome). The sample of the browser that doesn’t support WebP now is Internet Explorer.]]></tooltip>
+                </field>
+                <field id="devices" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Images Resolution</label>
+                    <source_model>Amasty\LazyLoad\Model\OptionSource\Crawler\ImagesResolution</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

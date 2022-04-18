@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="amasty_page_speed_optimizer_image_setting" resource="default" engine="innodb">
+        <column xsi:type="int" name="image_setting_id" nullable="false" unsigned="true" identity="true"/>
+        <column xsi:type="boolean" name="is_enabled" nullable="false" default="true"/>
+        <column xsi:type="text" name="folders" nullable="false"/>
+        <column xsi:type="text" name="title" nullable="false"/>
+        <column xsi:type="boolean" name="is_create_mobile_resolution" nullable="false" default="false"/>
+        <column xsi:type="boolean" name="is_create_tablet_resolution" nullable="false" default="false"/>
+        <column xsi:type="smallint" name="resize_algorithm" nullable="false" default="0"/>
+        <column xsi:type="boolean" name="is_create_dump" nullable="false" default="false"/>
+        <column xsi:type="varchar" name="jpeg_tool" length="255" nullable="false" default=""/>
+        <column xsi:type="varchar" name="png_tool" length="255" nullable="false" default=""/>
+        <column xsi:type="varchar" name="gif_tool" length="255" nullable="false" default=""/>
+        <column xsi:type="varchar" name="webp_tool" length="255" nullable="false" default="0"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="image_setting_id"/>
+        </constraint>
+    </table>
+</schema>

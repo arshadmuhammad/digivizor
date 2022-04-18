@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Amasty\PageSpeedTools\Model\Output\OutputChain">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="lazyLoad" xsi:type="array">
+                    <item name="processor" xsi:type="object">Amasty\LazyLoad\Model\Output\LazyLoadProcessor</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\LazyLoad\Model\LazyScript\LazyScriptProvider">
+        <arguments>
+            <argument name="lazyScripts" xsi:type="array">
+                <item name="jquery" xsi:type="object">Amasty\LazyLoad\Model\LazyScript\Jquery</item>
+                <item name="native" xsi:type="object">Amasty\LazyLoad\Model\LazyScript\NativeJs</item>
+                <item name="vanilla" xsi:type="object">Amasty\LazyLoad\Model\LazyScript\Vanilla</item>
+                <item name="lozad" xsi:type="object">Amasty\LazyLoad\Model\LazyScript\Lozad</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="AmastyLazyLoadConfigPath" type="Amasty\PageSpeedTools\Model\Output\PageType\GetConfigPathByPageType">
+        <arguments>
+            <argument name="configPathsByPageType" xsi:type="array">
+                <item name="cms_index_index" xsi:type="string">lazy_load_home</item>
+                <item name="catalog_category_view" xsi:type="string">lazy_load_categories</item>
+                <item name="catalog_product_view" xsi:type="string">lazy_load_products</item>
+                <item name="cms_page_view" xsi:type="string">lazy_load_cms</item>
+                <item name="general" xsi:type="string">lazy_load_general</item>
+            </argument>
+            <argument name="defaultConfigPath" xsi:type="string">lazy_load_general</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\LazyLoad\Model\Output\LazyConfig\LazyConfig">
+        <arguments>
+            <argument name="getConfigPathByPageType" xsi:type="object">AmastyLazyLoadConfigPath</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\PageSpeedOptimizer\Model\OptionSource\ServerPushAssetTypes">
+        <arguments>
+            <argument name="assetTypes" xsi:type="array">
+                <item name="preload_image" translatable="true" xsi:type="string">Preloaded Images</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\PageSpeedOptimizer\Model\Asset\CollectorAdapter">
+        <arguments>
+            <argument name="collectors" xsi:type="array">
+                <item name="preload_image" xsi:type="object">Amasty\LazyLoad\Model\Asset\Collector\PreloadImageCollector</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Fpc\Model\Queue\Combination\Provider">
+        <arguments>
+            <argument name="combinationSources" xsi:type="array">
+                <item name="webp_and_device" xsi:type="object">Amasty\LazyLoad\Model\Crawler\Combination\WebpAndDeviceCombination</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="amasty_page_speed_optimizer_bundle" resource="default" engine="innodb">
+        <column xsi:type="int" name="filename_id" nullable="false" unsigned="true" identity="true"/>
+        <column xsi:type="varchar" name="filename" length="1024" nullable="false"/>
+        <column xsi:type="varchar" name="area" length="255" nullable="true"/>
+        <column xsi:type="varchar" name="theme" length="255" nullable="true"/>
+        <column xsi:type="varchar" name="locale" length="255" nullable="true"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="filename_id"/>
+        </constraint>
+    </table>
+    <table name="amasty_page_speed_optimizer_diagnostic" resource="default" engine="innodb">
+        <column xsi:type="int" name="result_id" nullable="false" unsigned="true" identity="true"/>
+        <column xsi:type="blob" name="result" nullable="true"/>
+        <column xsi:type="boolean" name="is_before" nullable="false"/>
+        <column xsi:type="varchar" name="version" length="127" nullable="false"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="result_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="AMASTY_PAGE_SPEED_OPTIMIZER_DIAGNOSTIC_IS_BEFORE_VERSION">
+            <column name="is_before"/>
+            <column name="version"/>
+        </constraint>
+    </table>
+</schema>

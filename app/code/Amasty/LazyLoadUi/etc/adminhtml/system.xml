@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amlazyload" translate="label" type="text" sortOrder="120112" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>Lazy Load</label>
+            <tab>amasty</tab>
+            <resource>Amasty_LazyLoad::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <!-- Do not inject in other groups. Dependence `*/images_user_agent/replace_images_using_user_agent` wouldn't work -->
+            <group id="images_user_agent" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>User Agent</label>
+
+                <field id="replace_images_using_user_agent" translate="label" type="select" sortOrder="13" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Use User Agent for Loading Images</label>
+                    <if_module_enabled>Amasty_ImageOptimizer</if_module_enabled>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>amoptimizer/images/replace_images_using_user_agent</config_path>
+                    <tooltip><![CDATA[Using user Agent allows to apply such features as WebP+Resize together with the Lazy Load feature for the same image as well as to set the number of preloaded images separately for desktop and mobile views.<br /><br />There could be a situation, when User Agent doesn’t work properly for some reasons and should be switched OFF. In this case only preloaded images can be served with WebP+Resize features while Lazy Load is enabled. And if Lazy Load feature is disabled all images can be served with WebP+Resize features.]]></tooltip>
+                </field>
+                <field id="replace_images_using_user_agent_ignore_list" translate="label" type="textarea" sortOrder="14" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Ignore Images that Contain</label>
+                    <if_module_enabled>Amasty_ImageOptimizer</if_module_enabled>
+                    <depends>
+                        <field id="replace_images_using_user_agent">1</field>
+                    </depends>
+                    <config_path>amoptimizer/images/replace_images_using_user_agent_ignore_list</config_path>
+                    <comment><![CDATA[Example: &lt;img class="testImage <b>lazyOwl</b>" src="http://site.com/1.png"/&gt; OR &lt;img src="http://site.com/<b>lazyOwl</b>.png"/&gt; will be excluded.]]></comment>
+                </field>
+            </group>
+
+            <group id="lazy_advanced" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Lazy Load</label>
+
+                <include path="Amasty_LazyLoad::include/general.xml"/>
+                <include path="Amasty_LazyLoadUi::include/advanced/home_page.xml"/>
+                <include path="Amasty_LazyLoadUi::include/advanced/categories.xml"/>
+                <include path="Amasty_LazyLoadUi::include/advanced/products.xml"/>
+                <include path="Amasty_LazyLoadUi::include/advanced/cms_page.xml"/>
+            </group>
+        </section>
+    </system>
+</config>

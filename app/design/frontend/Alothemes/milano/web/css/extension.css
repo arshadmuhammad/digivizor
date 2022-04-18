@@ -1,0 +1,101 @@
+/*popup cart*/
+.modals-ajaxcart.modal-popup .modal-inner-wrap{
+    width:400px;
+    max-width: 100%;
+  }
+  .modals-ajaxcart.modal-popup .modal-content{
+    text-align: center;
+  }
+  .modals-ajaxcart .product-image{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .modals-ajaxcart .modal-content .header{
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .modals-ajaxcart .modal-content .subtotal{
+    font-weight: 600;
+  }
+  .modals-ajaxcart .modal-content .actions .action{
+    border-width: 1px;
+    display: inline-block;
+    line-height: 35px;
+    height: 35px;
+    padding:0 20px;
+    width:100%;
+    text-transform: uppercase;
+    border-style: solid;
+    border-color: #ff5555;
+    background: #ff5555;
+    color:#fff;
+  }
+  .modals-ajaxcart .modal-content .actions .action:hover{
+    color:#333;
+    background: transparent;
+  }
+  .modals-ajaxcart .modal-content .actions >*:not(:last-child){
+    margin-bottom: 15px;
+      width: 100%;
+  }
+  /*cookie*/
+  body .message.global.cookie.magepow-gdpr-cookie-notice{
+    padding: 5px 20px;
+  }
+  body .message.global.cookie{
+    color:#fff;
+    background: #000;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+  }
+  body .message.global.cookie a{
+    color:#fff;
+  }
+  body .message.global.cookie a:hover{
+    color:#fff;
+    text-decoration: underline;
+  }
+  body .message.global.cookie .notice-cookie-title{
+    display: none;
+  }
+  body .message.global.cookie .content{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  body .message.global.cookie .info{
+    margin-right: 10px;
+  }
+  body .message.global.cookie .actions{
+    margin-top: 0;
+  }
+  @media(max-width:768px){
+    .modal-popup.modals-ajaxcart .modal-inner-wrap[class]{
+      background: #fff;
+    }
+  }
+  @media(max-width:767px){
+    .modal-popup.modals-ajaxcart{
+      left:0;
+    }
+    .modals-ajaxcart .product-image img{
+      width:auto;
+    }
+    .modal-popup.modals-ajaxcart .modal-inner-wrap{
+      margin-left:auto;
+      margin-right: auto;
+      margin-top: 15vh;
+      height: auto;
+    }
+  }
+
+  body .products.wrapper ~ .toolbar:before{
+    right:auto;
+    left:50%;
+    transform: translate(-50%,0);
+  }
+  body.cms-index-index .support-footer-inner:before{
+    left:50%;
+    right:auto;
+    transform: translate(-50%,0);
+  }

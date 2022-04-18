@@ -1,0 +1,37 @@
+<?php
+
+/**
+ *
+ * Sub categories list template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ * @var $viewModel \Utility\Subcat\ViewModel\Base
+ */
+?>
+<?php $viewModel = $block->getViewModel(); ?>
+<?php if ($block->getCurrentCategory()) :
+    $subcategories = $block->getCurrentCategory()->getCategories($block->getCurrentCategory()->getId());
+    if (count($subcategories) > 0) : ?>
+        <div class="categories-main">
+            <ul class="categories-section clearfix">
+                <?php foreach ($subcategories as $category) : ?>
+                    <?php
+                    $categoryModel = $viewModel->getCategoryById($category->getEntityId());
+                    ?>
+                    <li>
+                        <div class="categories-details">
+                            <a title="<?= $category->getName() ?>" href="<?= $viewModel->getCategoryUrl($categoryModel) ?>">
+                                <figure>
+                                    <?php if ($viewModel->getCategoryImageSrc($categoryModel)) : ?>
+                                        <img title="<?= $category->getName() ?>" alt="<?= $category->getName() ?>" src="<?= $viewModel->getCategoryImageSrc($categoryModel) ?>">
+                                    <?php endif; ?>
+                                </figure>
+                                <h4><?= $category->getName() ?></h4>
+                            </a>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
