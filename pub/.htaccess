@@ -1,3 +1,21 @@
+# Multiple website Sitemap
+#RewriteEngine On
+#Sitemap: https://theutilitykilt.com/sitemaps/theutilitykilt/sitemap.xml
+RewriteCond %{HTTP_HOST} ^.*theutilitykilt\.com$
+RewriteRule ^sitemap.xml$ sitemaps/theutilitykilt/sitemap.xml [NC,L,R=301]
+
+# Sitemap: https://utilitykilt.co.uk/sitemaps/utilitykilt/sitemapuk.xml
+RewriteCond %{HTTP_HOST} ^.*utilitykilt\.co.uk$
+RewriteRule ^sitemap.xml$ sitemaps/utilitykilt/sitemap.xml [NC,L,R=301]
+
+#RewriteEngine On
+#RewriteCond %{REQUEST_URI} ^(.*)/rainbow-hybrid-utility-kilt-for-men.html(.*)$
+#RewriteRule ^(.*) http://theutilitykilt.com/ [R=302,L]
+
+#RewriteEngine On
+#RewriteCond %{REQUEST_URI} ^(.*)/rainbow-utility-kilt.html(.*)$
+#RewriteRule ^(.*) http://theutilitykilt.com/ [R=302,L]
+
 ############################################
 ## Optional override of deployment mode. We recommend you use the
 ## command bin/magento deploy:mode:set to switch modes instead
